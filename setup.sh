@@ -1,9 +1,11 @@
 #!/bin/bash
 
+cd `dirname $0`
+SETUP_DIR=`pwd`
+
 for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
-    echo "$f"
-    ln -s $f ~/$f
+    ln -sv $SETUP_DIR/$f ~/
 done
 
