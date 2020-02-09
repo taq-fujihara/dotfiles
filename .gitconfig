@@ -1,0 +1,22 @@
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+
+[alias]
+	alias = config --get-regexp alias.*
+	me = config --get-regexp user
+	wdiff = difftool -y -d -t WinMerge
+	wmerge = mergetool -y -t WinMerge
+	st = status
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	cm = commit
+	amend = commit --amend
+	unstage = reset -q HEAD --
+	discard = checkout --
+	branches = branch -a
+	co = checkout
+	stashes = stash list
+	remotes = remote -v
+
+[include]
+	path = ~/.gitconfig.local
