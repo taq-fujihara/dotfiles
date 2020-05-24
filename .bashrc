@@ -122,5 +122,13 @@ export EDITOR=vim
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/flutter/bin
 
-source ~/.git-prompt.sh
+# source ~/.git-prompt.sh
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
