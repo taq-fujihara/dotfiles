@@ -10,7 +10,4 @@ ln -sfv $SETUP_DIR/home/gitconfig ~/.gitconfig
 ln -sfv $SETUP_DIR/home/inputrc ~/.inputrc
 ln -sfv $SETUP_DIR/home/sampler.config ~/.sampler.config
 ln -sfv $SETUP_DIR/home/vimrc ~/.vimrc
-
-mkdir -p ~/.config/powerline-shell
-
-ln -sfv $SETUP_DIR/home/config/powerline-shell/config.json ~/.config/powerline-shell/config.json
+ln -sfv $SETUP_DIR/home/powerline-shell.json ~/.powerline-shell.json
