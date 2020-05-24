@@ -34,4 +34,24 @@ set wrapscan
 " ---------------------------------------------------------
 inoremap <silent> jj <ESC>
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+nmap gT <Plug>AirlineSelectPrevTab
+nmap gt <Plug>AirlineSelectNextTab
+
+" ---------------------------------------------------------
+" airline
+" ---------------------------------------------------------
+set laststatus=2
+" let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline_theme = 'luna'
+
+" ---------------------------------------------------------
+" Plugins
+" ---------------------------------------------------------
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
