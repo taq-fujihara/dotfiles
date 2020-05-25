@@ -2,6 +2,8 @@ function fish_prompt
   powerline-shell --shell bare $status
 end
 
+fish_vi_key_bindings
+
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 function fish_user_key_bindings
