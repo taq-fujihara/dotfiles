@@ -11,3 +11,8 @@ ln -sfv $SETUP_DIR/home/inputrc ~/.inputrc
 ln -sfv $SETUP_DIR/home/sampler.config ~/.sampler.config
 ln -sfv $SETUP_DIR/home/vimrc ~/.vimrc
 ln -sfv $SETUP_DIR/home/powerline-shell.json ~/.powerline-shell.json
+
+mkdir -p ~/.config/fish
+ln -sfv $SETUP_DIR/home/config/fish/fish_variables ~/.config/fish/fish_variables
+ln -sfv $SETUP_DIR/home/config/fish/config.fish ~/.config/fish/config.fish
+
