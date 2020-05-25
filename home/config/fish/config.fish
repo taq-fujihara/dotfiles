@@ -9,5 +9,8 @@ function fish_user_key_bindings
     fish_default_key_bindings -M $mode
   end
   fish_vi_key_bindings --no-erase
+
+  # map escape
+  bind -M insert jj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 end
 
