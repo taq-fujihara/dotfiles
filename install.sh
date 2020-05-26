@@ -7,6 +7,7 @@ echo -e "\n\n====== Create Links of Dotfiles ======\n\n"
 
 ln -sfv $SETUP_DIR/home/bashrc ~/.bashrc
 ln -sfv $SETUP_DIR/home/bash_profile ~/.bash_profile
+ln -sfv $SETUP_DIR/home/zshrc ~/.zshrc
 ln -sfv $SETUP_DIR/home/gitconfig ~/.gitconfig
 ln -sfv $SETUP_DIR/home/inputrc ~/.inputrc
 ln -sfv $SETUP_DIR/home/sampler.config ~/.sampler.config
