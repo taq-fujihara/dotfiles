@@ -21,7 +21,7 @@ ln -sfv $SETUP_DIR/home/config/fish/fish_variables ~/.config/fish/fish_variables
 ln -sfv $SETUP_DIR/home/config/fish/fishfile ~/.config/fish/fishfile
 
 mkdir -p ~/.config/fish/functions
-ln -sfv $SETUP_DIR/home/config/fish/functions/ll.fish ~/.config/fish/functions/ll.fish
+ln -sfv $SETUP_DIR/home/config/fish/functions/g.fish ~/.config/fish/functions/g.fish
 
 mkdir -p ~/.config/karabiner
 ln -sfv $SETUP_DIR/home/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
