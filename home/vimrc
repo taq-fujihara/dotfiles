@@ -36,6 +36,7 @@ inoremap <silent> jj <ESC>
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 nmap gT <Plug>AirlineSelectPrevTab
 nmap gt <Plug>AirlineSelectNextTab
+nmap f <Plug>(easymotion-bd-f2)
 
 " ---------------------------------------------------------
 " airline
@@ -55,5 +56,6 @@ let g:airline_theme = 'luna'
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
