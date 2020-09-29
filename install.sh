@@ -11,7 +11,7 @@ ln -sfv $SETUP_DIR/home/zshrc ~/.zshrc
 ln -sfv $SETUP_DIR/home/zprofile ~/.zprofile
 ln -sfv $SETUP_DIR/home/gitconfig ~/.gitconfig
 ln -sfv $SETUP_DIR/home/inputrc ~/.inputrc
-ln -sfv $SETUP_DIR/home/sampler.config ~/.sampler.config
+ln -sfv $SETUP_DIR/home/sampler.yaml ~/.sampler.yaml
 ln -sfv $SETUP_DIR/home/vimrc ~/.vimrc
 ln -sfv $SETUP_DIR/home/ideavimrc ~/.ideavimrc
 ln -sfv $SETUP_DIR/home/powerline-shell.json ~/.powerline-shell.json
