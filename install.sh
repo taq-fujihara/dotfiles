@@ -5,7 +5,7 @@ SETUP_DIR=`pwd`
 
 if type "apt" > /dev/null 2>&1; then
   echo "install programs via apt"
-  sudo apt install vim
+  sudo apt install -y vim ripgrep zip unzip
 fi
 
 if type "vim" > /dev/null 2>&1; then
