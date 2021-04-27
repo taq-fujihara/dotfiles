@@ -1,6 +1,6 @@
 runcharts:
   - title: Load Average
-    position: [[0, 0], [41, 22]]
+    position: [[0, 0], [41, 23]]
     rate-ms: 1000
     legend:
         enabled: true
@@ -14,7 +14,7 @@ runcharts:
       - label: 15min
         sample: cut -d ' ' -f 3 /proc/loadavg
   - title: Memory Usage
-    position: [[0, 21], [35, 12]]
+    position: [[0, 23], [35, 12]]
     rate-ms: 1000
     legend:
         enabled: true
