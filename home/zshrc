@@ -11,6 +11,12 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
+# aliases
+alias ll='ls -alF'
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/flutter/bin
+
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
