@@ -39,7 +39,7 @@ mkdir -p ~/.config/fish/functions
 ln -sfv $SETUP_DIR/home/config/fish/functions/g.fish ~/.config/fish/functions/g.fish
 ln -sfv $SETUP_DIR/home/config/fish/functions/d.fish ~/.config/fish/functions/d.fish
 ln -sfv $SETUP_DIR/home/config/fish/functions/npmi.fish ~/.config/fish/functions/npmi.fish
-ln -sfv $SETUP_DIR/home/config/fish/functions/calc.fish ~/.config/fish/functions/calc.fish
+ln -sfv $SETUP_DIR/home/config/fish/functions/p.fish ~/.config/fish/functions/p.fish
 ln -sfv $SETUP_DIR/home/config/fish/functions/mkdirp.fish ~/.config/fish/functions/mkdirp.fish
 
 mkdir -p ~/.config/karabiner
