@@ -45,3 +45,5 @@ ln -sfv $SETUP_DIR/home/config/fish/functions/mkdirp.fish ~/.config/fish/functio
 mkdir -p ~/.config/karabiner
 ln -sfv $SETUP_DIR/home/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
+# Keymaps for Ubuntu
+ln -sfv $SETUP_DIR/home/xkb ~/.xkb
