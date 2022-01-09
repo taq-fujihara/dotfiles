@@ -117,14 +117,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export EDITOR=vim
+export N_PREFIX=$HOME/.n
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:/usr/local/flutter/bin
 export PATH=$PATH:/opt/gradle/latest/bin
-source "$HOME/.cargo/env"
-
-# source ~/.git-prompt.sh
+export PATH=$N_PREFIX/bin:$PATH
 
 xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null
 

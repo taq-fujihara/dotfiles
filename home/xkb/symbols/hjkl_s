@@ -1,0 +1,38 @@
+xkb_symbols "hjkl_s" {
+    key <AC06> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [               h,               H,               Left],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<LEFT>, clearmods=Lock) ]
+    };
+    key <AC07> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [               j,               J,               Down],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<DOWN>, clearmods=Lock) ]
+    };
+    key <AC08> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [               k,               K,               Up],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<UP>, clearmods=Lock) ]
+    };
+    key <AC09> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [               l,               L,               Right],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<RGHT>, clearmods=Lock) ]
+    };
+    key <AE10> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [               0,      parenright,               Home],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<HOME>, clearmods=Lock) ]
+    };
+    key <AC11> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [      apostrophe,        quotedbl,                End],
+        actions[Group1]= [      NoAction(),      NoAction(),   RedirectKey(keycode=<END>, clearmods=Lock) ]
+    };
+
+    key <SPCE> {
+        type= "CUST_CAPSLOCK",
+        symbols[Group1]= [ space, space, Henkan],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<XFER>, clearmods=Lock) ]
+    };
+};

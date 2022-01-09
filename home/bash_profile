@@ -16,11 +16,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export EDITOR=vim
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/local/flutter/bin
-
-source "$HOME/.cargo/env"
-
 exec fish
 
