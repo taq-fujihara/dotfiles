@@ -5,7 +5,7 @@ set autoread
 " ---------------------------------------------------------
 " Appearance
 " ---------------------------------------------------------
-set number
+set number relativenumber
 set showcmd
 set showmatch
 set laststatus=2
