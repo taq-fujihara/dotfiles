@@ -42,6 +42,8 @@ ln -sfv $SETUP_DIR/home/config/fish/functions/npmi.fish ~/.config/fish/functions
 ln -sfv $SETUP_DIR/home/config/fish/functions/p.fish ~/.config/fish/functions/p.fish
 ln -sfv $SETUP_DIR/home/config/fish/functions/mkdirp.fish ~/.config/fish/functions/mkdirp.fish
 
+ln -sfv $SETUP_DIR/home/local/bin/hjkl ~/.local/bin/hjkl
+
 mkdir -p ~/.config/karabiner
 ln -sfv $SETUP_DIR/home/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
