@@ -1,5 +1,7 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
+	quotepath = false
+	ignorecase = false
 
 [alias]
 	alias = config --get-regexp alias.*
