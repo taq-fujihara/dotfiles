@@ -1,36 +1,64 @@
 #!/bin/bash
 
 cd `dirname $0`
-SETUP_DIR=`pwd`
+SOURCE_DIR=`pwd`/home
+DESTINATION_DIR=$HOME
+BACKUP_DIR=`pwd`/backups/`date "+%Y%m%d%H%M%S"`
 
-echo -e "\n\n====== Create Links of Dotfiles ======\n\n"
+create_link () {
+  src=$SOURCE_DIR/$1
+  dst=$DESTINATION_DIR/$2
 
-ln -sfv $SETUP_DIR/home/bashrc ~/.bashrc
-ln -sfv $SETUP_DIR/home/bash_profile ~/.bash_profile
-ln -sfv $SETUP_DIR/home/zshrc ~/.zshrc
-ln -sfv $SETUP_DIR/home/zprofile ~/.zprofile
-ln -sfv $SETUP_DIR/home/gitconfig ~/.gitconfig
-ln -sfv $SETUP_DIR/home/inputrc ~/.inputrc
-ln -sfv $SETUP_DIR/home/sampler.yaml ~/.sampler.yaml
-ln -sfv $SETUP_DIR/home/vimrc ~/.vimrc
-ln -sfv $SETUP_DIR/home/ideavimrc ~/.ideavimrc
-ln -sfv $SETUP_DIR/home/powerline-shell.json ~/.powerline-shell.json
+  echo ''
+  echo "creating a link: $src => $dst"
 
-mkdir -p ~/.config/fish
-ln -sfv $SETUP_DIR/home/config/fish/config.fish ~/.config/fish/config.fish
-ln -sfv $SETUP_DIR/home/config/fish/fishfile ~/.config/fish/fishfile
+  if [ -L $dst ]; then
+    echo "    $dst already exists (as a link). skip..."; return
+  fi
 
-mkdir -p ~/.config/fish/functions
-ln -sfv $SETUP_DIR/home/config/fish/functions/g.fish ~/.config/fish/functions/g.fish
-ln -sfv $SETUP_DIR/home/config/fish/functions/d.fish ~/.config/fish/functions/d.fish
-ln -sfv $SETUP_DIR/home/config/fish/functions/npmi.fish ~/.config/fish/functions/npmi.fish
-ln -sfv $SETUP_DIR/home/config/fish/functions/p.fish ~/.config/fish/functions/p.fish
-ln -sfv $SETUP_DIR/home/config/fish/functions/mkdirp.fish ~/.config/fish/functions/mkdirp.fish
+  if [ -e $dst ]; then
+    echo "    $dst already exists. backup..."
+    cp $dst $BACKUP_DIR
+    if [ $? != 0 ]; then
+      echo 'failed to backup! do not create link...'
+      return 1
+    fi
+  fi
 
-ln -sfv $SETUP_DIR/home/local/bin/hjkl ~/.local/bin/hjkl
+  if [ ! -d `dirname $dst` ]; then
+    mkdir -p `dirname $dst`
+  fi
 
-mkdir -p ~/.config/karabiner
-ln -sfv $SETUP_DIR/home/config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+  ln -sfv $src $dst
+}
 
-# Keymaps for Ubuntu
-ln -sfv $SETUP_DIR/home/xkb ~/.xkb
+echo '========================================================================='
+echo 'This script creates symbolic links to your home directory!'
+echo '========================================================================='
+echo 'dotfiles source directory      :' $SOURCE_DIR
+echo 'dotfiles destination directory :' $DESTINATION_DIR
+echo 'backup directory               :' $BACKUP_DIR
+echo '==============================================================='
+echo ''
+echo 'creating backup directory ...'
+mkdir -p $BACKUP_DIR
+
+create_link bash_profile .bash_profile
+create_link bashrc .bashrc
+create_link gitconfig .gitconfig
+create_link ideavimrc .ideavimrc
+create_link inputrc .inputrc
+create_link vimrc .vimrc
+create_link xkb .xkb
+create_link zprofile .zprofile
+create_link zshrc .zshrc
+create_link config/fish/config.fish .config/fish/config.fish
+create_link config/fish/fishfile .config/fish/fishfile
+create_link config/fish/functions/d.fish .config/fish/functions/d.fish
+create_link config/fish/functions/g.fish .config/fish/functions/g.fish
+create_link config/fish/functions/mkdirp.fish .config/fish/functions/mkdirp.fish
+create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
+create_link config/fish/functions/p.fish .config/fish/functions/p.fish
+# https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
+create_link config/karabiner .config/karabiner
+create_link local/bin/hjkl .local/bin/hjkl
