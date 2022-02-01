@@ -54,6 +54,7 @@ create_link zprofile .zprofile
 create_link zshrc .zshrc
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fishfile .config/fish/fishfile
+create_link config/fish/fish_variables .config/fish/fish_variables
 create_link config/fish/functions/d.fish .config/fish/functions/d.fish
 create_link config/fish/functions/g.fish .config/fish/functions/g.fish
 create_link config/fish/functions/mkdirp.fish .config/fish/functions/mkdirp.fish
