@@ -60,6 +60,7 @@ create_link config/fish/functions/g.fish .config/fish/functions/g.fish
 create_link config/fish/functions/mkdirp.fish .config/fish/functions/mkdirp.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/p.fish .config/fish/functions/p.fish
+create_link config/gtk-3.0/gtk.css .config/gtk-3.0/gtk.css
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
 create_link local/bin/hjkl .local/bin/hjkl
