@@ -9,6 +9,7 @@
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     amend = commit --amend
+    stashall = stash --include-untracked
     edit = commit --amend --only
     unstage = restore --staged
     discard = restore
@@ -16,8 +17,6 @@
     stashes = stash list
     remotes = remote -v
     # shortened version of existing commands
-    cm = commit
-    co = checkout
     st = status
     # for typo I often make...
     puhs = push
