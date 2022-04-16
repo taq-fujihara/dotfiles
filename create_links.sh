@@ -52,6 +52,7 @@ create_link vimrc .vimrc
 create_link xkb .xkb
 create_link zprofile .zprofile
 create_link zshrc .zshrc
+create_link sampler.yaml .sampler.yaml
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fishfile .config/fish/fishfile
 create_link config/fish/fish_variables .config/fish/fish_variables
