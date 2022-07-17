@@ -7,4 +7,4 @@ else
   source ./install/go.sh
 fi
 
-go get github.com/motemen/ghq
+go install github.com/motemen/ghq
