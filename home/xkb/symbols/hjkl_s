@@ -1,4 +1,6 @@
 xkb_symbols "hjkl_s" {
+    key <LALT> { [Caps_Lock] };
+
     key <AC06> {
         type= "CUST_CAPSLOCK",
         symbols[Group1]= [               h,               H,               Left],
