@@ -49,6 +49,7 @@ create_link gitconfig .gitconfig
 create_link ideavimrc .ideavimrc
 create_link inputrc .inputrc
 create_link vimrc .vimrc
+create_link tmux.conf .tmux.conf
 create_link xkb .xkb
 # create_link zprofile .zprofile
 # create_link zshrc .zshrc
