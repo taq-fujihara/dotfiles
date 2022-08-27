@@ -18,6 +18,7 @@
     remotes = remote -v
     # shortened version of existing commands
     st = status
+    sw = switch
     # for typo I often make...
     puhs = push
 
