@@ -44,3 +44,5 @@ alias ll='ls -alF'
 
 set -x N_PREFIX $HOME/.n
 
+
+starship init fish | source
