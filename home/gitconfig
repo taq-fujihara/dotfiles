@@ -2,6 +2,25 @@
     editor = vim -c \"set fenc=utf-8\"
     quotepath = false
     ignorecase = false
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false
+
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+    line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [alias]
     alias = config --get-regexp alias.*
@@ -22,9 +41,12 @@
     # for typo I often make...
     puhs = push
 
-[include]
-    path = ~/.gitconfig.local
 [credential "https://source.developers.google.com"]
     helper = gcloud.sh
+
 [init]
     defaultBranch = main
+
+[include]
+    path = ~/.gitconfig.local
+
