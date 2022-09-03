@@ -12,7 +12,6 @@ SETUVAR Z_DATA:/home/taq/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/taq/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/taq\x24
 SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fisher_decors_2F_fish_2D_ghq_files:/home/taq/\x2econfig/fish/functions/__ghq_repository_search\x2efish\x1e/home/taq/\x2econfig/fish/conf\x2ed/ghq_key_bindings\x2efish\x1e/home/taq/\x2econfig/fish/completions/ghq\x2efish
 SETUVAR _fisher_jethrokuan_2F_fzf_files:/home/taq/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_open\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e/home/taq/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e/home/taq/\x2econfig/fish/conf\x2ed/fzf\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:/home/taq/\x2econfig/fish/functions/__z\x2efish\x1e/home/taq/\x2econfig/fish/functions/__z_add\x2efish\x1e/home/taq/\x2econfig/fish/functions/__z_clean\x2efish\x1e/home/taq/\x2econfig/fish/functions/__z_complete\x2efish\x1e/home/taq/\x2econfig/fish/conf\x2ed/z\x2efish
