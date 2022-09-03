@@ -1,40 +1,63 @@
 add_newline = true
 
-format = """
-$username\
-$hostname\
-$localip\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$custom\
-$sudo\
-$cmd_duration\
-$line_break\
-$jobs\
-$time\
-$status\
-$container\
-$shell\
-$character"""
+format = "$all"
 
 [directory]
 truncation_length = 8
 truncate_to_repo = false
+style = "blue"
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bright-green"
 
 [git_status]
 ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+# ahead = "↑${count}"
+# behind = "↓${count}"
+# iverged = "⇕↑${ahead_count}↓${behind_count}"
+style = "bright-purple"
+untracked = "U"
+modified = "M"
+staged = "S"
 
 [git_metrics]
 disabled = true
+
+[cmd_duration]
+format = "[took $duration]($style)"
+style = "yellow"
+
+[gcloud]
+disabled = true
+format = '[$symbol$account(@$domain) ($project)(\($region\))]($style) '
+style = "blue dimmed"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "yellow"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+style = "green"
+
+[java]
+format = "[${symbol}(${version} )]($style)"
+style = "red"
+
+[rust]
+format = "[$symbol($version )]($style)"
+style = "red"
+
+[memory_usage]
+disabled = false
+threshold = 50
+format = "$symbol[${ram}]($style) "
+
+[terraform]
+
+[package]
+disabled = true
+
