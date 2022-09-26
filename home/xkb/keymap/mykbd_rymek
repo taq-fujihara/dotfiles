@@ -1,0 +1,7 @@
+xkb_keymap {
+    xkb_keycodes  { include "evdev+aliases(qwerty)" };
+    xkb_types     { include "complete+hjkl_t" };
+    xkb_compat    { include "complete+hjkl_c" };
+    xkb_symbols   { include "pc+us+us:2+inet(evdev)+capslock(ctrl_modifier)+hjkl_s_rymek" };
+    xkb_geometry  { include "pc(pc105)" };
+};

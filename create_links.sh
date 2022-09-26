@@ -67,3 +67,5 @@ create_link config/gtk-3.0/gtk.css .config/gtk-3.0/gtk.css
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
 create_link local/bin/hjkl .local/bin/hjkl
+create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
+
