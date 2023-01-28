@@ -39,10 +39,11 @@ end
 alias ll='ls -alF'
 
 #################################################
-# Variables
+# asdf setup
 #################################################
 
-set -x N_PREFIX $HOME/.n
+source ~/.asdf/asdf.fish
 
 
 starship init fish | source
+
