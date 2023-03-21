@@ -69,4 +69,5 @@ create_link config/gtk-3.0/gtk.css .config/gtk-3.0/gtk.css
 create_link config/karabiner .config/karabiner
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
+create_link local/bin/tmux-init .local/bin/tmux-init
 
