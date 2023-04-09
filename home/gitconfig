@@ -1,5 +1,5 @@
 [core]
-    editor = vim -c \"set fenc=utf-8\"
+    editor = nvim
     quotepath = false
     ignorecase = false
     pager = delta
@@ -50,3 +50,6 @@
 [include]
     path = ~/.gitconfig.local
 
+[user]
+	email = taq.fujihara@gmail.com
+	name = taq-fujihara
