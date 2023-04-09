@@ -1,12 +1,16 @@
-#!/bin/bash
-
-source ./install/fish.sh
-source ./install/fisher.fish
-source ./install/go.sh
-source ./install/ghq.sh
-source ./install/fzf.sh
-source ./install/asdf.sh
-
-for p in (cat ~/.config/fish/fishfile); fisher install $p; end
+#!/usr/bin/bash
 
 source ./create_links.sh
+
+sudo apt update
+
+./install/fish.sh
+./install/fisher.fish
+./install/go.sh
+./install/ghq.sh
+./install/fzf.sh
+./install/asdf.sh
+./install/ripgrep.sh
+./install/bat.sh
+./install/terraform.sh
+
