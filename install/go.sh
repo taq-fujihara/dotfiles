@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 if type "go" > /dev/null 2>&1; then
   echo "go is installed"

@@ -13,4 +13,6 @@ sudo apt update
 ./install/ripgrep.sh
 ./install/bat.sh
 ./install/terraform.sh
+./install/delta.sh
+./install/starship.sh
 
