@@ -14,7 +14,7 @@ runcharts:
       - label: 15min
         sample: cut -d ' ' -f 3 /proc/loadavg
   - title: Memory Usage
-    position: [[42, 12], [38, 12]]
+    position: [[42, 12], [38, 11]]
     rate-ms: 1000
     legend:
         enabled: true
@@ -56,14 +56,14 @@ gauges:
         sample: df / --output=size | awk 'NR==2'
     min:
         sample: echo 0
-  - title: Disk Usage (/data)
+  - title: Disk Usage (/mnt)
     position: [[53, 9], [27, 2]]
     rate-ms: 300000
     percent-only: true
     cur:
-        sample: df /data --output=used | awk 'NR==2'
+        sample: df /mnt --output=used | awk 'NR==2'
     max:
-        sample: df /data --output=size | awk 'NR==2'
+        sample: df /mnt --output=size | awk 'NR==2'
     min:
         sample: echo 0
 sparklines:
