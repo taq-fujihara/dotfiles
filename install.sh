@@ -19,7 +19,9 @@ declare -a installers=(
     "fisher"
 )
 
+# preparation
 source ./bin/set_path_temporarily.sh
+mkdir -p ~/.local/bin
 
 for installer in ${installers[@]}; do
     echo ''
@@ -32,8 +34,7 @@ for installer in ${installers[@]}; do
         continue
     fi
 
-    read -p "$installer command not found. Install? [Enter or y / N]: " answer
-    if [ ! -z "$answer" ] && [ $answer != 'y' ]; then
+    if ! ./bin/prompt.sh "$installer command not found. Install?"; then
         echo "$answer: skip installation..."
         continue
     fi
@@ -45,19 +46,19 @@ for installer in ${installers[@]}; do
     echo '--------------------------------------------------'
 done
 
-./bin/create_links.sh
-
-# fish path
 echo ''
 echo ''
 echo ''
-echo 'setting fish path...'
-./bin/set_path.fish
+if ./bin/prompt.sh "Create links?"; then
+    ./bin/create_links.sh
+fi
 
 # Login Shell
 if [ $SHELL != "/usr/bin/fish" ]; then
-    read -p "Change Login Shell to fish? [y/N]: " answer
-    if [ $answer = 'y' ]; then
+    echo ''
+    echo ''
+    echo ''
+    if ./bin/prompt.sh "Change Login Shell to fish?"; then
         chsh -s /usr/bin/fish
     fi
 fi

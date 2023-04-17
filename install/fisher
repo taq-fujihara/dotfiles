@@ -1,10 +1,4 @@
 #!/usr/bin/fish
 
-if type -q fisher
-  echo fisher is installed
-  return
-end
-
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-for p in (cat ~/.config/fish/fishfile); fisher install $p; end
+for p in (cat home/config/fish/fishfile); fisher install $p; end
