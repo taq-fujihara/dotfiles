@@ -1,9 +1,9 @@
 FROM ubuntu:22.10
 
-ARG USER=taq
+ARG USER=dev
 ARG UID=1000
 ARG GID=1000
-ARG PW=taq
+ARG PW=dev
 
 RUN apt update && apt install -y sudo
 
