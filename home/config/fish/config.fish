@@ -44,4 +44,5 @@ starship init fish | source
 # Path
 #################################################
 fish_add_path --global --move /usr/local/go/bin
+fish_add_path --global --move ~/.local/bin
 fish_add_path --global --move ~/go/bin

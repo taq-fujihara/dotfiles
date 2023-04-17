@@ -12,6 +12,7 @@ declare -a installers=(
     "rg"
     "bat"
     "delta"
+    "nvim"
     "xh"
     "zip"
     "unzip"
@@ -34,16 +35,42 @@ for installer in ${installers[@]}; do
         continue
     fi
 
-    if ! ./bin/prompt.sh "$installer command not found. Install?"; then
-        echo "$answer: skip installation..."
-        continue
+    echo "$installer command not found. Install."
+    "./install/$installer"
+
+    if [ $? = 0 ]; then
+        echo '--------------------------------------------------'
+        echo "Installing \"${installer}\" completed!!!"
+        echo '--------------------------------------------------'
+    else
+        echo '--------------------------------------------------'
+        if ! ./bin/prompt.sh "Seems installing ${installer} failed... Continue?"; then
+            exit 1
+        fi
     fi
+done
+
+# additional installation
+declare -a installers=(
+    "astronvim.sh"
+)
+for installer in ${installers[@]}; do
+    echo ''
+    echo ''
+    echo ''
 
     "./install/$installer"
 
-    echo '--------------------------------------------------'
-    echo "Installer \"${installer}\" completed."
-    echo '--------------------------------------------------'
+    if [ $? = 0 ]; then
+        echo '--------------------------------------------------'
+        echo "Installing \"${installer}\" completed!!!"
+        echo '--------------------------------------------------'
+    else
+        echo '--------------------------------------------------'
+        if ! ./bin/prompt.sh "Seems installing ${installer} failed... Continue?"; then
+            exit 1
+        fi
+    fi
 done
 
 echo ''

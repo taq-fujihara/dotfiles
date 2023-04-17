@@ -1,0 +1,16 @@
+#!/bin/bash
+
+wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
+    -O /tmp/nvim.appimage
+chmod u+x /tmp/nvim.appimage
+
+if ! /tmp/nvim.appimage --version; then
+    cwd="$PWD"
+
+    # https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
+    cd ~/.local/bin
+    /tmp/nvim.appimage --appimage-extract
+    ln -s ~/.local/bin/squashfs-root/AppRun ~/.local/bin/nvim
+
+    cd $cwd
+fi
