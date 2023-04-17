@@ -33,17 +33,15 @@ function after_command --on-event fish_postexec
 end
 
 #################################################
-# Aliases
-#################################################
-
-alias ll='ls -alF'
-
-#################################################
 # asdf setup
 #################################################
 
 source ~/.asdf/asdf.fish
 
-
 starship init fish | source
 
+#################################################
+# Path
+#################################################
+fish_add_path --global --move /usr/local/go/bin
+fish_add_path --global --move ~/go/bin
