@@ -1,16 +1,20 @@
 #!/bin/bash
 
-cd `dirname $0`
 SOURCE_DIR=`pwd`/home
 DESTINATION_DIR=$HOME
 BACKUP_DIR=`pwd`/backups/`date "+%Y%m%d%H%M%S"`
 
 create_link () {
-  src=$SOURCE_DIR/$1
-  dst=$DESTINATION_DIR/$2
+  src_relative=$1
+  dst_relative=$2
+
+  src=$SOURCE_DIR/$src_relative
+  dst=$DESTINATION_DIR/$dst_relative
 
   echo ''
-  echo "creating a link: $src => $dst"
+  echo ''
+  echo ''
+  echo "creating a link: $src_relative => $dst_relative"
 
   if [ -L $dst ]; then
     echo "    $dst already exists (as a link). skip..."; return
@@ -32,13 +36,16 @@ create_link () {
   ln -sfv $src $dst
 }
 
+echo ''
+echo ''
+echo ''
 echo '========================================================================='
 echo 'This script creates symbolic links to your home directory!'
 echo '========================================================================='
 echo 'dotfiles source directory      :' $SOURCE_DIR
 echo 'dotfiles destination directory :' $DESTINATION_DIR
 echo 'backup directory               :' $BACKUP_DIR
-echo '==============================================================='
+echo '========================================================================='
 echo ''
 echo 'creating backup directory ...'
 mkdir -p $BACKUP_DIR
