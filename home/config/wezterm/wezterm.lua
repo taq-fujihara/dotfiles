@@ -74,10 +74,6 @@ config.keys = {
 }
 
 config.color_scheme = 'Ayu Mirage'
--- config.color_scheme = 'nord'
-config.window_background_opacity = 0.95
-config.font = wezterm.font 'Lotion500 Nerd Font'
--- config.font = wezterm.font 'FiraCode Nerd Font'
 config.line_height = 1.1
 
 config.hide_tab_bar_if_only_one_tab = true
@@ -86,5 +82,10 @@ config.inactive_pane_hsb = {
  saturation = 0.7,
  brightness = 0.4,
 }
+
+local has_override, override = pcall(require, 'override')
+if has_override then
+  override.apply_to_config(config)
+end
 
 return config
