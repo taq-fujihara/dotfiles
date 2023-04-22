@@ -66,6 +66,11 @@ config.keys = {
     mods = 'LEADER',
     action = act.ActivateCopyMode,
   },
+  {
+    key = 'n',
+    mods = 'LEADER',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  },
 }
 
 config.color_scheme = 'Ayu Mirage'
