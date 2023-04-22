@@ -58,6 +58,7 @@ create_link inputrc .inputrc
 create_link vimrc .vimrc
 create_link tmux.conf .tmux.conf
 create_link xkb .xkb
+create_link wezterm.lua .wezterm.lua
 create_link tool-versions .tool-versions
 # create_link zprofile .zprofile
 # create_link zshrc .zshrc
@@ -69,6 +70,8 @@ create_link config/fish/functions/g.fish .config/fish/functions/g.fish
 create_link config/fish/functions/mkdirp.fish .config/fish/functions/mkdirp.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/p.fish .config/fish/functions/p.fish
+create_link config/fish/functions/v.fish .config/fish/functions/v.fish
+create_link config/fish/functions/c.fish .config/fish/functions/c.fish
 create_link config/starship.toml .config/starship.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
