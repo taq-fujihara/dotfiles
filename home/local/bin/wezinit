@@ -1,0 +1,3 @@
+wezterm cli split-pane --left
+wezterm cli split-pane --top
+

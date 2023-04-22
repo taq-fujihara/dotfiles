@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wget https://github.com/wez/wezterm/releases/download/20230408-112425-69ae8472/WezTerm-20230408-112425-69ae8472-Ubuntu20.04.AppImage \
+    -O ~/.local/bin/wezterm
+chmod u+x ~/.local/bin/wezterm
+
