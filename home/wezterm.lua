@@ -80,4 +80,11 @@ config.font = wezterm.font 'Lotion500 Nerd Font'
 -- config.font = wezterm.font 'FiraCode Nerd Font'
 config.line_height = 1.1
 
+config.hide_tab_bar_if_only_one_tab = true
+
+config.inactive_pane_hsb = {
+ saturation = 0.7,
+ brightness = 0.4,
+}
+
 return config
