@@ -41,6 +41,11 @@ source ~/.asdf/asdf.fish
 starship init fish | source
 
 #################################################
+# Abbreviations
+#################################################
+abbr --add ll exa --icons -la
+
+#################################################
 # Path
 #################################################
 fish_add_path --global --move /usr/local/go/bin
