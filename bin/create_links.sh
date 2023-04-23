@@ -64,13 +64,7 @@ create_link tool-versions .tool-versions
 create_link sampler.yaml .sampler.yaml
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fishfile .config/fish/fishfile
-create_link config/fish/functions/d.fish .config/fish/functions/d.fish
-create_link config/fish/functions/g.fish .config/fish/functions/g.fish
-create_link config/fish/functions/mkdirp.fish .config/fish/functions/mkdirp.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
-create_link config/fish/functions/p.fish .config/fish/functions/p.fish
-create_link config/fish/functions/v.fish .config/fish/functions/v.fish
-create_link config/fish/functions/c.fish .config/fish/functions/c.fish
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/starship.toml .config/starship.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
