@@ -50,6 +50,9 @@ abbr --add p python
 abbr --add v nvim
 abbr --add mkdirp mkdir -p
 abbr --add ll exa --icons -la
+abbr --add L --position anywhere --set-cursor "% | less"
+abbr --add drunpostgres --set-cursor "docker run --rm --name my-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:%"
+abbr --add dexecbash --set-cursor "docker exec -it % /bin/bash"
 
 #################################################
 # Path
