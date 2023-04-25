@@ -8,7 +8,13 @@ if wezterm.config_builder then
 end
 
 local function is_nvim(pane)
-  return pane:get_foreground_process_name():find('nvim') ~= nil
+  -- cannot get process name when connect to host via ssh
+  -- https://wezfurlong.org/wezterm/config/lua/pane/get_foreground_process_name.html?h=get_foreground_process_name
+  local process_name = pane:get_foreground_process_name()
+  if process_name == nil then
+    return false
+  end
+  return process_name:find('nvim') ~= nil
 end
 
 local function activatePaneDirection(key, direction)
