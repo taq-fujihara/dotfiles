@@ -63,7 +63,7 @@ create_link tool-versions .tool-versions
 # create_link zshrc .zshrc
 create_link sampler.yaml .sampler.yaml
 create_link config/fish/config.fish .config/fish/config.fish
-create_link config/fish/fishfile .config/fish/fishfile
+create_link config/fish/fish_plugins .config/fish/fish_plugins
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/starship.toml .config/starship.toml
