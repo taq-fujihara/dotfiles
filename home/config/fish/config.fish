@@ -32,13 +32,7 @@ function after_command --on-event fish_postexec
   end
 end
 
-#################################################
-# asdf setup
-#################################################
-
 source ~/.asdf/asdf.fish
-
-starship init fish | source
 
 #################################################
 # Abbreviations
@@ -60,3 +54,10 @@ abbr --add dexecbash --set-cursor "docker exec -it % /bin/bash"
 fish_add_path --global --move /usr/local/go/bin
 fish_add_path --global --move ~/.local/bin
 fish_add_path --global --move ~/go/bin
+
+#################################################
+# Environment Variables
+#################################################
+set -x PIPENV_VENV_IN_PROJECT 1
+
+starship init fish | source
