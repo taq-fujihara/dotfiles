@@ -22,6 +22,9 @@
 [diff]
     colorMoved = default
 
+[pull]
+    ff = only
+
 [alias]
     alias = config --get-regexp alias.*
     me = config --get-regexp user
