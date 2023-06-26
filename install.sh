@@ -18,6 +18,7 @@ declare -a installers=(
     "xh"
     "zip"
     "unzip"
+    "lazygit"
     "fish"
     "fisher"
 )
