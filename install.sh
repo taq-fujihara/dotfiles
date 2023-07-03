@@ -24,6 +24,8 @@ declare -a installers=(
 )
 
 # preparation
+sudo apt update
+sudo apt-get update
 source ./bin/set_path_temporarily.sh
 mkdir -p ~/.local/bin
 
