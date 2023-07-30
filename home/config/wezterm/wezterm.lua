@@ -77,6 +77,15 @@ config.keys = {
     mods = 'LEADER',
     action = act.SpawnTab 'CurrentPaneDomain',
   },
+  {
+    -- for fish: accept autocomplete and execute
+    key = 'raw:36',
+    mods = 'SHIFT',
+    action = act.Multiple {
+      act.SendKey { key = 'RightArrow' },
+      act.SendKey { key = '\r' },
+    },
+  },
 }
 
 config.color_scheme = 'Ayu Mirage'
