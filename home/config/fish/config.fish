@@ -34,10 +34,12 @@ source ~/.asdf/asdf.fish
 # Abbreviations
 #################################################
 abbr --add c code-insiders
+abbr --add c. code-insiders .
 abbr --add d docker
 abbr --add g git
 abbr --add p python
 abbr --add v nvim
+abbr --add v. nvim .
 abbr --add mkdirp mkdir -p
 abbr --add ll exa --icons -la
 abbr --add clip xclip -sel clip
