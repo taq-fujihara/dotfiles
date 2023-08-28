@@ -7,6 +7,7 @@ declare -a installers=(
     "starship"
     "asdf"
     "go"
+    "gh"
     "ghq"
     "fzf"
     "rg"
