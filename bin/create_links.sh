@@ -68,6 +68,7 @@ create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/update_astronvim.fish .config/fish/functions/update_astronvim.fish
 create_link config/lazygit/config.yml .config/lazygit/config.yml
+create_link config/rtx/config.toml .config/rtx/config.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/starship.toml .config/starship.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link

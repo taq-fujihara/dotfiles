@@ -28,8 +28,6 @@ function after_command --on-event fish_postexec
   end
 end
 
-source ~/.asdf/asdf.fish
-
 #################################################
 # Abbreviations
 #################################################
@@ -60,4 +58,8 @@ fish_add_path --global --move ~/go/bin
 #################################################
 set -x PIPENV_VENV_IN_PROJECT 1
 
+#################################################
+# Shell Integration
+#################################################
+rtx activate fish | source
 starship init fish | source
