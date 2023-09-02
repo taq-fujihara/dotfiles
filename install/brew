@@ -1,0 +1,15 @@
+#!/bin/bash
+
+brew install bat
+brew install deno
+brew install jq
+brew install neovim
+brew install jesseduffield/lazygit/lazygit
+brew install exa
+brew install fd
+brew install fish
+brew install fzf
+brew install gh
+brew install ghq
+brew install jdx/tap/rtx
+
