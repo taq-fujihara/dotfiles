@@ -58,7 +58,6 @@ create_link inputrc .inputrc
 # create_link vimrc .vimrc
 create_link tmux.conf .tmux.conf
 create_link xkb .xkb
-create_link tool-versions .tool-versions
 # create_link zprofile .zprofile
 # create_link zshrc .zshrc
 create_link sampler.yaml .sampler.yaml
