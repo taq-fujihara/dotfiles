@@ -1,6 +1,0 @@
-#!/bin/bash
-
-wget https://github.com/jdx/rtx/releases/download/v2023.8.10/rtx-v2023.8.10-linux-x64 \
-  -O ~/.local/bin/rtx
-chmod u+x ~/.local/bin/rtx
-

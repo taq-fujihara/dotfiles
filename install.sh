@@ -1,25 +1,15 @@
 #!/usr/bin/bash
 
 declare -a installers=(
-    "git"
+    "brew"
     "curl"
     "wget"
     "starship"
-    "asdf"
     "go"
-    "gh"
-    "ghq"
-    "fzf"
-    "rg"
-    "bat"
-    "exa"
-    "delta"
-    "nvim"
     "wezterm"
     "xh"
     "zip"
     "unzip"
-    "lazygit"
     "fish"
     "fisher"
 )
