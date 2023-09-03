@@ -63,3 +63,4 @@ set -x PIPENV_VENV_IN_PROJECT 1
 #################################################
 rtx activate fish | source
 starship init fish | source
+/home/linuxbrew/.linuxbrew/bin/brew shellenv | source
