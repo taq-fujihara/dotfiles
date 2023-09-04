@@ -61,6 +61,10 @@ set -x PIPENV_VENV_IN_PROJECT 1
 #################################################
 # Shell Integration
 #################################################
-rtx activate fish | source
 starship init fish | source
-/home/linuxbrew/.linuxbrew/bin/brew shellenv | source
+if test -f /home/linuxbrew/.linuxbrew/bin/brew
+  /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
+end
+# rtx is installed via homebrew, but it's not in the path
+# before `brew shellenv` is sourced.
+rtx activate fish | source
