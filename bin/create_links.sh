@@ -13,7 +13,6 @@ create_link () {
 
   echo ''
   echo ''
-  echo ''
   echo "creating a link: $src_relative => $dst_relative"
 
   if [ -L $dst ]; then

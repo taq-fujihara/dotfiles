@@ -1,2 +1,8 @@
 #!/bin/bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+if ./bin/installed.sh brew; then
+    echo '"brew" is already installed. OK.'
+else
+    echo '"brew" is NOT installed. Install...'
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi

@@ -1,22 +1,16 @@
 #!/bin/bash
 
-brew install git
-brew install bat
-brew install git-delta
-brew install exa
-brew install ripgrep
-brew install gh
-brew install ghq
-brew install jesseduffield/lazygit/lazygit
-brew install fzf
-brew install jq
-brew install fd
-brew install neovim
-brew install jdx/tap/rtx
-brew install unar
-
-# currently only on mac
-brew install deno
-brew install fish
-brew install --cask google-cloud-sdk
-
+brew install \
+  bat \
+  exa \
+  fd \
+  fzf \
+  git-delta \
+  gh \
+  ghq \
+  jdx/tap/rtx \
+  jesseduffield/lazygit/lazygit \
+  jq \
+  neovim \
+  ripgrep \
+  unar
