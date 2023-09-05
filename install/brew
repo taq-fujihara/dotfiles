@@ -6,3 +6,22 @@ else
     echo '"brew" is NOT installed. Install...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+if test -f /home/linuxbrew/.linuxbrew/bin/brew; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+brew install \
+  bat \
+  exa \
+  fd \
+  fzf \
+  git-delta \
+  gh \
+  ghq \
+  jdx/tap/rtx \
+  jesseduffield/lazygit/lazygit \
+  jq \
+  neovim \
+  ripgrep \
+  unar
