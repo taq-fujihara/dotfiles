@@ -65,6 +65,7 @@ create_link config/fish/fish_plugins .config/fish/fish_plugins
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/update_astronvim.fish .config/fish/functions/update_astronvim.fish
+create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
 create_link config/lazygit/config.yml .config/lazygit/config.yml
 create_link config/rtx/config.toml .config/rtx/config.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
