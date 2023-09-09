@@ -25,4 +25,5 @@ brew install \
   neovim \
   ripgrep \
   tldr \
-  unar
+  unar \
+  xh
