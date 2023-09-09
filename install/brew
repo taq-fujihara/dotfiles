@@ -24,4 +24,5 @@ brew install \
   jq \
   neovim \
   ripgrep \
+  tldr \
   unar
