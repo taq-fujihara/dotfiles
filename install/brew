@@ -26,4 +26,5 @@ brew install \
   ripgrep \
   tldr \
   unar \
-  xh
+  xh \
+  wget
