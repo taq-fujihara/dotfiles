@@ -13,6 +13,7 @@ fi
 
 brew install \
   bat \
+  direnv \
   exa \
   fd \
   fzf \

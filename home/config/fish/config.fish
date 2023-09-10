@@ -66,6 +66,7 @@ source /home/taq/.nix-profile/etc/profile.d/nix.fish
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
   /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 end
-# rtx is installed via homebrew, but it's not in the path
+# These are installed via homebrew. So these are not in the path
 # before `brew shellenv` is sourced.
 rtx activate fish | source
+direnv hook fish | source
