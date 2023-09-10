@@ -23,9 +23,12 @@ brew install \
   jdx/tap/rtx \
   jesseduffield/lazygit/lazygit \
   jq \
+  libpq \
   neovim \
   ripgrep \
   tldr \
   unar \
   xh \
   wget
+
+brew link --force libpq
