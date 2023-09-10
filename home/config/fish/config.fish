@@ -62,7 +62,6 @@ set -x PIPENV_VENV_IN_PROJECT 1
 # Shell Integration
 #################################################
 starship init fish | source
-source /home/taq/.nix-profile/etc/profile.d/nix.fish
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
   /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 end
