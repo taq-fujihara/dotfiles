@@ -129,7 +129,10 @@ config.keys = {
   },
 }
 
-config.color_scheme = 'Ayu Mirage'
+-- config.color_scheme = 'Ayu Mirage'
+-- config.color_scheme = 'iceberg-dark'
+-- config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'Catppuccin Mocha'
 config.line_height = 1.1
 
 config.hide_tab_bar_if_only_one_tab = true
