@@ -117,6 +117,11 @@ config.keys = {
     mods = 'LEADER',
     action = act.SpawnTab 'CurrentPaneDomain',
   },
+  {
+    key = 'q',
+    mods = 'LEADER',
+    action = act.QuickSelect,
+  },
 
   -- for fish: accept autocomplete and execute
   {
