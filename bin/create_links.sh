@@ -52,8 +52,6 @@ mkdir -p $BACKUP_DIR
 # create_link bash_profile .bash_profile
 # create_link bashrc .bashrc
 create_link gitconfig .gitconfig
-create_link ideavimrc .ideavimrc
-create_link inputrc .inputrc
 # create_link vimrc .vimrc
 create_link tmux.conf .tmux.conf
 create_link xkb .xkb
