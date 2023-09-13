@@ -42,6 +42,7 @@
     st = status
     sw = switch
     # scripts
+    cz = "!bun x git-cz -e"
     ignore-dir = "!echo '\n# created by \"ignore-dir\" alias\n*' >> ${GIT_PREFIX:-.}/.gitignore"
     # for typo I often make...
     puhs = push
