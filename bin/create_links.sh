@@ -2,7 +2,8 @@
 
 SOURCE_DIR=`pwd`/home
 DESTINATION_DIR=$HOME
-BACKUP_DIR=`pwd`/backups/`date "+%Y%m%d%H%M%S"`
+BACKUP_ROOT=`pwd`/backup
+BACKUP_DIR=$BACKUP_ROOT/`date "+%Y%m%d%H%M%S"`
 
 create_link () {
   src_relative=$1
@@ -48,6 +49,7 @@ echo '========================================================================='
 echo ''
 echo 'creating backup directory ...'
 mkdir -p $BACKUP_DIR
+echo '*' > $BACKUP_ROOT/.gitignore
 
 # create_link bash_profile .bash_profile
 # create_link bashrc .bashrc
