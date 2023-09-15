@@ -9,6 +9,7 @@
 ./install/astronvim
 ./install/starship
 ./install/devbox
+./install/wezterm
 
 ./bin/create_links.sh
 ./bin/loginshell.sh
