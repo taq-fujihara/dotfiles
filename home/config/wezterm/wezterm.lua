@@ -118,7 +118,7 @@ config.keys = {
     action = act.SpawnTab 'CurrentPaneDomain',
   },
   {
-    key = 'q',
+    key = 's',
     mods = 'LEADER',
     action = act.QuickSelect,
   },
