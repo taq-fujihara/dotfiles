@@ -84,6 +84,18 @@ config.keys = {
   -- activatePaneDirection('h', 'Left'),
   -- activatePaneDirection('l', 'Right'),
 
+  -- tab navigation
+  {
+    key = 't',
+    mods = 'LEADER',
+    action = act.ActivateTabRelative(1),
+  },
+  {
+    key = 'T',
+    mods = 'LEADER',
+    action = act.ActivateTabRelative(-1),
+  },
+
   -- pane resizing
   {
     key = 'DownArrow',
