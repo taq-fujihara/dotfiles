@@ -25,6 +25,7 @@ abbr --add ll exa --icons -la
 abbr --add clip xclip -sel clip
 abbr --add C --position anywhere --set-cursor "% | xclip -sel clip"
 abbr --add B --position anywhere --set-cursor "% | bat"
+abbr --add G --position anywhere --set-cursor "| rg"
 abbr --add drunpostgres --set-cursor "docker run --rm --name my-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:%"
 abbr --add dexecbash --set-cursor "docker exec -it % /bin/bash"
 
