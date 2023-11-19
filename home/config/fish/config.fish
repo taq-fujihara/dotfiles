@@ -38,6 +38,10 @@ fish_add_path --global --move ~/.local/bin
 fish_add_path --global --move ~/go/bin
 set -x PATH $PATH ./node_modules/.bin
 
+if test (uname) = 'Darwin'
+  fish_add_path --global --move /Applications/WezTerm.app/Contents/MacOS
+end
+
 #################################################
 # Environment Variables
 #################################################
