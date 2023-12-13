@@ -26,10 +26,12 @@ brew install \
   libpq \
   neovim \
   ripgrep \
+  sqlite \
   tig \
   tldr \
   unar \
   xh \
-  wget
+  wget \
+  zlib
 
 brew link --force libpq
