@@ -1,56 +1,117 @@
+format = """
+[](#9A348E)\
+$username\
+[](bg:#DA627D fg:#9A348E)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[](fg:#FCA17D bg:#86BBD8)\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$python\
+$rust\
+[](fg:#86BBD8 bg:#33658A)\
+$time\
+[ ](fg:#33658A)\
+"""
+
 add_newline = true
 
-format = "$all"
-
-command_timeout = 2000
+[username]
+show_always = true
+style_user = "bg:#9A348E"
+style_root = "bg:#9A348E"
+format = '[  ]($style)'
 
 [directory]
-truncation_length = 8
-truncate_to_repo = false
+style = "bold fg:#ffffff bg:#DA627D"
+format = "[ $path ]($style)"
+truncation_length = 5
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[c]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bold fg:#ffffff bg:#06969A"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
-format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = ""
+style = "bold fg:#ffffff bg:#FCA17D"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-# ahead = "↑${count}"
-# behind = "↓${count}"
-# iverged = "⇕↑${ahead_count}↓${behind_count}"
-untracked = "U"
-modified = "M"
-staged = "S"
+style = "bold fg:#ffffff bg:#FCA17D"
+format = '[$all_status$ahead_behind ]($style)'
 
-[git_metrics]
-disabled = true
+[golang]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
-[cmd_duration]
-format = "[took $duration]($style)"
-
-[gcloud]
-disabled = true
-format = '[$symbol$account(@$domain) ($project)(\($region\))]($style) '
-
-[python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-
-[nodejs]
-format = "[$symbol($version )]($style)"
+[haskell]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
 [java]
-format = "[${symbol}(${version} )]($style)"
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
-format = "[$symbol($version )]($style)"
+symbol = ""
+style = "bold fg:#ffffff bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
-[memory_usage]
+[time]
 disabled = false
-threshold = 50
-format = "$symbol[${ram}]($style) "
-
-[terraform]
-
-[package]
-disabled = true
-
+time_format = "%I:%M%P" # Hour:Minute Format
+style = "bg:#33658A"
+format = '[ ♥ $time ]($style)'
