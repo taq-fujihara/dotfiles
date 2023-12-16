@@ -6,7 +6,7 @@ $directory\
 [](fg:#DA627D bg:#FCA17D)\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#FCA17D bg:#33658A)\
 $c\
 $elixir\
 $elm\
@@ -18,9 +18,10 @@ $nodejs\
 $nim\
 $python\
 $rust\
-[](fg:#86BBD8 bg:#33658A)\
+[](fg:#33658A bg:#86BBD8)\
 $time\
-[ ](fg:#33658A)\
+[ ](fg:#86BBD8)
+$character
 """
 
 add_newline = true
@@ -44,7 +45,7 @@ truncation_symbol = "…/"
 
 [c]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
@@ -54,12 +55,12 @@ format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
@@ -73,45 +74,46 @@ format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-style = "bold fg:#ffffff bg:#86BBD8"
+symbol = " "
+style = "bg:#33658A"
 format = '[ $symbol${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
-style = "bold fg:#ffffff bg:#86BBD8"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%I:%M%P" # Hour:Minute Format
-style = "bg:#33658A"
+time_format = "%I:%M%P"
+style = "fg:#ffffff bg:#86BBD8"
 format = '[ ♥ $time ]($style)'
