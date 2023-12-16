@@ -1,0 +1,56 @@
+add_newline = true
+
+format = "$all"
+
+command_timeout = 2000
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+# ahead = "↑${count}"
+# behind = "↓${count}"
+# iverged = "⇕↑${ahead_count}↓${behind_count}"
+untracked = "U"
+modified = "M"
+staged = "S"
+
+[git_metrics]
+disabled = true
+
+[cmd_duration]
+format = "[took $duration]($style)"
+
+[gcloud]
+disabled = true
+format = '[$symbol$account(@$domain) ($project)(\($region\))]($style) '
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[java]
+format = "[${symbol}(${version} )]($style)"
+
+[rust]
+format = "[$symbol($version )]($style)"
+
+[memory_usage]
+disabled = false
+threshold = 50
+format = "$symbol[${ram}]($style) "
+
+[terraform]
+
+[package]
+disabled = true
+
