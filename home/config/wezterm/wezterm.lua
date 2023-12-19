@@ -149,14 +149,17 @@ config.keys = {
 config.color_scheme = 'Ayu Mirage'
 -- config.color_scheme = 'iceberg-dark'
 -- config.color_scheme = 'Tokyo Night'
+-- config.color_scheme = 'Tokyo Night Storm'
 -- config.color_scheme = 'Catppuccin Mocha'
+-- config.color_scheme = 'Catppuccin Macchiato'
+-- config.color_scheme = 'Papercolor Dark (Gogh)'
 config.line_height = 1.1
 
 config.hide_tab_bar_if_only_one_tab = true
 
 config.inactive_pane_hsb = {
-  saturation = 0.7,
-  brightness = 0.4,
+  saturation = 0.8,
+  brightness = 0.5,
 }
 
 -- override.lua template
