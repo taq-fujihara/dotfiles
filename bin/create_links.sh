@@ -68,6 +68,7 @@ create_link config/fish/functions/git_root.fish .config/fish/functions/git_root.
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/update_astronvim.fish .config/fish/functions/update_astronvim.fish
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
+create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/lazygit/config.yml .config/lazygit/config.yml
 create_link config/rtx/config.toml .config/rtx/config.toml
@@ -77,5 +78,4 @@ create_link config/starship.powerline.toml .config/starship.toml
 create_link config/karabiner .config/karabiner
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
-create_link local/bin/tmux-init .local/bin/tmux-init
 
