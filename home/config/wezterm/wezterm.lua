@@ -146,11 +146,11 @@ config.keys = {
   },
 }
 
-config.color_scheme = 'Ayu Mirage'
+-- config.color_scheme = 'Ayu Mirage'
 -- config.color_scheme = 'iceberg-dark'
 -- config.color_scheme = 'Tokyo Night'
 -- config.color_scheme = 'Tokyo Night Storm'
--- config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'Catppuccin Mocha'
 -- config.color_scheme = 'Catppuccin Macchiato'
 -- config.color_scheme = 'Papercolor Dark (Gogh)'
 config.line_height = 1.1
