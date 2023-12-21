@@ -5,7 +5,7 @@ function wezinit -d "Setup wezterm panes"
         case 'dev'
           command wezterm cli split-pane --top
           command wezterm cli split-pane --left
-          command wezterm cli adjust-pane-size --amount 8 Down
+          command wezterm cli adjust-pane-size --amount 10 Down
         case '*'
           command wezterm cli split-pane --left
           command wezterm cli split-pane --top
