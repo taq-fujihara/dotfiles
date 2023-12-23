@@ -20,6 +20,7 @@ brew install \
   git-delta \
   gh \
   ghq \
+  httpie \
   jdx/tap/rtx \
   jesseduffield/lazygit/lazygit \
   jq \
