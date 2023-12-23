@@ -11,5 +11,5 @@
 ./install/devbox
 ./install/wezterm
 
-./bin/create_links.sh
+./bin/create_links.fish
 ./bin/loginshell.sh

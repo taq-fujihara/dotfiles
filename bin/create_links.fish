@@ -1,64 +1,56 @@
-#!/bin/bash
+#!/usr/bin/env fish
 
-SOURCE_DIR=`pwd`/home
-DESTINATION_DIR=$HOME
-BACKUP_ROOT=`pwd`/backup
-BACKUP_DIR=$BACKUP_ROOT/`date "+%Y%m%d%H%M%S"`
+set SOURCE_DIR (pwd)/home
+set DESTINATION_DIR $HOME
+set BACKUP_ROOT (pwd)/backup
+set BACKUP_DIR $BACKUP_ROOT/(date "+%Y%m%d%H%M%S")
 
-create_link () {
-  src_relative=$1
-  dst_relative=$2
 
-  src=$SOURCE_DIR/$src_relative
-  dst=$DESTINATION_DIR/$dst_relative
+function warn
+  echo (set_color yellow; echo $argv[1]; set_color normal)
+end
 
-  echo ''
-  echo ''
-  echo "creating a link: $src_relative => $dst_relative"
+function error
+  echo (set_color red; echo $argv[1]; set_color normal)
+end
 
-  if [ -L $dst ]; then
-    echo "    $dst already exists (as a link). skip..."; return
-  fi
+function create_link
+  set -l src $SOURCE_DIR/$argv[1]
+  set -l dst $DESTINATION_DIR/$argv[2]
 
-  if [ -e $dst ]; then
-    echo "    $dst already exists. backup..."
-    cp $dst $BACKUP_DIR
-    if [ $? != 0 ]; then
-      echo 'failed to backup! do not create link...'
+  if test -L $dst
+    warn "$dst already exists (as a link). skip..."
+    return
+  end
+
+  if test -e $dst
+    warn "$dst already exists. backup..."
+    cp $dst $BACKUP_DIR/
+    if test $status != 0
+      error 'Failed to backup! Did not create link...'
       return 1
-    fi
-  fi
+    end
+  end
 
-  if [ ! -d `dirname $dst` ]; then
-    mkdir -p `dirname $dst`
-  fi
-
+  mkdir -p (dirname $dst)
   ln -sfv $src $dst
-}
+end
 
-echo ''
-echo ''
-echo ''
-echo '========================================================================='
-echo 'This script creates symbolic links to your home directory!'
-echo '========================================================================='
+
+echo '==============================================================='
+echo 'This script creates symbolic links of dotfiles!'
+echo '==============================================================='
 echo 'dotfiles source directory      :' $SOURCE_DIR
 echo 'dotfiles destination directory :' $DESTINATION_DIR
 echo 'backup directory               :' $BACKUP_DIR
-echo '========================================================================='
+echo '==============================================================='
 echo ''
-echo 'creating backup directory ...'
+echo 'creating backup directory...'
 mkdir -p $BACKUP_DIR
 echo '*' > $BACKUP_ROOT/.gitignore
 
-# create_link bash_profile .bash_profile
-# create_link bashrc .bashrc
 create_link gitconfig .gitconfig
-# create_link vimrc .vimrc
-create_link tmux.conf .tmux.conf
 create_link xkb .xkb
-# create_link zprofile .zprofile
-# create_link zshrc .zshrc
 create_link sampler.yaml .sampler.yaml
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins

@@ -8,5 +8,5 @@
 ./install/starship
 ./install/devbox
 
-./bin/create_links.sh
+./bin/create_links.fish
 ./bin/loginshell.sh
