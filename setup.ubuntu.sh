@@ -10,6 +10,7 @@
 ./install/starship
 ./install/devbox
 ./install/wezterm
+./install/cloudsqlproxy
 
 ./bin/create_links.fish
 ./bin/loginshell.sh
