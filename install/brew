@@ -26,6 +26,7 @@ brew install \
   jq \
   libpq \
   neovim \
+  pipenv \
   ripgrep \
   sqlite \
   tig \
