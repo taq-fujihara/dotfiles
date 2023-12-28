@@ -52,6 +52,7 @@ echo '*' > $BACKUP_ROOT/.gitignore
 create_link gitconfig .gitconfig
 create_link xkb .xkb
 create_link sampler.yaml .sampler.yaml
+create_link config/git/ignore .config/git/ignore
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
