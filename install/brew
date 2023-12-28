@@ -14,7 +14,7 @@ fi
 brew install \
   bat \
   direnv \
-  exa \
+  eza \
   fd \
   fzf \
   git-delta \
