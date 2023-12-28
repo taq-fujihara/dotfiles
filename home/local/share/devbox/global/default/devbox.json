@@ -1,0 +1,24 @@
+{
+  "packages": [
+    "python@3.12.1",
+    "ripgrep@latest",
+    "bat@latest",
+    "eza@latest",
+    "tldr@latest",
+    "pipenv@latest",
+    "fd@latest",
+    "fzf@latest",
+    "nodejs@latest",
+    "bun@latest",
+    "openjdk@latest",
+    "ghq@latest",
+    "hugo@latest",
+    "terraform@latest"
+  ],
+  "shell": {
+    "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}
