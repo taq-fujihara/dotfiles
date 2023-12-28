@@ -56,5 +56,6 @@ end
 # These are installed via homebrew. So these are not in the path
 # before `brew shellenv` is sourced.
 rtx activate fish | source
-# devbox global shellenv --init-hook | source
 direnv hook fish | source
+# # shell becomes a bit slow when Devbox is used as global package manager
+# devbox global shellenv --init-hook | source

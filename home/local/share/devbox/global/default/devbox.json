@@ -1,6 +1,5 @@
 {
   "packages": [
-    "python@3.12.1",
     "ripgrep@latest",
     "bat@latest",
     "eza@latest",
@@ -13,7 +12,20 @@
     "openjdk@latest",
     "ghq@latest",
     "hugo@latest",
-    "terraform@latest"
+    "terraform@latest",
+    "httpie@latest",
+    "rtx@latest",
+    "lazygit@latest",
+    "jq@latest",
+    "unar@latest",
+    "xh@latest",
+    "wget@latest",
+    "direnv@latest",
+    "neovim@latest",
+    "tig@latest",
+    "gh@latest",
+    "sqlite@latest",
+    "python@latest"
   ],
   "shell": {
     "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
