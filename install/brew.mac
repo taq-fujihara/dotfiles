@@ -1,6 +1,5 @@
 #!/bin/bash
 
 brew install fish
-brew install deno
 brew install --cask wezterm
 brew install --cask google-cloud-sdk
