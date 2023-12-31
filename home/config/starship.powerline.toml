@@ -1,6 +1,6 @@
 format = """
 [](#9A348E)\
-$username\
+$username$hostname\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
@@ -36,6 +36,12 @@ vimcmd_symbol = '[](#FCA17D)'
 vimcmd_replace_one_symbol = '[](#FCA17D)'
 vimcmd_replace_symbol = '[](#FCA17D)'
 vimcmd_visual_symbol = '[](#FCA17D)'
+
+[hostname]
+ssh_only = true
+format = '[ @$hostname ]($style)'
+style = "bg:#9A348E"
+disabled = false
 
 [username]
 show_always = true
