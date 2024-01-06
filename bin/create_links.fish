@@ -64,7 +64,7 @@ create_link config/fish/functions/printpath.fish .config/fish/functions/printpat
 create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/lazygit/config.yml .config/lazygit/config.yml
-create_link config/rtx/config.toml .config/rtx/config.toml
+create_link config/mise/config.toml .config/mise/config.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/starship.powerline.toml .config/starship.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
