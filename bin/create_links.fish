@@ -55,6 +55,7 @@ create_link sampler.yaml .sampler.yaml
 create_link config/git/ignore .config/git/ignore
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins
+create_link config/fish/completions/mise.fish .config/fish/completions/mise.fish
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fontview.fish .config/fish/functions/fontview.fish
 create_link config/fish/functions/gitroot.fish .config/fish/functions/gitroot.fish
