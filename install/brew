@@ -27,6 +27,7 @@ brew install \
   libpq \
   mise \
   neovim \
+  nkf \
   pipenv \
   ripgrep \
   sqlite \
