@@ -39,9 +39,9 @@
     discard = restore
 
     # shortened version of existing commands. should be least.
-    st = status
-    sw = switch
-    gr = graph
+    # st = status
+    # sw = switch
+    # gr = graph
 
     # scripts
     cz = "!bun x git-cz -e"
