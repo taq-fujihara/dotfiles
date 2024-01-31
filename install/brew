@@ -30,6 +30,7 @@ brew install \
   neovim \
   nkf \
   pipenv \
+  poppler \
   ripgrep \
   sqlite \
   tig \
