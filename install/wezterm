@@ -1,7 +1,0 @@
-#!/bin/bash
-
-wget \
-    https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu20.04.AppImage \
-    -O ~/.local/bin/wezterm
-chmod u+x ~/.local/bin/wezterm
-
