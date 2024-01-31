@@ -52,6 +52,11 @@ end
 set -x PIPENV_VENV_IN_PROJECT 1
 
 #################################################
+# Keybindings
+#################################################
+fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
+
+#################################################
 # Shell Integration
 #################################################
 starship init fish | source
