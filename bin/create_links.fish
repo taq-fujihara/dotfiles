@@ -69,7 +69,7 @@ create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/lazygit/config.yml .config/lazygit/config.yml
 create_link config/mise/config.toml .config/mise/config.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
-create_link config/starship.powerline.toml .config/starship.toml
+create_link config/starship.toml .config/starship.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
 create_link local/bin/hjkl .local/bin/hjkl
