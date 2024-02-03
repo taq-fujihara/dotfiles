@@ -9,8 +9,8 @@ sudo apt install -y \
   build-essential \
   software-properties-common \
   zip \
-  unzip \
-  wget
+  uidmap \
+  unzip
 
 sudo apt install -y \
   libssl-dev zlib1g-dev \
