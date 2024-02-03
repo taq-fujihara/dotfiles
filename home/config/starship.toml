@@ -23,7 +23,7 @@ $rust\
 [](fg:#33658A bg:#86BBD8)\
 $time\
 [ ](fg:#86BBD8)
-$character 
+$character
 """
 
 add_newline = true
