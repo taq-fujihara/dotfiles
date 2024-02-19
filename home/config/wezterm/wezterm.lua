@@ -24,6 +24,18 @@ config.keys = {
     action = act.DisableDefaultAssignment,
   },
 
+  {
+    key = 'p',
+    mods = 'CTRL|SHIFT',
+    action = act.DisableDefaultAssignment,
+  },
+
+  {
+    key = 'p',
+    mods = 'LEADER',
+    action = act.ActivateCommandPalette,
+  },
+
   -- split pane
   {
     key = '|',
