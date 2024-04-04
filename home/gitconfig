@@ -19,6 +19,9 @@
 [diff]
     colorMoved = default
 
+[rebase]
+	updateRefs = true
+
 [pull]
     ff = only
 
@@ -63,3 +66,4 @@
 [user]
 	email = taq.fujihara@gmail.com
 	name = taq-fujihara
+
