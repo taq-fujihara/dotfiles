@@ -17,6 +17,7 @@ brew install \
   docker \
   eza \
   fd \
+  ffmpegthumbnailer \
   fzf \
   git-delta \
   gh \
@@ -42,7 +43,9 @@ brew install \
   tldr \
   unar \
   xh \
+  yazi \
   wget \
-  zlib
+  zlib \
+  zoxide
 
 brew link --force libpq
