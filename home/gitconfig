@@ -34,6 +34,8 @@
     staged = diff --staged
     stashes = stash list
     branches = branch -a
+    delete-branch = branch -d
+    rename-branch = branch -m
     remotes = remote -v
     amend = commit --amend
     stash-all = stash --include-untracked
