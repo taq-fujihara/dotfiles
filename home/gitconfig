@@ -34,6 +34,7 @@
     staged = diff --staged
     stashes = stash list
     branches = branch -a
+    create-and-switch = switch -c
     delete-branch = branch -d
     rename-branch = branch -m
     remotes = remote -v
