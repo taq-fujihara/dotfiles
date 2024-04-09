@@ -18,6 +18,7 @@ alias rm='rm --interactive'
 #################################################
 # Abbreviations
 #################################################
+abbr --add b bat
 abbr --add c code-insiders
 abbr --add c. code-insiders .
 abbr --add d docker
