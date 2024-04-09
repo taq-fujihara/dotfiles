@@ -38,6 +38,7 @@ brew install \
   pre-commit \
   ripgrep \
   ruff \
+  sd \
   sqlite \
   tig \
   tldr \
