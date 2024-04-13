@@ -184,16 +184,17 @@ config.inactive_pane_hsb = {
 -- end
 -- return apply_to_config
 -- ```
--- local has_override, apply_to_config = pcall(require, 'override')
--- if has_override then
---   apply_to_config(config)
--- end
-local apply_to_config = require 'override'
-apply_to_config(config)
+local has_override, apply_to_config = pcall(require, 'override')
+if has_override then
+  apply_to_config(config)
+end
+-- local apply_to_config = require 'override'
+-- apply_to_config(config)
 
 return config
 
 -- -- Deprecated
+--
 -- local function is_nvim(pane)
 --   -- cannot get process name when connect to host via ssh
 --   -- https://wezfurlong.org/wezterm/config/lua/pane/get_foreground_process_name.html?h=get_foreground_process_name
