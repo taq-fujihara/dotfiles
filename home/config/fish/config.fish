@@ -13,7 +13,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 #################################################
 # Aliases
 #################################################
-alias rm='rm --interactive'
+alias rm='rm -i'
 
 #################################################
 # Abbreviations
@@ -32,8 +32,6 @@ abbr --add clip xclip -sel clip
 abbr --add C --position anywhere --set-cursor "% | xclip -sel clip"
 abbr --add B --position anywhere --set-cursor "% | bat"
 abbr --add G --position anywhere --set-cursor "% | rg"
-abbr --add drunpostgres --set-cursor "docker run --rm --name my-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:%"
-abbr --add dexecbash --set-cursor "docker exec -it % /bin/bash"
 
 #################################################
 # Path
