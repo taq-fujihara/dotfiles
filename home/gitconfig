@@ -21,6 +21,7 @@
 
 [rebase]
 	updateRefs = true
+	autosquash = true
 
 [pull]
     ff = only
