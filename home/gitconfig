@@ -40,6 +40,7 @@
     rename-branch = branch -m
     remotes = remote -v
     amend = commit --amend
+    fixup = commit --fixup
     stash-all = stash --include-untracked
     edit = commit --amend --only
     unstage = restore --staged
