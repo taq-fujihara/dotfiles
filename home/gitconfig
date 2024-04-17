@@ -26,6 +26,9 @@
 [pull]
     ff = only
 
+[push]
+	autoSetupRemote = true
+
 [alias]
     alias = config --get-regexp alias.*
     me = config --get-regexp user
@@ -72,4 +75,3 @@
 [user]
 	email = taq.fujihara@gmail.com
 	name = taq-fujihara
-
