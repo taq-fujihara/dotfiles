@@ -13,12 +13,14 @@ fi
 
 brew install \
   bat \
+  bottom \
   direnv \
   docker \
   eza \
   fd \
   ffmpegthumbnailer \
   fzf \
+  gdu \
   git-delta \
   gh \
   ghq \
@@ -42,6 +44,7 @@ brew install \
   sqlite \
   tig \
   tldr \
+  tree-sitter \
   unar \
   xh \
   yazi \
