@@ -13,6 +13,7 @@ fi
 
 brew install \
   bat \
+  biome \
   bottom \
   direnv \
   docker \
