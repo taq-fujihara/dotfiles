@@ -72,6 +72,7 @@ create_link config/fish/functions/update_astronvim.fish .config/fish/functions/u
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
 create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
+create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
 create_link config/lazygit/config.yml .config/lazygit/config.yml
