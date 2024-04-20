@@ -158,7 +158,8 @@ config.keys = {
   },
 }
 
-config.color_scheme = 'Ayu Mirage'
+-- config.color_scheme = 'Ayu Mirage'
+config.color_scheme = 'Everforest Dark (Gogh)'
 -- config.color_scheme = 'iceberg-dark'
 -- config.color_scheme = 'Tokyo Night'
 -- config.color_scheme = 'Tokyo Night Storm'
