@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local act = wezterm.action
 
 local config = {}
@@ -7,88 +7,88 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-local paneNavigationMods = 'CTRL'
-config.leader = { key = 'f', mods = 'CTRL', timeout_milliseconds = 2000 }
+local paneNavigationMods = "CTRL"
+config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 2000 }
 
 -- Mac specific override
-if wezterm.target_triple == 'x86_64-apple-darwin' then
-  config.leader = { key = 'f', mods = 'CMD', timeout_milliseconds = 2000 }
-  paneNavigationMods = 'CMD'
+if wezterm.target_triple == "x86_64-apple-darwin" then
+  config.leader = { key = "f", mods = "CMD", timeout_milliseconds = 2000 }
+  paneNavigationMods = "CMD"
 end
 
 config.keys = {
   -- disable Command + f (search) to use it as Leader key
   {
-    key = 'f',
-    mods = 'CMD',
+    key = "f",
+    mods = "CMD",
     action = act.DisableDefaultAssignment,
   },
 
   {
-    key = 'p',
-    mods = 'CTRL|SHIFT',
+    key = "p",
+    mods = "CTRL|SHIFT",
     action = act.DisableDefaultAssignment,
   },
 
   {
-    key = 'p',
-    mods = 'LEADER',
+    key = "p",
+    mods = "LEADER",
     action = act.ActivateCommandPalette,
   },
 
   -- split pane
   {
-    key = '|',
-    mods = 'LEADER|SHIFT',
-    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    key = "|",
+    mods = "LEADER|SHIFT",
+    action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
   {
-    key = '-',
-    mods = 'LEADER',
-    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+    key = "-",
+    mods = "LEADER",
+    action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
 
   -- pane navigation
   {
-    key = 'h',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Left',
+    key = "h",
+    mods = "LEADER",
+    action = act.ActivatePaneDirection("Left"),
   },
   {
-    key = 'j',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Down',
+    key = "j",
+    mods = "LEADER",
+    action = act.ActivatePaneDirection("Down"),
   },
   {
-    key = 'k',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Up',
+    key = "k",
+    mods = "LEADER",
+    action = act.ActivatePaneDirection("Up"),
   },
   {
-    key = 'l',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Right',
+    key = "l",
+    mods = "LEADER",
+    action = act.ActivatePaneDirection("Right"),
   },
   --
   {
-    key = 'LeftArrow',
+    key = "LeftArrow",
     mods = paneNavigationMods,
-    action = act.ActivatePaneDirection 'Left',
+    action = act.ActivatePaneDirection("Left"),
   },
   {
-    key = 'DownArrow',
+    key = "DownArrow",
     mods = paneNavigationMods,
-    action = act.ActivatePaneDirection 'Down',
+    action = act.ActivatePaneDirection("Down"),
   },
   {
-    key = 'UpArrow',
+    key = "UpArrow",
     mods = paneNavigationMods,
-    action = act.ActivatePaneDirection 'Up',
+    action = act.ActivatePaneDirection("Up"),
   },
   {
-    key = 'RightArrow',
+    key = "RightArrow",
     mods = paneNavigationMods,
-    action = act.ActivatePaneDirection 'Right',
+    action = act.ActivatePaneDirection("Right"),
   },
   -- was not good
   -- activatePaneDirection('j', 'Down'),
@@ -98,67 +98,67 @@ config.keys = {
 
   -- tab navigation
   {
-    key = 't',
-    mods = 'LEADER',
+    key = "t",
+    mods = "LEADER",
     action = act.ActivateTabRelative(1),
   },
   {
-    key = 'T',
-    mods = 'LEADER',
+    key = "T",
+    mods = "LEADER",
     action = act.ActivateTabRelative(-1),
   },
 
   -- pane resizing
   {
-    key = 'DownArrow',
-    mods = paneNavigationMods .. '|SHIFT',
-    action = act.AdjustPaneSize{ 'Down', 4 },
+    key = "DownArrow",
+    mods = paneNavigationMods .. "|SHIFT",
+    action = act.AdjustPaneSize({ "Down", 4 }),
   },
   {
-    key = 'UpArrow',
-    mods = paneNavigationMods .. '|SHIFT',
-    action = act.AdjustPaneSize{ 'Up', 4 },
+    key = "UpArrow",
+    mods = paneNavigationMods .. "|SHIFT",
+    action = act.AdjustPaneSize({ "Up", 4 }),
   },
   {
-    key = 'LeftArrow',
-    mods = paneNavigationMods .. '|SHIFT',
-    action = act.AdjustPaneSize{ 'Left', 8 },
+    key = "LeftArrow",
+    mods = paneNavigationMods .. "|SHIFT",
+    action = act.AdjustPaneSize({ "Left", 8 }),
   },
   {
-    key = 'RightArrow',
-    mods = paneNavigationMods .. '|SHIFT',
-    action = act.AdjustPaneSize{ 'Right', 8 },
+    key = "RightArrow",
+    mods = paneNavigationMods .. "|SHIFT",
+    action = act.AdjustPaneSize({ "Right", 8 }),
   },
 
-  -- 
+  --
   {
-    key = 'v',
-    mods = 'LEADER',
+    key = "v",
+    mods = "LEADER",
     action = act.ActivateCopyMode,
   },
   {
-    key = 'n',
-    mods = 'LEADER',
-    action = act.SpawnTab 'CurrentPaneDomain',
+    key = "n",
+    mods = "LEADER",
+    action = act.SpawnTab("CurrentPaneDomain"),
   },
   {
-    key = 's',
-    mods = 'LEADER',
+    key = "s",
+    mods = "LEADER",
     action = act.QuickSelect,
   },
 
   -- for fish: accept autocomplete and execute
   {
-    key = 'raw:36',
-    mods = 'SHIFT',
-    action = act.Multiple {
-      act.SendKey { key = 'RightArrow' },
-      act.SendKey { key = '\r' },
-    },
+    key = "raw:36",
+    mods = "SHIFT",
+    action = act.Multiple({
+      act.SendKey({ key = "RightArrow" }),
+      act.SendKey({ key = "\r" }),
+    }),
   },
 }
 
--- config.color_scheme = 'Ayu Mirage'
+-- config.color_scheme = "Ayu Mirage"
 config.color_scheme = 'Everforest Dark (Gogh)'
 -- config.color_scheme = 'iceberg-dark'
 -- config.color_scheme = 'Tokyo Night'
@@ -185,7 +185,7 @@ config.inactive_pane_hsb = {
 -- end
 -- return apply_to_config
 -- ```
-local has_override, apply_to_config = pcall(require, 'override')
+local has_override, apply_to_config = pcall(require, "override")
 if has_override then
   apply_to_config(config)
 end
