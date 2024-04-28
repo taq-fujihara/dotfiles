@@ -25,6 +25,7 @@ brew install \
   git-delta \
   gh \
   ghq \
+  hadolint \
   helix \
   httpie \
   jesseduffield/lazygit/lazygit \
