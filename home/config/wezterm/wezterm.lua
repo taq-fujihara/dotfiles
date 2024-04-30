@@ -107,6 +107,16 @@ config.keys = {
     mods = "LEADER",
     action = act.ActivateTabRelative(-1),
   },
+  {
+    key = "L",
+    mods = "LEADER",
+    action = act.ActivateTabRelative(1),
+  },
+  {
+    key = "H",
+    mods = "LEADER",
+    action = act.ActivateTabRelative(-1),
+  },
 
   -- pane resizing
   {
