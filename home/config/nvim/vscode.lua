@@ -54,12 +54,15 @@ require("lazy").setup({
 	},
 })
 
+local vscode = require("vscode-neovim")
+
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
 vim.keymap.set("n", "gt", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
 vim.keymap.set("n", "gT", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
 vim.keymap.set("n", "L", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
 vim.keymap.set("n", "H", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
+vim.keymap.set("n", "za", "<Cmd>call VSCodeNotify('editor.toggleFold')<CR>")
 vim.keymap.set("n", "<Leader>ff", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
 vim.keymap.set("n", "<Leader>fb", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
 vim.keymap.set("n", "<Leader><leader>", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
@@ -78,3 +81,18 @@ vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')
 vim.keymap.set("v", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>")
 vim.keymap.set("v", "<Leader>w", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
 vim.keymap.set("n", "<Leader>j", "*``cgn")
+
+-- folded code aware cursor up/down
+for _, map in ipairs({ { "k", "up" }, { "j", "down" } }) do
+	local key = map[1]
+	local direction = map[2]
+	vim.keymap.set("n", key, function()
+		vscode.action("cursorMove", {
+			args = {
+				to = direction,
+				by = "wrappedLine",
+				value = vim.v.count,
+			},
+		})
+	end)
+end
