@@ -58,8 +58,6 @@ local vscode = require("vscode-neovim")
 
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
-vim.keymap.set("n", "gt", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
-vim.keymap.set("n", "gT", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
 vim.keymap.set("n", "L", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
 vim.keymap.set("n", "H", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
 vim.keymap.set("n", "za", "<Cmd>call VSCodeNotify('editor.toggleFold')<CR>")

@@ -98,16 +98,6 @@ config.keys = {
 
 	-- tab navigation
 	{
-		key = "t",
-		mods = "LEADER",
-		action = act.ActivateTabRelative(1),
-	},
-	{
-		key = "T",
-		mods = "LEADER",
-		action = act.ActivateTabRelative(-1),
-	},
-	{
 		key = "L",
 		mods = "LEADER",
 		action = act.ActivateTabRelative(1),
