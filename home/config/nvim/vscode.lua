@@ -1,60 +1,65 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
 
-require("lazy").setup({
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		version = "*",
-		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump({
-						search = {
-							mode = function(str)
-								return "\\<" .. str
-							end,
-						},
-						label = {
-							uppercase = false,
-						},
-						autojump = true,
-					})
-				end,
-				desc = "Flash",
-			},
-		},
-	},
-	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
-	},
-})
+require("lazy").setup {
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    version = "*",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump {
+            search = {
+              mode = function(str) return "\\<" .. str end,
+            },
+            label = {
+              uppercase = false,
+            },
+            autojump = true,
+          }
+        end,
+        desc = "Flash",
+      },
+    },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
+  {
+    "xiyaowong/fast-cursor-move.nvim",
+    version = "*",
+    event = "VeryLazy",
+    config = function() vim.g.fast_cursor_move_acceleration = false end,
+  },
+}
 
-local vscode = require("vscode-neovim")
+-- local vscode = require "vscode-neovim"
+-- local fn = vim.fn
 
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
@@ -81,16 +86,20 @@ vim.keymap.set("v", "<Leader>w", "<Cmd>call VSCodeNotify('workbench.action.files
 vim.keymap.set("n", "<Leader>j", "*``cgn")
 
 -- folded code aware cursor up/down
-for _, map in ipairs({ { "k", "up" }, { "j", "down" } }) do
-	local key = map[1]
-	local direction = map[2]
-	vim.keymap.set("n", key, function()
-		vscode.action("cursorMove", {
-			args = {
-				to = direction,
-				by = "wrappedLine",
-				value = vim.v.count,
-			},
-		})
-	end)
-end
+-- for _, map in ipairs({ { "k", "up" }, { "j", "down" } }) do
+-- 	local key = map[1]
+-- 	local direction = map[2]
+-- 	vim.keymap.set({ "n", "v" }, key, function()
+-- 		fn.VSCodeNotify("cursorMove", { to = direction, by = "wrappedLine", value = vim.v.count })
+-- 		-- vscode.action("cursorMove", {
+-- 		-- 	args = {
+-- 		-- 		to = direction,
+-- 		-- 		by = "wrappedLine",
+-- 		-- 		value = vim.v.count,
+-- 		-- 	},
+-- 		-- })
+-- 		return "<esc>"
+-- 	end, { expr = true })
+-- end
+--
+--
