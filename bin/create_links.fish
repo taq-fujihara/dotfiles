@@ -66,6 +66,7 @@ create_link config/fish/completions/rg.fish .config/fish/completions/rg.fish
 create_link config/fish/completions/ruff.fish .config/fish/completions/ruff.fish
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fontview.fish .config/fish/functions/fontview.fish
+create_link config/fish/functions/git.fish .config/fish/functions/git.fish
 create_link config/fish/functions/gitroot.fish .config/fish/functions/gitroot.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/update_astronvim.fish .config/fish/functions/update_astronvim.fish
