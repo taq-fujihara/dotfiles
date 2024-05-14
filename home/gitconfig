@@ -49,6 +49,7 @@
     edit = commit --amend --only
     unstage = restore --staged
     discard = restore
+    please = push --force-with-lease --force-if-includes
 
     # shortened version of existing commands. should be least.
     # st = status
