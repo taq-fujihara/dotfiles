@@ -23,6 +23,16 @@ config.keys = {
 		mods = "CMD",
 		action = act.DisableDefaultAssignment,
 	},
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = act.DisableDefaultAssignment,
+	},
 
 	{
 		key = "p",
