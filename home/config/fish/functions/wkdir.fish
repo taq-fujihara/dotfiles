@@ -1,16 +1,23 @@
 function wkdir -d "Create a work directory and set CWD"
-    argparse 's/suffix=' 'p/parmanent' -- $argv
+    argparse 'p/parmanent=' -- $argv
+    or return
 
-    set -l destination /tmp/work
+    set -l temporary_destination /tmp/work
+    set -l parmanent_destination $HOME/work
+
+    set -l destination $temporary_destination
+    set -l suffix (date "+%H%M%S")
+
     if set -lq _flag_p
-        set destination $HOME/work
+        set destination $parmanent_destination
+        set suffix $_flag_p
     end
+
+    echo creating $destination/(date "+%Y-%m-%d")_$suffix ...
+
     mkdir -p $destination
 
-    set -lq _flag_s
-    or set -l _flag_s (date "+%H%M%S")
-
-    set d $destination/(date "+%Y-%m-%d")-$_flag_s
-    mkdir $d
-    cd $d
+    set -l work_dir $destination/(date "+%Y-%m-%d")_$suffix
+    mkdir $work_dir
+    cd $work_dir
 end
