@@ -85,6 +85,9 @@ vim.keymap.set("n", "<Leader>lr", "<Cmd>call VSCodeNotify('editor.action.rename'
 vim.keymap.set("n", "<Leader>lR", "<Cmd>call VSCodeNotify('references-view.findReferences')<CR>")
 vim.keymap.set("n", "<Leader>lf", "<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>")
 vim.keymap.set("n", "<Leader>ls", "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>")
+vim.keymap.set("n", "<Leader>lG", "<Cmd>call VSCodeNotify('workbench.action.showAllSymbols')<CR>")
+
+vim.keymap.set("n", "<Leader>db", "<Cmd>call VSCodeNotify('editor.debug.action.toggleBreakpoint')<CR>")
 
 vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')<CR>")
 
