@@ -48,10 +48,11 @@ brew install \
   tldr \
   tree-sitter \
   unar \
+  uv \
+  wget \
   xh \
   yazi \
   yq \
-  wget \
   zlib \
   zoxide
 
