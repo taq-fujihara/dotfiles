@@ -72,9 +72,3 @@ direnv hook fish | source
 # # shell becomes a bit slow when Devbox is used as global package manager
 # devbox global shellenv --init-hook | source
 
-#################################################
-# Completions
-#################################################
-rg --generate complete-fish | source
-ruff generate-shell-completion fish | source
-uv generate-shell-completion fish | source
