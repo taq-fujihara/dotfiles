@@ -7,14 +7,16 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+local leader_key_mods = "CTRL"
 local paneNavigationMods = "CTRL"
-config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 2000 }
 
--- Mac specific override
 if wezterm.target_triple == "x86_64-apple-darwin" then
-	config.leader = { key = "f", mods = "CMD", timeout_milliseconds = 2000 }
+	leader_key_mods = "CMD"
 	paneNavigationMods = "CMD"
 end
+
+-- Leader key
+config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 2000 }
 
 config.keys = {
 	-- disable Command + f (search) to use it as Leader key
@@ -168,14 +170,7 @@ config.keys = {
 	},
 }
 
--- config.color_scheme = "Ayu Mirage"
 config.color_scheme = "Everforest Dark (Gogh)"
--- config.color_scheme = 'iceberg-dark'
--- config.color_scheme = 'Tokyo Night'
--- config.color_scheme = 'Tokyo Night Storm'
--- config.color_scheme = 'Catppuccin Mocha'
--- config.color_scheme = 'Catppuccin Macchiato'
--- config.color_scheme = 'Papercolor Dark (Gogh)'
 config.line_height = 1.1
 
 config.hide_tab_bar_if_only_one_tab = true
@@ -199,33 +194,5 @@ local has_override, apply_to_config = pcall(require, "override")
 if has_override then
 	apply_to_config(config)
 end
--- local apply_to_config = require 'override'
--- apply_to_config(config)
 
 return config
-
--- -- Deprecated
---
--- local function is_nvim(pane)
---   -- cannot get process name when connect to host via ssh
---   -- https://wezfurlong.org/wezterm/config/lua/pane/get_foreground_process_name.html?h=get_foreground_process_name
---   local process_name = pane:get_foreground_process_name()
---   if process_name == nil then
---     return false
---   end
---   return process_name:find('nvim') ~= nil
--- end
--- -- Deprecated
--- local function activatePaneDirection(key, direction)
---   return {
---     key = key,
---     mods = 'CTRL',
---     action = wezterm.action_callback(function(win, pane)
---       if is_nvim(pane) then
---         win:perform_action({ SendKey = { key = key, mods = 'CTRL' }}, pane)
---       else
---         win:perform_action({ ActivatePaneDirection = direction }, pane)
---       end
---     end)
---   }
--- end
