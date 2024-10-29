@@ -61,10 +61,10 @@ fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
 #################################################
 # Shell Integration
 #################################################
-starship init fish | source
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
   /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 end
+starship init fish | source
 # These are installed via homebrew. So these are not in the path
 # before `brew shellenv` is sourced.
 mise activate fish | source

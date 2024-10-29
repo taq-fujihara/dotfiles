@@ -45,6 +45,7 @@ brew install \
   ruff \
   sd \
   sqlite \
+  starship \
   tig \
   tldr \
   tree-sitter \
