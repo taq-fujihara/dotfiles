@@ -23,6 +23,7 @@ abbr --add c code-insiders
 abbr --add c. code-insiders .
 abbr --add d docker
 abbr --add g git
+abbr --add j jj
 abbr --add o open
 abbr --add o. open .
 abbr --add p python
