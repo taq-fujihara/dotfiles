@@ -61,6 +61,8 @@ require("lazy").setup {
 -- local vscode = require "vscode-neovim"
 -- local fn = vim.fn
 
+vim.keymap.set("n", ";", ":")
+
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
 vim.keymap.set("n", "L", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
