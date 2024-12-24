@@ -169,6 +169,17 @@ config.keys = {
 		}),
 	},
 
+	{
+		key = "l",
+		mods = "LEADER",
+		action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
+	},
+	{
+		key = "f",
+		mods = "LEADER",
+		action = act.SendKey({ key = "f", mods = "ALT|CTRL" }),
+	},
+
 	-- My Neovim, which does not recognize Shift+Space, will accept F20 as a key to trigger the completion
 	-- This is a workaround for the issue...
 	{
