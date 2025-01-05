@@ -18,11 +18,34 @@ end
 -- Leader key
 config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 2000 }
 
+local function is_nvim(pane)
+	return pane:get_user_vars().IS_NVIM == "true" or pane:get_foreground_process_name():find("nvim")
+end
+
+local function smart_pane_navigation(key, direction)
+	return {
+		key = key,
+		mods = paneNavigationMods,
+		action = wezterm.action_callback(function(window, pane)
+			if is_nvim(pane) then
+				window:perform_action({ SendKey = { key = key, mods = 'CTRL' } }, pane)
+			else
+				window:perform_action({ ActivatePaneDirection = direction }, pane)
+			end
+		end)
+	}
+end
+
 config.keys = {
 	-- disable Command + f (search) to use it as Leader key
 	{
 		key = "f",
 		mods = "CMD",
+		action = act.DisableDefaultAssignment,
+	},
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
 		action = act.DisableDefaultAssignment,
 	},
 	{
@@ -61,26 +84,30 @@ config.keys = {
 	},
 
 	-- pane navigation
-	{
-		key = "h",
-		mods = "LEADER",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "j",
-		mods = "LEADER",
-		action = act.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "k",
-		mods = "LEADER",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "l",
-		mods = "LEADER",
-		action = act.ActivatePaneDirection("Right"),
-	},
+	smart_pane_navigation('h', 'Left'),
+	smart_pane_navigation('j', 'Down'),
+	smart_pane_navigation('k', 'Up'),
+	smart_pane_navigation('l', 'Right'),
+	-- {
+	-- 	key = "h",
+	-- 	mods = "LEADER",
+	-- 	action = act.ActivatePaneDirection("Left"),
+	-- },
+	-- {
+	-- 	key = "j",
+	-- 	mods = "LEADER",
+	-- 	action = act.ActivatePaneDirection("Down"),
+	-- },
+	-- {
+	-- 	key = "k",
+	-- 	mods = "LEADER",
+	-- 	action = act.ActivatePaneDirection("Up"),
+	-- },
+	-- {
+	-- 	key = "l",
+	-- 	mods = "LEADER",
+	-- 	action = act.ActivatePaneDirection("Right"),
+	-- },
 	--
 	{
 		key = "LeftArrow",
@@ -123,22 +150,22 @@ config.keys = {
 	-- pane resizing
 	{
 		key = "DownArrow",
-		mods = paneNavigationMods .. "|SHIFT",
+		mods = paneNavigationMods,
 		action = act.AdjustPaneSize({ "Down", 4 }),
 	},
 	{
 		key = "UpArrow",
-		mods = paneNavigationMods .. "|SHIFT",
+		mods = paneNavigationMods,
 		action = act.AdjustPaneSize({ "Up", 4 }),
 	},
 	{
 		key = "LeftArrow",
-		mods = paneNavigationMods .. "|SHIFT",
+		mods = paneNavigationMods,
 		action = act.AdjustPaneSize({ "Left", 8 }),
 	},
 	{
 		key = "RightArrow",
-		mods = paneNavigationMods .. "|SHIFT",
+		mods = paneNavigationMods,
 		action = act.AdjustPaneSize({ "Right", 8 }),
 	},
 
