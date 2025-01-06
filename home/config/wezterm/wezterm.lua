@@ -16,7 +16,8 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 end
 
 -- Leader key
-config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 2000 }
+config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 1500 }
+config.colors = { compose_cursor = "orange" }
 
 local function is_nvim(pane)
 	return pane:get_user_vars().IS_NVIM == "true" or pane:get_foreground_process_name():find("nvim")
@@ -36,26 +37,17 @@ local function smart_pane_navigation(key, direction)
 	}
 end
 
+wezterm.on('update-right-status', function(window)
+	window:set_right_status(wezterm.format {
+		{ Text = "【 ws: " .. window:active_workspace() .. " 】 " },
+	})
+end)
+
 config.keys = {
 	-- disable Command + f (search) to use it as Leader key
 	{
 		key = "f",
 		mods = "CMD",
-		action = act.DisableDefaultAssignment,
-	},
-	{
-		key = "h",
-		mods = "CTRL|SHIFT",
-		action = act.DisableDefaultAssignment,
-	},
-	{
-		key = "l",
-		mods = "CTRL|SHIFT",
-		action = act.DisableDefaultAssignment,
-	},
-	{
-		key = "k",
-		mods = "CTRL|SHIFT",
 		action = act.DisableDefaultAssignment,
 	},
 
@@ -69,6 +61,20 @@ config.keys = {
 		key = "p",
 		mods = "LEADER",
 		action = act.ActivateCommandPalette,
+	},
+
+	-- workspaces
+	{
+		key = "w",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = 'Create Workspace',
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:perform_action({ SwitchToWorkspace = { name = line } }, pane)
+				end
+			end)
+		})
 	},
 
 	-- split pane
@@ -89,84 +95,40 @@ config.keys = {
 	smart_pane_navigation('k', 'Up'),
 	smart_pane_navigation('l', 'Right'),
 	-- {
-	-- 	key = "h",
-	-- 	mods = "LEADER",
+	-- 	key = "LeftArrow",
+	-- 	mods = paneNavigationMods,
 	-- 	action = act.ActivatePaneDirection("Left"),
 	-- },
 	-- {
-	-- 	key = "j",
-	-- 	mods = "LEADER",
+	-- 	key = "DownArrow",
+	-- 	mods = paneNavigationMods,
 	-- 	action = act.ActivatePaneDirection("Down"),
 	-- },
 	-- {
-	-- 	key = "k",
-	-- 	mods = "LEADER",
+	-- 	key = "UpArrow",
+	-- 	mods = paneNavigationMods,
 	-- 	action = act.ActivatePaneDirection("Up"),
 	-- },
 	-- {
-	-- 	key = "l",
-	-- 	mods = "LEADER",
+	-- 	key = "RightArrow",
+	-- 	mods = paneNavigationMods,
 	-- 	action = act.ActivatePaneDirection("Right"),
 	-- },
-	--
-	{
-		key = "LeftArrow",
-		mods = paneNavigationMods,
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "DownArrow",
-		mods = paneNavigationMods,
-		action = act.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "UpArrow",
-		mods = paneNavigationMods,
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "RightArrow",
-		mods = paneNavigationMods,
-		action = act.ActivatePaneDirection("Right"),
-	},
-	-- was not good
-	-- activatePaneDirection('j', 'Down'),
-	-- activatePaneDirection('k', 'Up'),
-	-- activatePaneDirection('h', 'Left'),
-	-- activatePaneDirection('l', 'Right'),
 
 	-- tab navigation
-	{
-		key = "L",
-		mods = "LEADER",
-		action = act.ActivateTabRelative(1),
-	},
-	{
-		key = "H",
-		mods = "LEADER",
-		action = act.ActivateTabRelative(-1),
-	},
+	{ key = "L",          mods = "LEADER",           action = act.ActivateTabRelative(1) },
+	{ key = "H",          mods = "LEADER",           action = act.ActivateTabRelative(-1) },
 
 	-- pane resizing
+	{ key = "DownArrow",  mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 4 }) },
+	{ key = "UpArrow",    mods = paneNavigationMods, action = act.AdjustPaneSize({ "Up", 4 }) },
+	{ key = "LeftArrow",  mods = paneNavigationMods, action = act.AdjustPaneSize({ "Left", 8 }) },
+	{ key = "RightArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Right", 8 }) },
+
 	{
-		key = "DownArrow",
-		mods = paneNavigationMods,
-		action = act.AdjustPaneSize({ "Down", 4 }),
-	},
-	{
-		key = "UpArrow",
-		mods = paneNavigationMods,
-		action = act.AdjustPaneSize({ "Up", 4 }),
-	},
-	{
-		key = "LeftArrow",
-		mods = paneNavigationMods,
-		action = act.AdjustPaneSize({ "Left", 8 }),
-	},
-	{
-		key = "RightArrow",
-		mods = paneNavigationMods,
-		action = act.AdjustPaneSize({ "Right", 8 }),
+		key = "S",
+		mods = "LEADER",
+		action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }),
 	},
 
 	--
@@ -196,17 +158,6 @@ config.keys = {
 		}),
 	},
 
-	{
-		key = "l",
-		mods = "LEADER",
-		action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
-	},
-	{
-		key = "f",
-		mods = "LEADER",
-		action = act.SendKey({ key = "f", mods = "ALT|CTRL" }),
-	},
-
 	-- My Neovim, which does not recognize Shift+Space, will accept F20 as a key to trigger the completion
 	-- This is a workaround for the issue...
 	{
@@ -214,13 +165,72 @@ config.keys = {
 		mods = "SHIFT",
 		action = act.SendKey({ key = "F20" }),
 	},
+
+	-- key tables
+	{
+		key = "t",
+		mods = "LEADER",
+		action = act.ActivateKeyTable({
+			name = "tabs",
+			one_shot = false,
+		})
+	},
+	{
+		key = "f",
+		mods = "LEADER",
+		action = act.ActivateKeyTable({
+			name = "finder",
+			one_shot = true,
+		})
+	},
 }
 
+config.key_tables = {
+	tabs = {
+		{ key = "h", action = act.MoveTabRelative(-1) },
+		{ key = "l", action = act.MoveTabRelative(1) },
+		{
+			key = "r",
+			action = act.PromptInputLine({
+				description = 'Enter new name for tab',
+				action = wezterm.action_callback(function(window, _, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end)
+			})
+		},
+		{
+			key = "Enter",
+			action = 'PopKeyTable'
+		}
+	},
+	finder = {
+		{
+			-- files
+			key = "f",
+			action = act.SendKey({ key = "f", mods = "ALT|CTRL" }),
+		},
+		{
+			-- git logs
+			key = "l",
+			mods = "LEADER",
+			action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
+		},
+		{
+			-- workspaces
+			key = "w",
+			action = act.ShowLauncherArgs {
+				flags = 'FUZZY|WORKSPACES',
+			},
+		}
+	},
+}
+
+-- appearance
 config.color_scheme = "Everforest Dark (Gogh)"
 config.line_height = 1.1
-
-config.hide_tab_bar_if_only_one_tab = true
-
+config.hide_tab_bar_if_only_one_tab = false -- I want workspace name to be always visible
 config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.5,
