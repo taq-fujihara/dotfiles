@@ -17,7 +17,6 @@ end
 
 -- Leader key
 config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 1500 }
-config.colors = { compose_cursor = "orange" }
 
 local function is_nvim(pane)
 	return pane:get_user_vars().IS_NVIM == "true" or pane:get_foreground_process_name():find("nvim")
@@ -94,30 +93,10 @@ config.keys = {
 	smart_pane_navigation('j', 'Down'),
 	smart_pane_navigation('k', 'Up'),
 	smart_pane_navigation('l', 'Right'),
-	-- {
-	-- 	key = "LeftArrow",
-	-- 	mods = paneNavigationMods,
-	-- 	action = act.ActivatePaneDirection("Left"),
-	-- },
-	-- {
-	-- 	key = "DownArrow",
-	-- 	mods = paneNavigationMods,
-	-- 	action = act.ActivatePaneDirection("Down"),
-	-- },
-	-- {
-	-- 	key = "UpArrow",
-	-- 	mods = paneNavigationMods,
-	-- 	action = act.ActivatePaneDirection("Up"),
-	-- },
-	-- {
-	-- 	key = "RightArrow",
-	-- 	mods = paneNavigationMods,
-	-- 	action = act.ActivatePaneDirection("Right"),
-	-- },
 
 	-- tab navigation
-	{ key = "L",          mods = "LEADER",           action = act.ActivateTabRelative(1) },
-	{ key = "H",          mods = "LEADER",           action = act.ActivateTabRelative(-1) },
+	{ key = "L",          mods = "CTRL|SHIFT",       action = act.ActivateTabRelative(1) },
+	{ key = "H",          mods = "CTRL|SHIFT",       action = act.ActivateTabRelative(-1) },
 
 	-- pane resizing
 	{ key = "DownArrow",  mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 4 }) },
@@ -235,6 +214,39 @@ config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.5,
 }
+config.window_decorations = "RESIZE"
+config.show_new_tab_button_in_tab_bar = false
+config.show_close_tab_button_in_tabs = false
+config.colors = {
+	compose_cursor = "#A5D6A7",
+	tab_bar = {
+		inactive_tab_edge = "none",
+	},
+}
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = tab.tab_title
+	if not title or #title == 0 then
+		title = tab.active_pane.title
+	end
+
+	local background = "NONE"
+	local foreground = "#90A4AE"
+	local title_formatted = " " .. title .. "  "
+
+	if tab.is_active then
+		background = "#A5D6A7"
+		foreground = "#263238"
+		title_formatted = "  " .. title .. "  "
+	end
+
+	return {
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title_formatted },
+	}
+end)
+
 
 -- override.lua template
 -- ```
