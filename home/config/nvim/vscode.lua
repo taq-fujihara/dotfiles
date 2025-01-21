@@ -58,10 +58,8 @@ require("lazy").setup {
   },
 }
 
--- local vscode = require "vscode-neovim"
--- local fn = vim.fn
-
 vim.keymap.set("n", ";", ":")
+vim.keymap.set("v", ";", ":")
 
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
@@ -96,21 +94,3 @@ vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')
 vim.keymap.set("n", "<Leader>e", "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
 vim.keymap.set("n", "<Leader>o", "<Cmd>call VSCodeNotify('workbench.files.action.focusFilesExplorer')<CR>")
 
--- folded code aware cursor up/down
--- for _, map in ipairs({ { "k", "up" }, { "j", "down" } }) do
--- 	local key = map[1]
--- 	local direction = map[2]
--- 	vim.keymap.set({ "n", "v" }, key, function()
--- 		fn.VSCodeNotify("cursorMove", { to = direction, by = "wrappedLine", value = vim.v.count })
--- 		-- vscode.action("cursorMove", {
--- 		-- 	args = {
--- 		-- 		to = direction,
--- 		-- 		by = "wrappedLine",
--- 		-- 		value = vim.v.count,
--- 		-- 	},
--- 		-- })
--- 		return "<esc>"
--- 	end, { expr = true })
--- end
---
---
