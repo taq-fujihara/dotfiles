@@ -31,6 +31,8 @@ abbr --add v nvim
 abbr --add v. nvim .
 abbr --add mkdirp mkdir -p
 abbr --add ll eza --icons --git --time-style relative -al
+abbr --add mr mise run
+abbr --add mx mise exec
 abbr --add clip xclip -sel clip
 abbr --add C --position anywhere --set-cursor "% | xclip -sel clip"
 abbr --add B --position anywhere --set-cursor "% | bat"
