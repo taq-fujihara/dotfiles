@@ -8,3 +8,8 @@ java = "openjdk-19.0.2"
 bun = "1.0.25"
 deno = "2.0.0"
 go = "1.22.2"
+lua = "5.4.7"
+usage = "latest"
+
+[settings]
+experimental = true
