@@ -36,12 +36,6 @@ local function smart_pane_navigation(key, direction)
 	}
 end
 
-wezterm.on('update-right-status', function(window)
-	window:set_right_status(wezterm.format {
-		{ Text = "【 ws: " .. window:active_workspace() .. " 】 " },
-	})
-end)
-
 config.keys = {
 	-- disable Command + f (search) to use it as Leader key
 	{
@@ -207,9 +201,14 @@ config.key_tables = {
 }
 
 -- appearance
-config.color_scheme = "Everforest Dark (Gogh)"
+
+-- config.color_scheme = "Everforest Dark (Gogh)"
+-- config.color_scheme = "iceberg-dark"
+-- config.color_scheme = "Tokyo Night"
+config.color_scheme = "Ayu Mirage"
 config.line_height = 1.1
 config.hide_tab_bar_if_only_one_tab = false -- I want workspace name to be always visible
+config.window_background_opacity = 0.95
 config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.5,
@@ -224,20 +223,30 @@ config.colors = {
 	},
 }
 
+wezterm.on('update-right-status', function(window)
+	window:set_right_status(wezterm.format {
+		{ Foreground = { Color = "#90CAF9" } },
+		{ Text = "   󰪘   " .. window:active_workspace() .. "   " },
+	})
+end)
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = tab.tab_title
 	if not title or #title == 0 then
 		title = tab.active_pane.title
 	end
+	if title == "~" then
+		title = "● " .. title .. " ●"
+	end
 
-	local background = "NONE"
-	local foreground = "#90A4AE"
-	local title_formatted = " " .. title .. "  "
+	local background = "#FFF3E0"
+	local foreground = "#FFA726"
+	local title_formatted = "  " .. title .. "  "
 
 	if tab.is_active then
-		background = "#A5D6A7"
+		background = "#FFA726"
 		foreground = "#263238"
-		title_formatted = "  " .. title .. "  "
+		title_formatted = "  " .. title .. "  "
 	end
 
 	return {
