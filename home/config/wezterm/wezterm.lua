@@ -203,15 +203,17 @@ config.key_tables = {
 -- appearance
 
 -- config.color_scheme = "Everforest Dark (Gogh)"
--- config.color_scheme = "iceberg-dark"
+config.color_scheme = "iceberg-dark"
 -- config.color_scheme = "Tokyo Night"
-config.color_scheme = "Ayu Mirage"
+-- config.color_scheme = "Ayu Mirage"
+-- config.color_scheme = "nord"
+
 config.line_height = 1.1
 config.hide_tab_bar_if_only_one_tab = false -- I want workspace name to be always visible
 config.window_background_opacity = 0.95
 config.inactive_pane_hsb = {
-	saturation = 0.8,
-	brightness = 0.5,
+	saturation = 0.9,
+	brightness = 0.6,
 }
 config.window_decorations = "RESIZE"
 config.show_new_tab_button_in_tab_bar = false
@@ -222,6 +224,26 @@ config.colors = {
 		inactive_tab_edge = "none",
 	},
 }
+
+local ACTIVE_TAB_BG_COLOR = "NONE"
+local ACTIVE_TAB_FG_COLOR = "NONE"
+local INACTIVE_TAB_BG_COLOR = "NONE"
+local INACTIVE_TAB_FG_COLOR = "NONE"
+
+if config.color_scheme == "Ayu Mirage" then
+	ACTIVE_TAB_BG_COLOR = "#FFA726"
+	ACTIVE_TAB_FG_COLOR = "#263238"
+	INACTIVE_TAB_BG_COLOR = "#FFF3E0"
+	INACTIVE_TAB_FG_COLOR = "#FFA726"
+elseif config.color_scheme == "nord" then
+	ACTIVE_TAB_BG_COLOR = "#3b4252"
+	ACTIVE_TAB_FG_COLOR = "#d8dee9"
+	INACTIVE_TAB_FG_COLOR = "#607D8B"
+elseif config.color_scheme == "iceberg-dark" then
+	ACTIVE_TAB_BG_COLOR = "#161821"
+	ACTIVE_TAB_FG_COLOR = "#84a0c6"
+	INACTIVE_TAB_FG_COLOR = "#84a0c6"
+end
 
 wezterm.on('update-right-status', function(window)
 	window:set_right_status(wezterm.format {
@@ -239,14 +261,13 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		title = "● " .. title .. " ●"
 	end
 
-	local background = "#FFF3E0"
-	local foreground = "#FFA726"
+	local background = INACTIVE_TAB_BG_COLOR
+	local foreground = INACTIVE_TAB_FG_COLOR
 	local title_formatted = "  " .. title .. "  "
 
 	if tab.is_active then
-		background = "#FFA726"
-		foreground = "#263238"
-		title_formatted = "  " .. title .. "  "
+		background = ACTIVE_TAB_BG_COLOR
+		foreground = ACTIVE_TAB_FG_COLOR
 	end
 
 	return {
