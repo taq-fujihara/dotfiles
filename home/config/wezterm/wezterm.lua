@@ -249,8 +249,8 @@ config.colors = {
 
 wezterm.on('update-right-status', function(window)
 	window:set_right_status(wezterm.format {
-		{ Foreground = { Color = "#90CAF9" } },
-		{ Text = "   󰪘   " .. window:active_workspace() .. "   " },
+		{ Foreground = { Color = "#CFD8DC" } },
+		{ Text = "      " .. window:active_workspace() .. "       " .. COLOR_SCHEME .. "    " },
 	})
 end)
 

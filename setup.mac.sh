@@ -11,3 +11,4 @@
 
 ./bin/create_links.fish
 ./bin/loginshell.sh
+./bin/switch_colorscheme.fish nord
