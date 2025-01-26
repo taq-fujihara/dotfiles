@@ -8,9 +8,9 @@ echo "Switching color scheme to \"$color\"..."
 echo
 echo "# Environment Variable"
 echo
-echo "set -x MY_COLOR_SCHEME $color" > ~/.config/fish/conf.d/color.fish
-source ~/.config/fish/conf.d/color.fish
-echo '  changed MY_COLOR_SCHEME value to "'$color'"'
+sed -i -e "s/set -x MY_COLOR_SCHEME .*/set -x MY_COLOR_SCHEME $color/" home/config/fish/config.fish
+source ~/.config/fish/config.fish
+echo '  changed MY_COLOR_SCHEME value in config.fish to "'$color'"'
 echo '  Done!'
 
 echo
@@ -31,8 +31,8 @@ case "nord"
     set wez_color_scheme_name "nord"
 end
 
-echo "return \"$wez_color_scheme_name\"" > ~/.config/wezterm/color.lua
-echo '  wrote "'$wez_color_scheme_name'" to ~/.config/wezterm/color.lua'
+sed -i -e "s/local COLOR_SCHEME = \".*\"/local COLOR_SCHEME = \"$wez_color_scheme_name\"/g" home/config/wezterm/wezterm.lua
+echo '  changed "COLOR_SCHEME" value in wezterm.lua to"'$wez_color_scheme_name'"'
 echo '  Done!'
 
 echo

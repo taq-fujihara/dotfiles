@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local COLOR_SCHEME = require("color")
+local COLOR_SCHEME = "nord"
 
 local config = {}
 

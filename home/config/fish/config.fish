@@ -55,6 +55,7 @@ end
 # Environment Variables
 #################################################
 set -x PIPENV_VENV_IN_PROJECT 1
+set -x MY_COLOR_SCHEME nord
 
 #################################################
 # Keybindings
