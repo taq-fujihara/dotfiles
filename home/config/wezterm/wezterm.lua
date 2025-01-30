@@ -62,6 +62,13 @@ config.keys = {
 	{
 		key = "w",
 		mods = "LEADER",
+		action = act.ShowLauncherArgs {
+			flags = 'FUZZY|WORKSPACES',
+		},
+	},
+	{
+		key = "W",
+		mods = "LEADER",
 		action = act.PromptInputLine({
 			description = 'Create Workspace',
 			action = wezterm.action_callback(function(window, pane, line)
@@ -192,13 +199,13 @@ config.key_tables = {
 			mods = "LEADER",
 			action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
 		},
-		{
-			-- workspaces
-			key = "w",
-			action = act.ShowLauncherArgs {
-				flags = 'FUZZY|WORKSPACES',
-			},
-		}
+		-- {
+		-- 	-- workspaces
+		-- 	key = "w",
+		-- 	action = act.ShowLauncherArgs {
+		-- 		flags = 'FUZZY|WORKSPACES',
+		-- 	},
+		-- }
 	},
 }
 
@@ -247,10 +254,38 @@ config.colors = {
 	},
 }
 
-wezterm.on('update-right-status', function(window)
+wezterm.on('update-status', function(window)
+	local active_workspace = window:active_workspace()
+
+	window:set_left_status(wezterm.format {
+		{ Text = "     " .. active_workspace .. "  " },
+	})
+
+	local workspaces = wezterm.mux.get_workspace_names()
+	local MAX_INACTIVE_WORKSPACES = 5
+	local inactive_workspaces = {}
+	local count = 0
+
+	for _, ws in ipairs(workspaces) do
+		if ws ~= active_workspace then
+			table.insert(inactive_workspaces, ws)
+		end
+		count = count + 1
+		if count >= MAX_INACTIVE_WORKSPACES then
+			break
+		end
+	end
+
+	inactive_workspace_text = table.concat(inactive_workspaces, ", ")
+
+	hidden_count = #workspaces - count - 1 -- -1 for active workspace
+	if hidden_count > 0 then
+		inactive_workspace_text = inactive_workspace_text .. " +" .. hidden_count
+	end
+
 	window:set_right_status(wezterm.format {
 		{ Foreground = { Color = "#CFD8DC" } },
-		{ Text = "      " .. window:active_workspace() .. "       " .. COLOR_SCHEME .. "    " },
+		{ Text = "      " .. inactive_workspace_text .. "       " .. COLOR_SCHEME .. "    " },
 	})
 end)
 
