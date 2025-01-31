@@ -258,11 +258,12 @@ wezterm.on('update-status', function(window)
 	local active_workspace = window:active_workspace()
 
 	window:set_left_status(wezterm.format {
-		{ Text = "     " .. active_workspace .. "  " },
+		{ Foreground = { Color = INACTIVE_TAB_FG_COLOR } },
+		{ Text = "      " .. active_workspace .. "  " },
 	})
 
 	local workspaces = wezterm.mux.get_workspace_names()
-	local MAX_INACTIVE_WORKSPACES = 5
+	local MAX_INACTIVE_WORKSPACES = 3
 	local inactive_workspaces = {}
 	local count = 0
 
@@ -276,15 +277,15 @@ wezterm.on('update-status', function(window)
 		end
 	end
 
-	inactive_workspace_text = table.concat(inactive_workspaces, ", ")
+	local inactive_workspace_text = table.concat(inactive_workspaces, ", ")
 
-	hidden_count = #workspaces - count - 1 -- -1 for active workspace
+	local hidden_count = #workspaces - count - 1 -- -1 for active workspace
 	if hidden_count > 0 then
 		inactive_workspace_text = inactive_workspace_text .. " +" .. hidden_count
 	end
 
 	window:set_right_status(wezterm.format {
-		{ Foreground = { Color = "#CFD8DC" } },
+		{ Foreground = { Color = INACTIVE_TAB_FG_COLOR } },
 		{ Text = "      " .. inactive_workspace_text .. "       " .. COLOR_SCHEME .. "    " },
 	})
 end)
