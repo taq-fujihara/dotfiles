@@ -75,6 +75,7 @@ create_link config/lazygit/config.yml .config/lazygit/config.yml
 create_link config/mise/config.toml .config/mise/config.toml
 create_link config/starship.toml .config/starship.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
+create_link config/wezterm/keys.lua .config/wezterm/keys.lua
 create_link config/yazi/yazi.toml .config/yazi/yazi.toml
 create_link config/zed/keymap.json .config/zed/keymap.json
 create_link config/zed/settings.base.json .config/zed/settings.base.json
