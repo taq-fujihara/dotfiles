@@ -2,6 +2,13 @@
 
 set color $argv[1]
 
+set -l colorschemes (string split ' ' "iceberg everforest tokyonight ayu nord")
+
+if not contains $color $colorschemes
+    echo Colorscheme \"$color\" not found! These are the available colorschemes: $colorschemes
+    exit 1
+end
+
 echo
 echo "Switching color scheme to \"$color\"..."
 
@@ -64,5 +71,7 @@ end
 
 update_vscode_color_theme ~/Library/Application\ Support/Code\ -\ Insiders/User/settings.json
 update_vscode_color_theme ~/Library/Application\ Support/Code/User/settings.json
+update_vscode_color_theme ~/.config/Code/User/setting.json
+update_vscode_color_theme ~/.config/Code - Insiders/User/settings.json
 
 echo '  Done!'
