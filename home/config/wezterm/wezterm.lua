@@ -87,17 +87,54 @@ wezterm.on('update-status', function(window)
 
 	window:set_right_status(wezterm.format {
 		{ Foreground = { Color = INACTIVE_TAB_FG_COLOR } },
-		{ Text = "      " .. inactive_workspace_text .. "       " .. COLOR_SCHEME .. "    " },
+		{ Text = "   " .. inactive_workspace_text .. "   " },
+		{ Text = "   " .. COLOR_SCHEME .. "   " },
 	})
 end)
+
+-- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
+-- https://www.nerdfonts.com/cheat-sheet
+local icons = {
+	["bat"] = wezterm.nerdfonts.md_bat,
+	-- ["btm"] = wezterm.nerdfonts.mdi_chart_donut_variant,
+	-- ["cargo"] = wezterm.nerdfonts.dev_rust,
+	-- ["curl"] = wezterm.nerdfonts.mdi_flattr,
+	["docker"] = wezterm.nerdfonts.linux_docker,
+	["fish"] = wezterm.nerdfonts.md_fish,
+	["gh"] = wezterm.nerdfonts.cod_github_inverted,
+	["git"] = wezterm.nerdfonts.dev_git,
+	-- ["go"] = wezterm.nerdfonts.seti_go,
+	-- ["htop"] = wezterm.nerdfonts.md_chart_areaspline,
+	-- ["btop"] = wezterm.nerdfonts.md_chart_areaspline,
+	-- ["kubectl"] = wezterm.nerdfonts.linux_docker,
+	-- ["kuberlr"] = wezterm.nerdfonts.linux_docker,
+	["lazydocker"] = wezterm.nerdfonts.linux_docker,
+	["lua"] = wezterm.nerdfonts.md_language_lua,
+	-- ["make"] = wezterm.nerdfonts.seti_makefile,
+	["node"] = wezterm.nerdfonts.md_nodejs,
+	["nvim"] = "󰕷",
+	["python"] = wezterm.nerdfonts.md_language_python,
+	["psql"] = wezterm.nerdfonts.dev_postgresql,
+	-- ["ruby"] = wezterm.nerdfonts.cod_ruby,
+	-- ["sudo"] = wezterm.nerdfonts.fa_hashtag,
+	["wget"] = wezterm.nerdfonts.md_cloud_download,
+	["lazygit"] = wezterm.nerdfonts.cod_github,
+}
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = tab.tab_title
 	if not title or #title == 0 then
 		title = tab.active_pane.title
 	end
-	if title == "~" then
-		title = "● " .. title .. " ●"
+
+	local process, other = title:match("^(%S+)%s*(.*)$")
+
+	if process == "fish" and other == "~" then
+		-- "󰡮", "󰈈", "", "󰮔", "󰮕", "", "",
+		local eye = "󰡮"
+		title = eye .. "  " .. other .. " " .. eye
+	elseif icons[process] then
+		title = icons[process] .. "   " .. other
 	end
 
 	local background = INACTIVE_TAB_BG_COLOR
@@ -115,7 +152,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = title_formatted },
 	}
 end)
-
 
 -- override.lua template
 -- ```
