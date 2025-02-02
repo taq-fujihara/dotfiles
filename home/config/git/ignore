@@ -1,2 +1,4 @@
 .rtx.local.toml
 .mise.local.toml
+.zed/settings.json
+.deno.local
