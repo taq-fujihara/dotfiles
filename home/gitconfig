@@ -1,8 +1,21 @@
 [core]
+    excludesfile = ~/.gitignore
     editor = nvim
     quotepath = false
     ignorecase = false
     pager = delta
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[init]
+    defaultBranch = main
 
 [interactive]
     diffFilter = delta --color-only
@@ -13,21 +26,34 @@
     side-by-side = true
     line-numbers = true
 
+[commit]
+    verbose = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
 [merge]
     conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 
 [rebase]
-	updateRefs = true
-	autosquash = true
+    updateRefs = true
+    autoSquash = true
+    autoStash = true
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
 
 [pull]
     ff = only
-
-[push]
-	autoSetupRemote = true
 
 [alias]
     alias = config --get-regexp alias.*
@@ -60,19 +86,15 @@
     cz = "!bun x git-cz -e"
     ignore-dir = "!echo '\n# created by \"ignore-dir\" alias\n*' >> ${GIT_PREFIX:-.}/.gitignore"
 
-    # for typo I often make...
-    puhs = push
-    comit = commit
+[help]
+    autocorrect = prompt
 
 [credential "https://source.developers.google.com"]
     helper = gcloud.sh
-
-[init]
-    defaultBranch = main
 
 [include]
     path = ~/.gitconfig.local
 
 [user]
-	email = taq.fujihara@gmail.com
-	name = taq-fujihara
+    email = taq.fujihara@gmail.com
+    name = taq-fujihara
