@@ -8,7 +8,7 @@ function fish_title
     set -l len (echo $above_root | string length)
     set below_root (string sub --start (math $len + 2) $abs_path)
 
-    set path "/$below_root"
+    set path "…/$below_root"
   end
 
   echo $current_cmd $path
