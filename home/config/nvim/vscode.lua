@@ -58,39 +58,41 @@ require("lazy").setup {
   },
 }
 
+-- local code = require("vscode")
+
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("v", ";", ":")
 
-vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
-vim.keymap.set("n", "-", "<Cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>")
-vim.keymap.set("n", "L", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
-vim.keymap.set("n", "H", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
-vim.keymap.set("n", "za", "<Cmd>call VSCodeNotify('editor.toggleFold')<CR>")
+vim.keymap.set("n", "|", "<Cmd>lua require('vscode').action('workbench.action.splitEditor')<CR>")
+vim.keymap.set("n", "-", "<Cmd>lua require('vscode').action('workbench.action.splitEditorDown')<CR>")
+vim.keymap.set("n", "L", "<Cmd>lua require('vscode').action('workbench.action.nextEditor')<CR>")
+vim.keymap.set("n", "H", "<Cmd>lua require('vscode').action('workbench.action.previousEditor')<CR>")
+vim.keymap.set("n", "za", "<Cmd>lua require('vscode').action('editor.toggleFold')<CR>")
 
-vim.keymap.set("n", "<Leader>w", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
-vim.keymap.set("n", "<Leader>c", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
-vim.keymap.set("n", "<Leader>q", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
-vim.keymap.set("n", "<Leader>n", "<Cmd>call VSCodeNotify('workbench.action.files.newUntitledFile')<CR>")
+vim.keymap.set("n", "<Leader>w", "<Cmd>lua require('vscode').action('workbench.action.files.save')<CR>")
+vim.keymap.set("n", "<Leader>c", "<Cmd>lua require('vscode').action('workbench.action.closeActiveEditor')<CR>")
+vim.keymap.set("n", "<Leader>q", "<Cmd>lua require('vscode').action('workbench.action.closeActiveEditor')<CR>")
+vim.keymap.set("n", "<Leader>n", "<Cmd>lua require('vscode').action('workbench.action.files.newUntitledFile')<CR>")
 
-vim.keymap.set("n", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>")
-vim.keymap.set("v", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>")
+vim.keymap.set("n", "<Leader>/", "<Cmd>lua require('vscode').action('editor.action.commentLine')<CR>")
+vim.keymap.set("v", "<Leader>/", "<Cmd>lua require('vscode').action('editor.action.commentLine')<CR>")
 vim.keymap.set("n", "<Leader>j", "*``cgn")
 
-vim.keymap.set("n", "<Leader>fw", "<Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>")
-vim.keymap.set("n", "<Leader>ff", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
-vim.keymap.set("n", "<Leader>fb", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
-vim.keymap.set("n", "<Leader><leader>", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
+vim.keymap.set("n", "<Leader>fw", "<Cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>")
+vim.keymap.set("n", "<Leader>ff", "<Cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
+vim.keymap.set("n", "<Leader>fb", "<Cmd>lua require('vscode').action('workbench.action.showAllEditors')<CR>")
+vim.keymap.set("n", "<Leader><leader>", "<Cmd>lua require('vscode').action('workbench.action.showAllEditors')<CR>")
 
-vim.keymap.set("n", "<Leader>lr", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
-vim.keymap.set("n", "<Leader>lR", "<Cmd>call VSCodeNotify('references-view.findReferences')<CR>")
-vim.keymap.set("n", "<Leader>lf", "<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>")
-vim.keymap.set("n", "<Leader>ls", "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>")
-vim.keymap.set("n", "<Leader>lG", "<Cmd>call VSCodeNotify('workbench.action.showAllSymbols')<CR>")
+vim.keymap.set("n", "<Leader>lr", "<Cmd>lua require('vscode').action('editor.action.rename')<CR>")
+vim.keymap.set("n", "<Leader>lR", "<Cmd>lua require('vscode').action('references-view.findReferences')<CR>")
+vim.keymap.set("n", "<Leader>lf", "<Cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
+vim.keymap.set("n", "<Leader>ls", "<Cmd>lua require('vscode').action('workbench.action.gotoSymbol')<CR>")
+vim.keymap.set("n", "<Leader>lG", "<Cmd>lua require('vscode').action('workbench.action.showAllSymbols')<CR>")
 
-vim.keymap.set("n", "<Leader>db", "<Cmd>call VSCodeNotify('editor.debug.action.toggleBreakpoint')<CR>")
+vim.keymap.set("n", "<Leader>db", "<Cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
 
-vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')<CR>")
+vim.keymap.set("n", "<Leader>gg", "<Cmd>lua require('vscode').action('workbench.scm.focus')<CR>")
 
-vim.keymap.set("n", "<Leader>e", "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
-vim.keymap.set("n", "<Leader>o", "<Cmd>call VSCodeNotify('workbench.files.action.focusFilesExplorer')<CR>")
+vim.keymap.set("n", "<Leader>e", "<Cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
+vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('vscode').action('workbench.files.action.focusFilesExplorer')<CR>")
 
