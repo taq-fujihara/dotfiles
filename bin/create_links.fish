@@ -58,6 +58,7 @@ create_link config/gh/config.yml .config/gh/config.yml
 create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins
+create_link config/fish/functions/fileshare.fish .config/fish/functions/fileshare.fish
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fish_title.fish .config/fish/functions/fish_title.fish
 create_link config/fish/functions/fontview.fish .config/fish/functions/fontview.fish
