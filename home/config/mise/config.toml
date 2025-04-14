@@ -1,9 +1,9 @@
 [tools]
 terraform = "1.8.2"
 node = "22.0.0"
-python = "3.12.3"
+python = "3.13.2"
 hugo = "extended_0.110.0"
-rust = "1.84.0"
+rust = "1.86.0"
 java = "openjdk-19.0.2"
 bun = "1.0.25"
 deno = "2.0.0"
