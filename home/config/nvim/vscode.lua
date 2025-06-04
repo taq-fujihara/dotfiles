@@ -13,7 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 -- When I set relative number is VSCode, I need it in neovim too.
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
+-- vim.wo.number = false
 
 vim.g.mapleader = " "
 
@@ -90,6 +91,7 @@ vim.keymap.set("n", "<Leader>lR", "<Cmd>lua require('vscode').action('references
 vim.keymap.set("n", "<Leader>lf", "<Cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
 vim.keymap.set("n", "<Leader>ls", "<Cmd>lua require('vscode').action('workbench.action.gotoSymbol')<CR>")
 vim.keymap.set("n", "<Leader>lG", "<Cmd>lua require('vscode').action('workbench.action.showAllSymbols')<CR>")
+vim.keymap.set("n", "<Leader>ll", "<Cmd>lua require('vscode').action('turboConsoleLog.displayLogMessage')<CR>")
 
 vim.keymap.set("n", "<Leader>db", "<Cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
 
