@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
+
 local act = wezterm.action
+local is_mac = wezterm.target_triple == "x86_64-apple-darwin"
 
 local config = {}
 

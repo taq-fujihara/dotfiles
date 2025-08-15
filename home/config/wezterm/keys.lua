@@ -3,13 +3,10 @@ local act = wezterm.action
 
 M = {}
 
-local leader_key_mods = "CTRL"
-local paneNavigationMods = "CTRL"
+local is_mac = wezterm.target_triple == "x86_64-apple-darwin"
 
-if wezterm.target_triple == "x86_64-apple-darwin" then
-  leader_key_mods = "CMD"
-  paneNavigationMods = "CMD"
-end
+local leader_key_mods = is_mac and "CMD" or "CTRL"
+local paneNavigationMods = is_mac and "CMD" or "CTRL"
 
 function M.setup(config)
   -- Leader key
@@ -87,7 +84,7 @@ function M.setup(config)
     {
       key = "S",
       mods = "LEADER",
-      action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }),
+      action = act.PaneSelect({ mode = "SwapWithActive" }),
     },
 
     --
@@ -162,7 +159,11 @@ function M.setup(config)
       {
         key = "Enter",
         action = 'PopKeyTable'
-      }
+      },
+      {
+        key = "Escape",
+        action = 'PopKeyTable'
+      },
     },
     finder = {
       {

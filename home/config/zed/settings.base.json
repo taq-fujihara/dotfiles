@@ -16,17 +16,17 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Nord"
   },
   "languages": {
-		"Python": {
-			"formatter": {
-				"external": {
-					"command": "ruff",
-					"arguments": ["format", "-"]
-				}
-			},
-			"format_on_save": "on"
-		}
-	}
+    "Python": {
+      "formatter": {
+        "external": {
+          "command": "ruff",
+          "arguments": ["format", "-"]
+        }
+      },
+      "format_on_save": "on"
+    }
+  }
 }
