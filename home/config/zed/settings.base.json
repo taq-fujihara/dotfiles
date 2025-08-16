@@ -12,6 +12,19 @@
     "metrics": false
   },
   "vim_mode": true,
+  "buffer_line_height": { "custom": 1.4 },
+  "project_panel": {
+    "dock": "right"
+  },
+  "auto_install_extension": {
+    "material-icon-theme": true
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Light Icon Theme",
+    "dark": "Material Icon Theme"
+  },
+  "cursor_blink": true,
   "relative_line_numbers": true,
   "theme": {
     "mode": "system",
