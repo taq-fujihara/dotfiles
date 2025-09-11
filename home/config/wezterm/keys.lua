@@ -76,10 +76,10 @@ function M.setup(config)
     { key = "H",          mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
 
     -- pane resizing
-    { key = "DownArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Down", 4 }) },
-    { key = "UpArrow",    mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Up", 4 }) },
-    { key = "LeftArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Left", 8 }) },
-    { key = "RightArrow", mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Right", 8 }) },
+    { key = "DownArrow",  mods = paneNavigationMods .. "|SHIFT", action = act.AdjustPaneSize({ "Down", 4 }) },
+    { key = "UpArrow",    mods = paneNavigationMods .. "|SHIFT", action = act.AdjustPaneSize({ "Up", 4 }) },
+    { key = "LeftArrow",  mods = paneNavigationMods .. "|SHIFT", action = act.AdjustPaneSize({ "Left", 8 }) },
+    { key = "RightArrow", mods = paneNavigationMods .. "|SHIFT", action = act.AdjustPaneSize({ "Right", 8 }) },
 
     {
       key = "S",
