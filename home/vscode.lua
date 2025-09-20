@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 -- When I set relative number is VSCode, I need it in neovim too.
 vim.wo.relativenumber = false
+-- vim.wo.relativenumber = true
 -- vim.wo.number = false
 
 vim.g.mapleader = " "
@@ -99,4 +100,3 @@ vim.keymap.set("n", "<Leader>gg", "<Cmd>lua require('vscode').action('workbench.
 
 vim.keymap.set("n", "<Leader>e", "<Cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
 vim.keymap.set("n", "<Leader>o", "<Cmd>lua require('vscode').action('workbench.files.action.focusFilesExplorer')<CR>")
-
