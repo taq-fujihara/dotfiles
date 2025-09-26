@@ -5,11 +5,14 @@ python = "3.13.2"
 hugo = "extended_0.110.0"
 rust = "1.86.0"
 java = "openjdk-24.0.1"
-bun = "1.0.25"
+bun = "1.2.22"
 deno = "2.5.1"
 go = "1.22.2"
 lua = "5.4.7"
 usage = "latest"
 
+"npm:@github/copilot" = "latest"
+
 [settings]
 experimental = true
+npm.bun = true
