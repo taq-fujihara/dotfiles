@@ -1,6 +1,5 @@
 #!/bin/bash
 
-brew install fish
 brew install --cask wezterm@nightly
 brew install --cask google-cloud-sdk
 brew install gotop
