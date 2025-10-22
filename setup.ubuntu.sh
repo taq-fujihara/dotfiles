@@ -13,5 +13,4 @@
 ./install/cloudsqlproxy
 
 ./bin/create_links.fish
-./bin/loginshell.sh
-./bin/switch_colorscheme.fish nord
+./bin/change_login_shell.sh
