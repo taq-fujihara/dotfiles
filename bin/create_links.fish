@@ -25,7 +25,7 @@ function create_link
 
   if test -e $dst
     warn "$dst already exists. backup..."
-    cp $dst $BACKUP_DIR/
+    cp -r $dst $BACKUP_DIR/
     if test $status != 0
       error 'Failed to backup! Did not create link...'
       return 1
