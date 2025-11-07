@@ -64,9 +64,9 @@ return {
         Review = {
           mapping = '<leader>gcr',
         },
-        Fix = {
-          mapping = '<leader>gcf',
-        },
+        -- Fix = {
+        --   mapping = '<leader>gcf',
+        -- },
         Optimize = {
           mapping = '<leader>gco',
         },
@@ -76,9 +76,9 @@ return {
         Tests = {
           mapping = '<leader>gct',
         },
-        Commit = {
-          mapping = '<leader>gcc',
-        },
+        -- Commit = {
+        --   mapping = '<leader>gcc',
+        -- },
       }
     },
   },
