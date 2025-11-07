@@ -32,7 +32,7 @@ abbr --add v. nvim .
 abbr --add mkdirp mkdir -p
 abbr --add ll eza --icons --git --time-style relative -al
 abbr --add mr mise run
-abbr --add mx mise exec
+abbr --add mx mise exec --
 abbr --add clip fish_clipboard_copy
 abbr --add C --position anywhere --set-cursor "% | fish_clipboard_copy"
 abbr --add B --position anywhere --set-cursor "% | bat"

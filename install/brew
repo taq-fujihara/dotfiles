@@ -37,6 +37,7 @@ brew install \
   mise \
   neovim \
   nkf \
+  nushell \
   onefetch \
   pipenv \
   podman \
