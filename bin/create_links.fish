@@ -70,7 +70,6 @@ create_link config/fish/functions/update_astronvim.fish .config/fish/functions/u
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
 create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
-create_link config/fish/functions/zed.fish .config/fish/functions/zed.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
@@ -83,7 +82,7 @@ create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/wezterm/keys.lua .config/wezterm/keys.lua
 create_link config/yazi/yazi.toml .config/yazi/yazi.toml
 create_link config/zed/keymap.json .config/zed/keymap.json
-create_link config/zed/settings.base.json .config/zed/settings.base.json
+create_link config/zed/settings.json .config/zed/settings.json
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
 

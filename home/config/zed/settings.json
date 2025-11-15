@@ -16,16 +16,13 @@
   "project_panel": {
     "dock": "right"
   },
-  "auto_install_extension": {
-    "material-icon-theme": true
-  },
   "icon_theme": {
     "mode": "system",
-    "light": "Light Icon Theme",
+    "light": "Material Icon Theme",
     "dark": "Material Icon Theme"
   },
   "cursor_blink": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -33,13 +30,14 @@
   },
   "languages": {
     "Python": {
-      "formatter": {
-        "external": {
-          "command": "ruff",
-          "arguments": ["format", "-"]
-        }
-      },
+      "format_on_save": "on"
+    },
+    "TypeScript": {
+      "language_servers": ["tsgo", "vtsls"]
+    },
+    "Markdown": {
       "format_on_save": "on"
     }
-  }
+  },
+  "buffer_font_family": "UDEV Gothic 35NFLG"
 }
