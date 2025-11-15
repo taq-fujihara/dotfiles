@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -19,7 +26,7 @@
   "icon_theme": {
     "mode": "system",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Catppuccin Frappé"
   },
   "cursor_blink": true,
   "relative_line_numbers": "enabled",
@@ -38,6 +45,9 @@
     "Markdown": {
       "format_on_save": "on"
     }
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
   },
   "buffer_font_family": "UDEV Gothic 35NFLG"
 }
