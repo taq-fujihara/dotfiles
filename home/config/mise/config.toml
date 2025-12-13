@@ -16,6 +16,7 @@ usage = "latest"
 "npm:oxlint-tsgolint" = "latest"
 
 [settings]
+activate_aggressive = true
 experimental = true
 npm.bun = true
 idiomatic_version_file_enable_tools = ["python"]
