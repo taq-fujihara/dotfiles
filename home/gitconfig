@@ -65,6 +65,8 @@
     behind = graph ..FETCH_HEAD
     staged = diff --staged
     stashes = stash list
+    stash-all = stash --include-untracked
+    save = stash push
     branches = branch -a
     create-and-switch = switch -c
     delete-branch = branch -d
@@ -72,7 +74,6 @@
     remotes = remote -v
     amend = commit --amend
     fixup = commit --fixup
-    stash-all = stash --include-untracked
     edit = commit --amend --only
     unstage = restore --staged
     discard = restore
