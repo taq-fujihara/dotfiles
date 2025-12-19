@@ -72,6 +72,4 @@ starship init fish | source
 # before `brew shellenv` is sourced.
 mise activate fish | source
 direnv hook fish | source
-# # shell becomes a bit slow when Devbox is used as global package manager
-# devbox global shellenv --init-hook | source
 zoxide init fish | source

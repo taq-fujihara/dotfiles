@@ -6,7 +6,7 @@
 curl -fsSL https://raw.githubusercontent.com/taq-fujihara/dotfiles/main/install.sh | bash
 ```
 
-## Dev
+## ~~Dev~~
 
 ```shell
 cd dotfiles
