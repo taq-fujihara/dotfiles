@@ -10,44 +10,53 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini"
+      "model": "gpt-5-mini",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": true,
-  "buffer_line_height": { "custom": 1.4 },
+  "buffer_line_height": { "custom": 1.5 },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "icon_theme": {
     "mode": "system",
-    "light": "Material Icon Theme",
-    "dark": "Catppuccin Frappé"
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
   },
   "cursor_blink": true,
   "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Nord"
+    "dark": "Nord",
   },
   "languages": {
     "Python": {
-      "format_on_save": "on"
+      "language_servers": ["ty", "ruff", "!basedpyright"],
+      "format_on_save": "on",
     },
     "TypeScript": {
-      "language_servers": ["tsgo", "vtsls"]
+      "language_servers": ["tsgo", "vtsls"],
     },
     "Markdown": {
-      "format_on_save": "on"
-    }
+      "format_on_save": "on",
+    },
+    "Java": {
+      "format_on_save": "off",
+    },
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
-  "buffer_font_family": "UDEV Gothic 35NFLG"
+  "buffer_font_family": "UDEV Gothic 35NFLG",
+  "experimental.theme_overrides": {
+    // "editor.background": "#00000000",
+    // "background": "#00000000",
+    // "background.appearance": "b",
+  },
 }
