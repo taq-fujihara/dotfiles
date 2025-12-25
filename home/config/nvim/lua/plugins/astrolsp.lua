@@ -8,6 +8,59 @@ return {
       -- ---------------------------------------------------
       -- JavaScript / TypeScript
       -- ---------------------------------------------------
+      vtsls = {
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                  configNamespace = "typescript",
+                  enableForWorkspaceTypeScriptVersions = true,
+                },
+              },
+            },
+          },
+        },
+      },
+      volar = {
+        on_init = function(client)
+          local client_name = "vtsls"
+
+          client.handlers["tsserver/request"] = function(_, result, context)
+            local clients = vim.lsp.get_clients { bufnr = context.bufnr, name = client_name }
+            if #clients == 0 then
+              vim.notify(
+                "Could not found `" .. client_name .. "` lsp client, vue_lsp would not work without it.",
+                vim.log.levels.ERROR
+              )
+              return
+            end
+            local ts_client = clients[1]
+
+            local param = unpack(result)
+            local id, command, payload = unpack(param)
+
+            ts_client:exec_cmd({
+              title = "vue_request_forward", -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
+              command = "typescript.tsserverRequest",
+              arguments = {
+                command,
+                payload,
+              },
+            }, { bufnr = context.bufnr }, function(_, r)
+              local response_data = { { id, r.body } }
+              client:notify("tsserver/response", response_data)
+            end)
+          end
+        end,
+      },
+      biome = {
+        root_dir = require("lspconfig.util").root_pattern "biome.json",
+      },
       eslint = {
         root_dir = require("lspconfig.util").root_pattern(
           ".eslintrc",
@@ -17,9 +70,6 @@ return {
           "eslint.config.*"
         ),
       },
-      biome = {
-        root_dir = require("lspconfig.util").root_pattern "biome.json",
-      },
       denols = {
         root_dir = require("lspconfig.util").root_pattern(
           "deno.json",
@@ -27,8 +77,7 @@ return {
           "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
         ),
       },
-
-      -- ---------------------------------------------------
+      -- -- ---------------------------------------------------
       -- Python
       -- ---------------------------------------------------
       ruff = {
@@ -45,46 +94,41 @@ return {
           }
         }
       },
-      -- basedpyright = {
-      --   settings = {
-      --     basedpyright = {
-      --       typeCheckingMode = "standard",
-      --       analysis = {
-      --         diagnosticSeverityOverrides = {
-      --           reportUnusedExcept = false,
-      --           -- ruff handles these
-      --           reportUnusedVariable = false,
-      --           reportUnusedImport = false,
-      --         },
-      --       },
-      --     },
-      --   },
-      -- },
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            typeCheckingMode = "standard",
+            analysis = {
+              diagnosticSeverityOverrides = {
+                reportUnusedExcept = false,
+                -- ruff handles these
+                reportUnusedVariable = false,
+                reportUnusedImport = false,
+              },
+            },
+          },
+        },
+      },
     },
     handlers = {
       ty = function(_, opts)
         vim.lsp.config('ty', opts)
         vim.lsp.enable('ty')
       end,
-      -- disable basedpyright since I use ty
-      basedpyright = false,
+      basedpyright = false, -- disable basedpyright since I'm trying ty
     },
     servers = {
-      "ty"
+      "ty",
     },
-
     formatting = {
       disabled = {
-        "volar", -- prefer prettier
+        "volar",
         "ts_ls",
         "biome", -- let None-LS biome format
       }
     }
   },
 }
-
-
-
 
 --[[
 
