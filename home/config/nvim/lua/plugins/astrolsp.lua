@@ -31,20 +31,48 @@ return {
       -- ---------------------------------------------------
       -- Python
       -- ---------------------------------------------------
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            typeCheckingMode = "standard",
-            analysis = {
-              diagnosticSeverityOverrides = {
-                reportUnusedVariable = false, -- ruff handles this
-                reportUnusedExcept = false,
-              },
-            },
-          },
-        },
+      ruff = {
+        on_attach = function(client)
+          client.server_capabilities.hoverProvider = false
+        end
       },
+      ty = {
+        cmd = { "ty" , "server" },
+        filetypes = { "python" },
+        settings = {
+          ty = {
+            -- ty settings here
+          }
+        }
+      },
+      -- basedpyright = {
+      --   settings = {
+      --     basedpyright = {
+      --       typeCheckingMode = "standard",
+      --       analysis = {
+      --         diagnosticSeverityOverrides = {
+      --           reportUnusedExcept = false,
+      --           -- ruff handles these
+      --           reportUnusedVariable = false,
+      --           reportUnusedImport = false,
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
     },
+    handlers = {
+      ty = function(_, opts)
+        vim.lsp.config('ty', opts)
+        vim.lsp.enable('ty')
+      end,
+      -- disable basedpyright since I use ty
+      basedpyright = false,
+    },
+    servers = {
+      "ty"
+    },
+
     formatting = {
       disabled = {
         "volar", -- prefer prettier

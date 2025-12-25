@@ -16,6 +16,7 @@ return {
         "ruff",
         "rust-analyzer",
         "terraform-ls",
+        "ty",
         "typescript-language-server",
       },
     },
