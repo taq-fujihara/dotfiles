@@ -59,7 +59,7 @@ return {
         end,
       },
       biome = {
-        root_dir = require("lspconfig.util").root_pattern "biome.json",
+        root_dir = require("lspconfig.util").root_pattern("biome.json"),
       },
       eslint = {
         root_dir = require("lspconfig.util").root_pattern(
@@ -115,7 +115,7 @@ return {
         vim.lsp.config('ty', opts)
         vim.lsp.enable('ty')
       end,
-      basedpyright = false, -- disable basedpyright since I'm trying ty
+      basedpyright = false, -- disable basedpyright since I'm trying "ty" now!
     },
     servers = {
       "ty",
@@ -126,7 +126,7 @@ return {
         "ts_ls",
         "biome", -- let None-LS biome format
       }
-    }
+    },
   },
 }
 

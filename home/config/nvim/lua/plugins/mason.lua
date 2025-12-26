@@ -15,6 +15,7 @@ return {
         "lua-language-server",
         "ruff",
         "rust-analyzer",
+        "svelte-language-server",
         "terraform-ls",
         "ty",
         "vue-language-server",
