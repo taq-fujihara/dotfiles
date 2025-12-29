@@ -76,6 +76,11 @@ return {
           "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
         ),
       },
+      oxlint = {
+        root_dir = require("lspconfig.util").root_pattern(
+          ".oxlintrc.json"
+        ),
+      },
       -- -- ---------------------------------------------------
       -- Python
       -- ---------------------------------------------------
@@ -117,6 +122,7 @@ return {
       basedpyright = false, -- disable basedpyright since I'm trying "ty" now!
     },
     servers = {
+      "oxlint",
       "ty",
     },
     formatting = {

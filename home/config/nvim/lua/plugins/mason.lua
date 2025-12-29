@@ -13,6 +13,7 @@ return {
         "java-debug-adapter",
         "js-debug-adapter",
         "lua-language-server",
+        "oxlint",
         "ruff",
         "rust-analyzer",
         "svelte-language-server",
