@@ -47,7 +47,7 @@ config.inactive_pane_hsb = {
 	saturation = 0.9,
 	brightness = 0.6,
 }
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.colors = {
