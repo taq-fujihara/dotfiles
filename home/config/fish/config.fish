@@ -1,3 +1,13 @@
+#################################################
+# Theme
+#################################################
+
+fish_config theme choose nord
+
+#################################################
+# Key Bindings
+#################################################
+
 function fish_user_key_bindings
   for mode in insert default visual
     fish_default_key_bindings -M $mode
@@ -10,14 +20,18 @@ end
 
 set -g fish_key_bindings fish_vi_key_bindings
 
+fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
+
 #################################################
 # Aliases
 #################################################
+
 alias rm='rm -i'
 
 #################################################
 # Abbreviations
 #################################################
+
 abbr --add b bat
 abbr --add c code-insiders
 abbr --add c. code-insiders .
@@ -42,6 +56,7 @@ abbr --add F --position anywhere --set-cursor "% | fzf"
 #################################################
 # Path
 #################################################
+
 fish_add_path --global --move /usr/local/go/bin
 fish_add_path --global --move ~/.local/bin
 fish_add_path --global --move ~/go/bin
@@ -53,17 +68,15 @@ end
 #################################################
 # Environment Variables
 #################################################
+
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
 
-#################################################
-# Keybindings
-#################################################
-fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
 
 #################################################
 # Shell Integration
 #################################################
+
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
   /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 end
