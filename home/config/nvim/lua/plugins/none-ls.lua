@@ -36,14 +36,18 @@ return {
       -- Use Prettier only when prettier config is present 
       null_ls.builtins.formatting.prettier.with {
         condition = has_prettier_config,
-        -- only_local = true,
       },
       -- Default Biome
       null_ls.builtins.formatting.biome.with {
         condition = function(utils)
-          local has_prettier = has_prettier_config(utils)
-          local has_deno = has_deno_config(utils)
-          return not (has_prettier or has_deno)
+          if has_prettier_config(utils) then
+            return false
+          end
+          if has_deno_config(utils) then
+            return false
+          end
+
+          return true
         end,
       },
 

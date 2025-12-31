@@ -1,3 +1,5 @@
+util = require("lspconfig.util")
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -12,6 +14,8 @@ return {
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
         settings = {
           vtsls = {
+            ['javascript.validate.enable'] = false,
+            ['typescript.validate.enable'] = false,
             tsserver = {
               globalPlugins = {
                 {
@@ -58,10 +62,10 @@ return {
         end,
       },
       biome = {
-        root_dir = require("lspconfig.util").root_pattern("biome.json"),
+        root_dir = util.root_pattern("biome.json"),
       },
       eslint = {
-        root_dir = require("lspconfig.util").root_pattern(
+        root_dir = util.root_pattern(
           ".eslintrc",
           ".eslintrc.*",
           "eslintrc",
@@ -70,14 +74,14 @@ return {
         ),
       },
       denols = {
-        root_dir = require("lspconfig.util").root_pattern(
+        root_dir = util.root_pattern(
           "deno.json",
           "deno.jsonc",
           "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
         ),
       },
       oxlint = {
-        root_dir = require("lspconfig.util").root_pattern(
+        root_dir = util.root_pattern(
           ".oxlintrc.json"
         ),
       },
@@ -128,7 +132,6 @@ return {
     formatting = {
       disabled = {
         "volar",
-        "ts_ls",
         "biome", -- let None-LS biome format
       }
     },

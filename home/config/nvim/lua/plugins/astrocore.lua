@@ -21,7 +21,7 @@ return {
             if curr_client and curr_client.name == "denols" then
               local clients = (vim.lsp.get_clients or vim.lsp.get_clients) {
                 bufnr = bufnr,
-                name = "ts_ls",
+                name = "vtsls",
               }
               for _, client in ipairs(clients) do
                 vim.lsp.stop_client(client.id, true)

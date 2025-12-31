@@ -5,6 +5,10 @@ return {
   keys = {
     { "<Leader>mt", ":RenderMarkdown toggle<CR>", desc = "Toggle RenderMarkdown" },
   },
+  init = function()
+    -- Disable render-markdown by default, since it tends to break hovers provided by LSP
+    require('render-markdown').disable()
+  end,
   ---@module "render-markdown"
   ---@type render.md.UserConfig
   opts = {

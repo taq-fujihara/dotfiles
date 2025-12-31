@@ -5,6 +5,7 @@ return {
     opts = {
       ensure_installed = {
         "basedpyright",
+        "biome",
         "codelldb",
         "debugpy",
         "deno",
