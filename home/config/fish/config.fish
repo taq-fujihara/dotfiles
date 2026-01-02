@@ -5,20 +5,16 @@
 fish_config theme choose nord
 
 #################################################
+# Environment Variables
+#################################################
+set -x PIPENV_VENV_IN_PROJECT 1
+set -x MY_COLOR_SCHEME nord
+
+#################################################
 # Key Bindings
 #################################################
 
-function fish_user_key_bindings
-  for mode in insert default visual
-    fish_default_key_bindings -M $mode
-  end
-  fish_vi_key_bindings --no-erase
-
-  # map escape
-  bind -M insert jj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
-end
-
-set -g fish_key_bindings fish_vi_key_bindings
+set --global fish_key_bindings fish_default_key_bindings
 
 fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
 
@@ -64,14 +60,6 @@ fish_add_path --global --move ~/go/bin
 if test (uname) = 'Darwin'
   fish_add_path --global --move /Applications/WezTerm.app/Contents/MacOS
 end
-
-#################################################
-# Environment Variables
-#################################################
-
-set -x PIPENV_VENV_IN_PROJECT 1
-set -x MY_COLOR_SCHEME nord
-
 
 #################################################
 # Shell Integration
