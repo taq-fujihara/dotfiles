@@ -18,5 +18,5 @@ usage = "latest"
 [settings]
 activate_aggressive = true
 experimental = true
-npm.bun = true
-idiomatic_version_file_enable_tools = ["python"]
+npm.package_manager = "bun"
+idiomatic_version_file_enable_tools = ["node", "python"]
