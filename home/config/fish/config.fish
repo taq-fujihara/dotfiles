@@ -14,9 +14,19 @@ set -x MY_COLOR_SCHEME nord
 # Key Bindings
 #################################################
 
-set --global fish_key_bindings fish_default_key_bindings
+function fish_user_key_bindings
+  for mode in insert default visual
+    fish_default_key_bindings -M $mode
+  end
+  fish_vi_key_bindings --no-erase
 
-fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
+  # map escape
+  bind -M insert jj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
+end
+
+set --global fish_key_bindings fish_vi_key_bindings
+
+# fzf_configure_bindings --directory=\cf --variables=\e\cv # Ctrl+Alt+v
 
 #################################################
 # Aliases
