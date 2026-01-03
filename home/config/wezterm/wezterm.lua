@@ -42,7 +42,7 @@ end
 config.color_scheme = COLOR_SCHEME
 
 config.font = wezterm.font('UDEV Gothic 35NFLG')
-config.line_height = 1.1
+config.line_height = 1.2
 
 config.hide_tab_bar_if_only_one_tab = false -- I want workspace name to be always visible
 config.window_background_opacity = 0.95
