@@ -1,3 +1,5 @@
+local null_ls = require "null-ls"
+
 local function has_prettier_config(utils)
   return utils.has_file(
     ".prettierrc",
@@ -25,46 +27,54 @@ end
 
 ---@type LazySpec
 return {
-  "nvimtools/none-ls.nvim",
-  opts = function(_, opts)
-    local null_ls = require "null-ls"
+  {
+    "nvimtools/none-ls.nvim",
+    opts = {
+      sources = {
+        -- ---------------------------------------------------
+        -- JavaScript / TypeScript
+        -- ---------------------------------------------------
+        null_ls.builtins.formatting.prettier.with {
+          condition = function(utils) return has_prettier_config(utils) end,
+        },
+        -- Default
+        null_ls.builtins.formatting.biome.with {
+          condition = function(utils)
+            if has_prettier_config(utils) then return false end
+            if has_deno_config(utils) then return false end
 
-    opts.sources = require("astrocore").list_insert_unique(opts.sources, {
-      -- ---------------------------------------------------
-      -- JavaScript / TypeScript
-      -- ---------------------------------------------------
-      -- Use Prettier only when prettier config is present 
-      null_ls.builtins.formatting.prettier.with {
-        condition = has_prettier_config,
+            return true
+          end,
+        },
+
+        -- ---------------------------------------------------
+        -- Lua
+        -- ---------------------------------------------------
+        null_ls.builtins.formatting.stylua,
+
+        -- ---------------------------------------------------
+        -- Docker
+        -- ---------------------------------------------------
+        null_ls.builtins.diagnostics.hadolint,
       },
-      -- Default Biome
-      null_ls.builtins.formatting.biome.with {
-        condition = function(utils)
-          if has_prettier_config(utils) then
-            return false
-          end
-          if has_deno_config(utils) then
-            return false
-          end
-
-          return true
-        end,
+    },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "nvimtools/none-ls.nvim",
+    },
+    opts = {
+      handlers = {
+        -- disable all automatic registration
+        -- (had problem biome formatter always attached...)
+        function() end,
       },
-
-      -- ---------------------------------------------------
-      -- Lua
-      -- ---------------------------------------------------
-      null_ls.builtins.formatting.stylua,
-
-      -- ---------------------------------------------------
-      -- Docker
-      -- ---------------------------------------------------
-      null_ls.builtins.diagnostics.hadolint,
-    })
-  end,
+    },
+  },
 }
-
-
 
 --[[
 

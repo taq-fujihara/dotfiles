@@ -11,32 +11,34 @@ return {
     },
     autocmds = {
       -- Choose the correct language server
-      typescript_deno_switch = {
-        {
-          event = "LspAttach",
-          callback = function(args)
-            local bufnr = args.buf
-            local curr_client = vim.lsp.get_client_by_id(args.data.client_id)
-
-            if curr_client and curr_client.name == "denols" then
-              local clients = (vim.lsp.get_clients or vim.lsp.get_clients) {
-                bufnr = bufnr,
-                name = "vtsls",
-              }
-              for _, client in ipairs(clients) do
-                vim.lsp.stop_client(client.id, true)
-              end
-            end
-
-            -- stop typescript server attached if there is a denols server attached
-            if curr_client and curr_client.name == "ts_ls" then
-              if next((vim.lsp.get_clients or vim.lsp.get_clients) { bufnr = bufnr, name = "denols" }) then
-                vim.lsp.stop_client(curr_client.id, true)
-              end
-            end
-          end,
-        },
-      },
+      -- typescript_deno_switch = {
+      --   {
+      --     event = "LspAttach",
+      --     callback = function(args)
+      --       local ts_server_name = "vtsls"
+      --
+      --       local bufnr = args.buf
+      --       local curr_client = vim.lsp.get_client_by_id(args.data.client_id)
+      --
+      --       if curr_client and curr_client.name == "denols" then
+      --         local clients = (vim.lsp.get_clients or vim.lsp.get_clients) {
+      --           bufnr = bufnr,
+      --           name = ts_server_name,
+      --         }
+      --         for _, client in ipairs(clients) do
+      --           vim.lsp.stop_client(client.id, true)
+      --         end
+      --       end
+      --
+      --       -- stop typescript server attached if there is a denols server attached
+      --       if curr_client and curr_client.name == ts_server_name then
+      --         if next((vim.lsp.get_clients or vim.lsp.get_clients) { bufnr = bufnr, name = "denols" }) then
+      --           vim.lsp.stop_client(curr_client.id, true)
+      --         end
+      --       end
+      --     end,
+      --   },
+      -- },
     },
   },
 }

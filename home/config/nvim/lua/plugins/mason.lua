@@ -17,6 +17,7 @@ return {
         "oxlint",
         "ruff",
         "rust-analyzer",
+        "stylua",
         "svelte-language-server",
         "terraform-ls",
         "ty",

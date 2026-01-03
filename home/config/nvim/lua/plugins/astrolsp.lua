@@ -1,4 +1,22 @@
-util = require("lspconfig.util")
+local util = require "lspconfig.util"
+
+local eslint_files = {
+  ".eslintrc",
+  ".eslintrc.*",
+  "eslintrc",
+  "eslintrc.*",
+  "eslint.config.*",
+}
+
+local biome_files = { "biome.json" }
+
+local oxlint_files = { ".oxlintrc.json" }
+
+local deno_files = {
+  "deno.json",
+  "deno.jsonc",
+  "deno.local.json", -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
+}
 
 ---@type LazySpec
 return {
@@ -11,16 +29,25 @@ return {
       -- JavaScript / TypeScript
       -- ---------------------------------------------------
       vtsls = {
+        on_new_config = function(config, _)
+          local fname = vim.api.nvim_buf_get_name(0)
+          if util.root_pattern(deno_files)(fname) then
+            config.enabled = false
+          else
+            config.enabled = true
+          end
+        end,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
         settings = {
           vtsls = {
-            ['javascript.validate.enable'] = false,
-            ['typescript.validate.enable'] = false,
+            ["javascript.validate.enable"] = false,
+            ["typescript.validate.enable"] = false,
             tsserver = {
               globalPlugins = {
                 {
                   name = "@vue/typescript-plugin",
-                  location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                  location = vim.fn.stdpath "data"
+                    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
                   languages = { "vue" },
                   configNamespace = "typescript",
                 },
@@ -62,45 +89,31 @@ return {
         end,
       },
       biome = {
-        root_dir = util.root_pattern("biome.json"),
+        root_dir = util.root_pattern(biome_files),
       },
       eslint = {
-        root_dir = util.root_pattern(
-          ".eslintrc",
-          ".eslintrc.*",
-          "eslintrc",
-          "eslintrc.*",
-          "eslint.config.*"
-        ),
+        root_dir = util.root_pattern(eslint_files),
       },
       denols = {
-        root_dir = util.root_pattern(
-          "deno.json",
-          "deno.jsonc",
-          "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
-        ),
+        root_dir = util.root_pattern(deno_files),
       },
       oxlint = {
-        root_dir = util.root_pattern(
-          ".oxlintrc.json"
-        ),
+        root_dir = util.root_pattern(oxlint_files),
       },
       -- -- ---------------------------------------------------
       -- Python
       -- ---------------------------------------------------
       ruff = {
-        on_attach = function(client)
-          client.server_capabilities.hoverProvider = false
-        end
+        on_attach = function(client) client.server_capabilities.hoverProvider = false end,
       },
       ty = {
-        cmd = { "ty" , "server" },
+        cmd = { "ty", "server" },
         filetypes = { "python" },
         settings = {
           ty = {
             -- ty settings here
-          }
-        }
+          },
+        },
       },
       basedpyright = {
         settings = {
@@ -120,8 +133,8 @@ return {
     },
     handlers = {
       ty = function(_, opts)
-        vim.lsp.config('ty', opts)
-        vim.lsp.enable('ty')
+        vim.lsp.config("ty", opts)
+        vim.lsp.enable "ty"
       end,
       basedpyright = false, -- disable basedpyright since I'm trying "ty" now!
     },
@@ -133,7 +146,7 @@ return {
       disabled = {
         "volar",
         "biome", -- let None-LS biome format
-      }
+      },
     },
   },
 }
