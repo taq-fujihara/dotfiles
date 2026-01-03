@@ -17,7 +17,6 @@ brew install \
   bottom \
   cloud-sql-proxy \
   direnv \
-  docker \
   eza \
   fd \
   ffmpegthumbnailer \
