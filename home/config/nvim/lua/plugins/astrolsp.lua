@@ -130,6 +130,15 @@ return {
           },
         },
       },
+      docker_ls = {
+        cmd = { "docker-language-server", "start", "--stdio" },
+        filetypes = { "dockerfile" },
+        settings = {
+          docker_ls = {
+            -- docker-language-server settings here
+          },
+        },
+      },
     },
     handlers = {
       ty = function(_, opts)
@@ -137,10 +146,15 @@ return {
         vim.lsp.enable "ty"
       end,
       basedpyright = false, -- disable basedpyright since I'm trying "ty" now!
+      ["docker_ls"] = function(_, opts)
+        vim.lsp.config("docker_ls", opts)
+        vim.lsp.enable "docker_ls"
+      end,
     },
     servers = {
       "oxlint",
       "ty",
+      "docker_ls",
     },
     formatting = {
       disabled = {

@@ -56,6 +56,11 @@ return {
         -- Docker
         -- ---------------------------------------------------
         null_ls.builtins.diagnostics.hadolint,
+
+        -- ---------------------------------------------------
+        -- Markdown
+        -- ---------------------------------------------------
+        null_ls.builtins.diagnostics.markdownlint_cli2,
       },
     },
   },
