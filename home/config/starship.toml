@@ -47,7 +47,8 @@ disabled = false
 show_always = true
 style_user = "bg:#9A348E"
 style_root = "bg:#9A348E"
-format = '[ ]($style)'
+format = '[󱐋 ]($style)'
+# format = '[ ]($style)'
 
 [directory]
 style = "fg:#ffffff bg:#DA627D"
