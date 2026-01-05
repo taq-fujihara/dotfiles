@@ -1,8 +1,5 @@
 local wezterm = require("wezterm")
 
-local act = wezterm.action
-local is_mac = wezterm.target_triple == "x86_64-apple-darwin"
-
 local config = {}
 
 if wezterm.config_builder then
@@ -41,7 +38,7 @@ end
 
 config.color_scheme = COLOR_SCHEME
 
-config.font = wezterm.font('UDEV Gothic 35NFLG')
+config.font = wezterm.font("UDEV Gothic 35NFLG")
 config.line_height = 1.2
 
 config.hide_tab_bar_if_only_one_tab = false -- I want workspace name to be always visible
@@ -60,13 +57,13 @@ config.colors = {
 	},
 }
 
-wezterm.on('update-status', function(window)
+wezterm.on("update-status", function(window)
 	local active_workspace = window:active_workspace()
 
-	window:set_left_status(wezterm.format {
+	window:set_left_status(wezterm.format({
 		{ Foreground = { Color = ACTIVE_TAB_FG_COLOR } },
 		{ Text = "      " .. active_workspace .. "  " },
-	})
+	}))
 
 	local workspaces = wezterm.mux.get_workspace_names()
 	local MAX_INACTIVE_WORKSPACES = 3
@@ -90,11 +87,11 @@ wezterm.on('update-status', function(window)
 		inactive_workspace_text = inactive_workspace_text .. " +" .. hidden_count
 	end
 
-	window:set_right_status(wezterm.format {
+	window:set_right_status(wezterm.format({
 		{ Foreground = { Color = INACTIVE_TAB_FG_COLOR } },
 		{ Text = "   " .. inactive_workspace_text .. "   " },
 		{ Text = "   " .. COLOR_SCHEME .. "   " },
-	})
+	}))
 end)
 
 -- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
