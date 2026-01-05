@@ -10,7 +10,8 @@ sudo apt install -y \
   software-properties-common \
   zip \
   uidmap \
-  unzip
+  unzip \
+  wl-clipboard
 
 sudo apt install -y \
   libssl-dev zlib1g-dev \
