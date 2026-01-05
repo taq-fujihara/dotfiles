@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_family": "UDEV Gothic 35NFLG",
+  "buffer_font_weight": 400.0,
+  "buffer_font_size": 15.0,
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
@@ -33,7 +36,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Nord",
+    "dark": "Nord Dark",
   },
   "languages": {
     "Python": {
@@ -53,7 +56,6 @@
   "features": {
     "edit_prediction_provider": "copilot",
   },
-  "buffer_font_family": "UDEV Gothic 35NFLG",
   "experimental.theme_overrides": {
     // "editor.background": "#00000000",
     // "background": "#00000000",
