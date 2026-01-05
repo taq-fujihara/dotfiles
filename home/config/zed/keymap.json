@@ -16,14 +16,14 @@
       "f5": "debugger::Start",
       "f10": "debugger::StepOver",
       "f11": "debugger::StepInto",
-      "shift-f11": "debugger::StepOut"
-    }
+      "shift-f11": "debugger::StepOut",
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
-      "secondary-h": "workspace::ActivatePaneLeft"
-    }
+      "secondary-h": "workspace::ActivatePaneLeft",
+    },
   },
   {
     "context": "ProjectPanel && not_editing",
@@ -32,15 +32,15 @@
       "A": "project_panel::NewDirectory",
       "c": "project_panel::Duplicate",
       "r": "project_panel::Rename",
-      "d": "project_panel::Delete"
-    }
+      "d": "project_panel::Delete",
+    },
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
-      "shift-space": "editor::ShowCompletions"
-    }
+      "shift-space": "editor::ShowCompletions",
+    },
   },
   {
     "context": "vim_mode == normal",
@@ -61,7 +61,13 @@
       "space /": "editor::ToggleComments",
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
-      "space l s": "outline::Toggle"
-    }
-  }
+      "space l s": "outline::Toggle",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space /": "editor::ToggleComments",
+    },
+  },
 ]
