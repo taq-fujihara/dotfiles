@@ -2,14 +2,14 @@
 -- This is just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = "NONE", ctermbg = "NONE" })
-vim.api.nvim_set_hl(0, 'WinBar', { bg = "NONE", ctermbg = "NONE" })
-vim.api.nvim_set_hl(0, 'WinBarNC', { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "WinBar", { bg = "NONE", ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "WinBarNC", { bg = "NONE", ctermbg = "NONE" })
 
 vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { link = "Normal" })
 
-vim.filetype.add({
+vim.filetype.add {
   extension = {
     tofu = "terraform",
-  }
-})
+  },
+}
