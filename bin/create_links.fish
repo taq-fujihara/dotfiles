@@ -54,6 +54,7 @@ create_link gitignore .gitignore
 create_link xkb .xkb
 create_link tigrc .tigrc
 create_link sampler.yaml .sampler.yaml
+create_link config/bat/config .config/bat/config
 create_link config/gh/config.yml .config/gh/config.yml
 create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/fish/config.fish .config/fish/config.fish
