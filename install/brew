@@ -23,6 +23,7 @@ brew install \
   fish \
   fzf \
   gdu \
+  gemini-cli \
   git-delta \
   gh \
   ghq \
