@@ -96,7 +96,3 @@
 
 [include]
     path = ~/.gitconfig.local
-
-[user]
-    email = taq.fujihara@gmail.com
-    name = taq-fujihara
