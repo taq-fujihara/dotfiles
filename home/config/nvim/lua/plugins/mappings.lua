@@ -7,6 +7,11 @@ return {
         n = {
           [";"] = { ":", desc = "CMD enter command mode" },
 
+          ["<Left>"] = { "<cmd>vertical resize +4<cr>", desc = "Resize window left" },
+          ["<Right>"] = { "<cmd>vertical resize -4<cr>", desc = "Resize window right" },
+          ["<Up>"] = { "<cmd>resize +4<cr>", desc = "Resize window up" },
+          ["<Down>"] = { "<cmd>resize -4<cr>", desc = "Resize window down" },
+
           L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
@@ -27,15 +32,14 @@ return {
             desc = "Replace Word under Cursor",
           },
           ["<Leader><Leader>"] = {
-            function() require("snacks").picker.smart() end, desc = "Find buffers",
+            function() require("snacks").picker.smart() end,
+            desc = "Find buffers",
           },
           ["<Leader>c"] = {
             function()
-              local bufs = vim.fn.getbufinfo({ buflisted = true })
+              local bufs = vim.fn.getbufinfo { buflisted = true }
               require("astrocore.buffer").close(0)
-              if not bufs[2] then
-                require("snacks").dashboard()
-              end
+              if not bufs[2] then require("snacks").dashboard() end
             end,
             desc = "Close buffer",
           },
@@ -65,16 +69,24 @@ return {
               local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 
               if ft == "javascript" or ft == "typescript" then
-                vim.api.nvim_feedkeys("mzyoconsole.log(\"🚀 ~ " .. fn .. " ~ " .. esc .. "pa:\", " .. esc .. "pa);" .. esc .. "`z", "n", true)
-              elseif ft == 'python' then
-                vim.api.nvim_feedkeys("mzyoprint(\"🚀 ~ " .. fn .. " ~ " .. esc .. "pa:\", " .. esc .. "pa)" .. esc .. "`z", "n", true)
+                vim.api.nvim_feedkeys(
+                  'mzyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`z",
+                  "n",
+                  true
+                )
+              elseif ft == "python" then
+                vim.api.nvim_feedkeys(
+                  'mzyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`z",
+                  "n",
+                  true
+                )
               else
-                print("🚀 TurboStdout -> Filetype: \"" .. ft .. "\" is not supported")
+                print('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
               end
             end,
-            desc = "Turbo Stdout"
+            desc = "Turbo Stdout",
           },
-        }
+        },
       },
     },
   },
@@ -96,14 +108,22 @@ return {
               local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 
               if ft == "javascript" or ft == "typescript" then
-                vim.api.nvim_feedkeys("mzviWyoconsole.log(\"🚀 ~ " .. fn .. " ~ " .. esc .. "pa:\", " .. esc .. "pa);" .. esc .. "`z", "n", true)
-              elseif ft == 'python' then
-                vim.api.nvim_feedkeys("mzviWyoprint(\"🚀 ~ " .. fn .. " ~ " .. esc .. "pa:\", " .. esc .. "pa)" .. esc .. "`z", "n", true)
+                vim.api.nvim_feedkeys(
+                  'mzviWyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`z",
+                  "n",
+                  true
+                )
+              elseif ft == "python" then
+                vim.api.nvim_feedkeys(
+                  'mzviWyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`z",
+                  "n",
+                  true
+                )
               else
-                print("🚀 TurboStdout -> Filetype: \"" .. ft .. "\" is not supported")
+                print('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
               end
             end,
-            desc = "Turbo Stdout"
+            desc = "Turbo Stdout",
           },
         },
       },
