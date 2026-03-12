@@ -7,11 +7,6 @@ return {
         n = {
           [";"] = { ":", desc = "CMD enter command mode" },
 
-          ["<Left>"] = { "<cmd>vertical resize +4<cr>", desc = "Resize window left" },
-          ["<Right>"] = { "<cmd>vertical resize -4<cr>", desc = "Resize window right" },
-          ["<Up>"] = { "<cmd>resize +4<cr>", desc = "Resize window up" },
-          ["<Down>"] = { "<cmd>resize -4<cr>", desc = "Resize window down" },
-
           L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
