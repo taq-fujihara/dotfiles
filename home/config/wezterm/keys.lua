@@ -65,21 +65,50 @@ function M.setup(config)
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 
+		{
+			key = "h",
+			mods = "LEADER",
+			action = act.SplitPane({ direction = "Left", size = { Percent = 50 } }),
+		},
+		{
+			key = "j",
+			mods = "LEADER",
+			action = act.SplitPane({ direction = "Down", size = { Percent = 50 } }),
+		},
+		{
+			key = "k",
+			mods = "LEADER",
+			action = act.SplitPane({ direction = "Up", size = { Percent = 50 } }),
+		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.SplitPane({ direction = "Right", size = { Percent = 50 } }),
+		},
+
 		-- pane navigation
 		M.smart_pane_navigation("h", "Left"),
 		M.smart_pane_navigation("j", "Down"),
 		M.smart_pane_navigation("k", "Up"),
 		M.smart_pane_navigation("l", "Right"),
 
+		{ key = "r",          mods = "LEADER",                       action = act.RotatePanes("Clockwise") },
+
 		-- tab navigation
-		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
-		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = "L",          mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
+		{ key = "H",          mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
 
 		-- pane resizing
-		{ key = "DownArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 4 }) },
-		{ key = "UpArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Up", 4 }) },
-		{ key = "LeftArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Left", 8 }) },
-		{ key = "RightArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Right", 8 }) },
+		{ key = "DownArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "UpArrow",    mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "LeftArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Left", 15 }) },
+		{ key = "RightArrow", mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Right", 15 }) },
+
+		{
+			key = "z",
+			mods = "LEADER",
+			action = act.TogglePaneZoomState,
+		},
 
 		{
 			key = "S",
@@ -203,7 +232,7 @@ function M.smart_pane_navigation(key, direction)
 end
 
 function M.is_nvim(pane)
-	return pane:get_user_vars().IS_NVIM == "true" or pane:get_foreground_process_name():find("nvim")
+	return pane:get_user_vars().IS_NVIM == "true"
 end
 
 return M

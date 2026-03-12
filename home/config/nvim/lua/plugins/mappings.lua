@@ -1,3 +1,45 @@
+local function split_right()
+  vim.cmd "vsplit"
+  vim.cmd "wincmd l"
+  require("snacks").picker.files()
+end
+
+local function split_left()
+  vim.cmd "vsplit"
+  vim.cmd "wincmd h"
+  require("snacks").picker.files()
+end
+
+local function split_down()
+  vim.cmd "split"
+  vim.cmd "wincmd j"
+  require("snacks").picker.files()
+end
+
+local function split_up()
+  vim.cmd "split"
+  vim.cmd "wincmd k"
+  require("snacks").picker.files()
+end
+
+local function exec_pane_move(direction)
+  if vim.bo.buftype == "terminal" then vim.cmd "stopinsert" end
+
+  local has_more_window = vim.fn.winnr() ~= vim.fn.winnr(direction)
+
+  if has_more_window then
+    -- usual nvim window movement
+    vim.cmd("wincmd " .. direction)
+  else
+    -- move wezterm pane in the direction via wezterm cli
+    local directions = { h = "Left", j = "Down", k = "Up", l = "Right" }
+    -- TODO: might need to change "wezterm" executable name for other platforms
+    local command = { "wezterm", "cli", "activate-pane-direction", directions[direction] }
+
+    vim.system(command)
+  end
+end
+
 return {
   {
     "AstroNvim/astrocore",
@@ -22,10 +64,27 @@ return {
             desc = "Comment Line",
           },
 
+          ["<C-h>"] = { function() exec_pane_move "h" end },
+          ["<C-j>"] = { function() exec_pane_move "j" end },
+          ["<C-k>"] = { function() exec_pane_move "k" end },
+          ["<C-l>"] = { function() exec_pane_move "l" end },
+
+          ["<Leader>bo"] = { desc = "Open File by Search" },
+          ["<Leader>boh"] = { split_left, desc = "Split Left" },
+          ["<Leader>boj"] = { split_down, desc = "Split Down" },
+          ["<Leader>bok"] = { split_up, desc = "Split Up" },
+          ["<Leader>bol"] = { split_right, desc = "Split Right" },
+
+          ["<Leader>="] = {
+            function() vim.cmd "wincmd =" end,
+            desc = "Equalize splits",
+          },
+
           ["<Leader>j"] = {
             "*``cgn",
             desc = "Replace Word under Cursor",
           },
+
           ["<Leader><Leader>"] = {
             function() require("snacks").picker.smart() end,
             desc = "Find buffers",
