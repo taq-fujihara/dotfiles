@@ -49,6 +49,17 @@ return {
         n = {
           [";"] = { ":", desc = "CMD enter command mode" },
 
+          ["<Leader>y"] = { '"+y', desc = "Copy to system clipboard" },
+          ["<Leader>pa"] = false,
+          ["<Leader>pi"] = false,
+          ["<Leader>pm"] = false,
+          ["<Leader>pM"] = false,
+          ["<Leader>ps"] = false,
+          ["<leader>pS"] = false,
+          ["<leader>pu"] = false,
+          ["<Leader>pU"] = false,
+          ["<Leader>p"] = { '"+p', desc = "Paste from system clipboard" },
+
           L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
@@ -111,6 +122,10 @@ return {
         },
         v = {
           [";"] = { ":", desc = "CMD enter command mode" },
+
+          ["<Leader>y"] = { '"+y', desc = "Copy to system clipboard" },
+          ["<Leader>p"] = { '"+p', desc = "Paste from system clipboard" },
+
           ["<Leader>ll"] = {
             function()
               local fn = vim.api.nvim_buf_get_name(0)
