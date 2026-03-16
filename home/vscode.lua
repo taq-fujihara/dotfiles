@@ -1,14 +1,14 @@
-local lazypath = vim.fn.stdpath "data" .. "/lazy_vscode/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy_vscode/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  }
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
@@ -19,48 +19,52 @@ vim.wo.relativenumber = false
 
 vim.g.mapleader = " "
 
-require("lazy").setup {
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    version = "*",
-    opts = {},
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump {
-            search = {
-              mode = function(str) return "\\<" .. str end,
-            },
-            label = {
-              uppercase = false,
-            },
-            autojump = true,
-          }
-        end,
-        desc = "Flash",
-      },
-    },
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
-  },
-  {
-    "xiyaowong/fast-cursor-move.nvim",
-    version = "*",
-    event = "VeryLazy",
-    config = function() vim.g.fast_cursor_move_acceleration = false end,
-  },
-}
+require("lazy").setup({
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		version = "*",
+		opts = {},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump({
+						search = {
+							mode = function(str)
+								return "\\<" .. str
+							end,
+						},
+						label = {
+							uppercase = false,
+						},
+						autojump = true,
+					})
+				end,
+				desc = "Flash",
+			},
+		},
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	{
+		"xiyaowong/fast-cursor-move.nvim",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			vim.g.fast_cursor_move_acceleration = false
+		end,
+	},
+})
 
 -- local code = require("vscode")
 
@@ -69,6 +73,7 @@ vim.keymap.set("v", ";", ":")
 
 vim.keymap.set("n", "|", "<Cmd>lua require('vscode').action('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>lua require('vscode').action('workbench.action.splitEditorDown')<CR>")
+vim.keymap.set("n", "=", "<Cmd>lua require('vscode').action('workbench.action.evenEditorWidths')<CR>")
 vim.keymap.set("n", "L", "<Cmd>lua require('vscode').action('workbench.action.nextEditor')<CR>")
 vim.keymap.set("n", "H", "<Cmd>lua require('vscode').action('workbench.action.previousEditor')<CR>")
 vim.keymap.set("n", "za", "<Cmd>lua require('vscode').action('editor.toggleFold')<CR>")
