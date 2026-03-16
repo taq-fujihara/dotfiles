@@ -1,0 +1,46 @@
+return {
+  "gbprod/yanky.nvim",
+  dependencies = { "folke/snacks.nvim" },
+  opts = {
+    system_clipboard = {
+      sync_with_ring = false,
+    },
+    highlight = {
+      on_put = true,
+      on_yank = true,
+      timer = 150,
+    },
+  },
+  keys = {
+    { "<Leader>p", "<cmd>YankyRingHistory<cr>", mode = { "n" }, desc = "Open Yank History" },
+    { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
+    { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
+    { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
+    {
+      "gp",
+      "<Plug>(YankyGPutAfter)",
+      mode = { "n", "x" },
+      desc = "Put yanked text after cursor and leave cursor after",
+    },
+    {
+      "gP",
+      "<Plug>(YankyGPutBefore)",
+      mode = { "n", "x" },
+      desc = "Put yanked text before cursor and leave cursor after",
+    },
+    { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
+    { "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
+    { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
+    { "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
+    { "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
+    { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
+    { ">p", "<Plug>(YankyPutIndentAfterShiftRight)", desc = "Put and Indent Right" },
+    { "<p", "<Plug>(YankyPutIndentAfterShiftLeft)", desc = "Put and Indent Left" },
+    { ">P", "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put Before and Indent Right" },
+    { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put Before and Indent Left" },
+    { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put After Applying a Filter" },
+    { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Applying a Filter" },
+    { "<c-p>", "<Plug>(YankyPreviousEntry)", desc = "Select previous entry through yank history" },
+    { "<c-n>", "<Plug>(YankyNextEntry)", desc = "Select next entry through yank history" },
+  },
+}
