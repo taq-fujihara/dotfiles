@@ -112,6 +112,35 @@ return {
             desc = "Select All",
           },
           ["<Leader>m"] = { desc = " Markdown" },
+          ["<Leader>ll"] = {
+            function()
+              local fn = vim.api.nvim_buf_get_name(0)
+              local ft = vim.bo.filetype
+
+              for i in string.gmatch(fn, "[^/]+") do
+                fn = i
+              end
+
+              local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+
+              if ft == "javascript" or ft == "typescript" then
+                vim.api.nvim_feedkeys(
+                  'mbviwyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`b",
+                  "n",
+                  true
+                )
+              elseif ft == "python" then
+                vim.api.nvim_feedkeys(
+                  'mbviwyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`b",
+                  "n",
+                  true
+                )
+              else
+                vim.notify('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
+              end
+            end,
+            desc = "Turbo Stdout",
+          },
         },
         i = {
           ["<C-_>"] = {
@@ -137,57 +166,18 @@ return {
 
               if ft == "javascript" or ft == "typescript" then
                 vim.api.nvim_feedkeys(
-                  'mzyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`z",
+                  'mbyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`b",
                   "n",
                   true
                 )
               elseif ft == "python" then
                 vim.api.nvim_feedkeys(
-                  'mzyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`z",
+                  'mbyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`b",
                   "n",
                   true
                 )
               else
-                print('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
-              end
-            end,
-            desc = "Turbo Stdout",
-          },
-        },
-      },
-    },
-  },
-  {
-    "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
-    opts = {
-      mappings = {
-        n = {
-          ["<Leader>ll"] = {
-            function()
-              local fn = vim.api.nvim_buf_get_name(0)
-              local ft = vim.bo.filetype
-
-              for i in string.gmatch(fn, "[^/]+") do
-                fn = i
-              end
-
-              local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
-
-              if ft == "javascript" or ft == "typescript" then
-                vim.api.nvim_feedkeys(
-                  'mzviWyoconsole.log("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa);" .. esc .. "`z",
-                  "n",
-                  true
-                )
-              elseif ft == "python" then
-                vim.api.nvim_feedkeys(
-                  'mzviWyoprint("🚀 ~ ' .. fn .. " ~ " .. esc .. 'pa:", ' .. esc .. "pa)" .. esc .. "`z",
-                  "n",
-                  true
-                )
-              else
-                print('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
+                vim.notify('🚀 TurboStdout -> Filetype: "' .. ft .. '" is not supported')
               end
             end,
             desc = "Turbo Stdout",
