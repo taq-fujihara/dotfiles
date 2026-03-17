@@ -31,7 +31,7 @@ command_timeout = 2000
 
 [character]
 success_symbol = '[](#86BBD8)'
-error_symbol = '[󰚌](#DA627D)'
+error_symbol = '[](#DA627D)'
 vimcmd_symbol = '[](#FCA17D)'
 vimcmd_replace_one_symbol = '[](#FCA17D)'
 vimcmd_replace_symbol = '[](#FCA17D)'
