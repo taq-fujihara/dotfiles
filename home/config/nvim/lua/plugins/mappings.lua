@@ -40,6 +40,16 @@ local function exec_pane_move(direction)
   end
 end
 
+local function get_filename()
+  local fn = vim.api.nvim_buf_get_name(0)
+
+  for i in string.gmatch(fn, "[^/]+") do
+    fn = i
+  end
+
+  return fn
+end
+
 return {
   {
     "AstroNvim/astrocore",
@@ -48,9 +58,9 @@ return {
       mappings = {
         n = {
           [";"] = { ":", desc = "CMD enter command mode" },
-
+          -- Yank
           ["<Leader>y"] = { '"+y', desc = "Copy to system clipboard" },
-          ["<Leader>pa"] = false,
+          ["<Leader>pa"] = false, -- want to disable all the keys under p ("packages" by AstroNvim) to use for my own mappings (Yanky). TODO: find a better way to disable all the keys under p instead of disabling them one by one
           ["<Leader>pi"] = false,
           ["<Leader>pm"] = false,
           ["<Leader>pM"] = false,
@@ -58,47 +68,9 @@ return {
           ["<Leader>pS"] = false,
           ["<Leader>pu"] = false,
           ["<Leader>pU"] = false,
-
+          -- Buffer Navigation
           L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-
-          ["<C-u>"] = { "<C-u>zz" },
-          ["<C-d>"] = { "<C-d>zz" },
-
-          ["-"] = {
-            "<cmd>split<cr>",
-            desc = "Horizontal Split",
-          },
-          ["<C-_>"] = {
-            function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
-            desc = "Comment Line",
-          },
-
-          ["<C-h>"] = { function() exec_pane_move "h" end },
-          ["<C-j>"] = { function() exec_pane_move "j" end },
-          ["<C-k>"] = { function() exec_pane_move "k" end },
-          ["<C-l>"] = { function() exec_pane_move "l" end },
-
-          ["<Leader>bo"] = { desc = "Open File by Search" },
-          ["<Leader>boh"] = { split_left, desc = "Split Left" },
-          ["<Leader>boj"] = { split_down, desc = "Split Down" },
-          ["<Leader>bok"] = { split_up, desc = "Split Up" },
-          ["<Leader>bol"] = { split_right, desc = "Split Right" },
-
-          ["<Leader>="] = {
-            function() vim.cmd "wincmd =" end,
-            desc = "Equalize splits",
-          },
-
-          ["<Leader>j"] = {
-            "*``cgn",
-            desc = "Replace Word under Cursor",
-          },
-
-          ["<Leader><Leader>"] = {
-            function() require("snacks").picker.smart() end,
-            desc = "Find buffers",
-          },
           ["<Leader>c"] = {
             function()
               local bufs = vim.fn.getbufinfo { buflisted = true }
@@ -107,19 +79,50 @@ return {
             end,
             desc = "Close buffer",
           },
+          -- Centered Scrolling
+          ["<C-u>"] = { "<C-u>zz" },
+          ["<C-d>"] = { "<C-d>zz" },
+          -- Window Splits
+          ["-"] = {
+            "<cmd>split<cr>",
+            desc = "Horizontal Split",
+          },
+          ["<Leader>bo"] = { desc = "Open File by Search" },
+          ["<Leader>boh"] = { split_left, desc = "Split Left" },
+          ["<Leader>boj"] = { split_down, desc = "Split Down" },
+          ["<Leader>bok"] = { split_up, desc = "Split Up" },
+          ["<Leader>bol"] = { split_right, desc = "Split Right" },
+          ["<Leader>="] = {
+            function() vim.cmd "wincmd =" end,
+            desc = "Equalize splits",
+          },
+          -- Pane Movement (Move between nvim windows and wezterm panes seamlessly)
+          ["<C-h>"] = { function() exec_pane_move "h" end, desc = "Move Left" },
+          ["<C-j>"] = { function() exec_pane_move "j" end, desc = "Move Down" },
+          ["<C-k>"] = { function() exec_pane_move "k" end, desc = "Move Up" },
+          ["<C-l>"] = { function() exec_pane_move "l" end, desc = "Move Right" },
+          -- Find
+          ["<Leader><Leader>"] = {
+            function() require("snacks").picker.smart() end,
+            desc = "Find buffers",
+          },
+          -- Editing
+          ["<C-_>"] = {
+            function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+            desc = "Comment Line",
+          },
+          ["<Leader>j"] = {
+            "*``cgn",
+            desc = "Replace Word under Cursor",
+          },
           ["<Leader>a"] = {
             "ggVG",
             desc = "Select All",
           },
-          ["<Leader>m"] = { desc = " Markdown" },
           ["<Leader>ll"] = {
             function()
-              local fn = vim.api.nvim_buf_get_name(0)
+              local fn = get_filename()
               local ft = vim.bo.filetype
-
-              for i in string.gmatch(fn, "[^/]+") do
-                fn = i
-              end
 
               local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 
@@ -141,26 +144,19 @@ return {
             end,
             desc = "Turbo Stdout",
           },
+          -- Misc
+          ["<Leader>m"] = { desc = " Markdown" },
         },
-        i = {
-          ["<C-_>"] = {
-            function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
-            desc = "Comment Line",
-          },
-        },
+        i = {},
         v = {
           [";"] = { ":", desc = "CMD enter command mode" },
-
+          -- Yank
           ["<Leader>y"] = { '"+y', desc = "Copy to system clipboard" },
-
+          -- Editing
           ["<Leader>ll"] = {
             function()
-              local fn = vim.api.nvim_buf_get_name(0)
+              local fn = get_filename()
               local ft = vim.bo.filetype
-
-              for i in string.gmatch(fn, "[^/]+") do
-                fn = i
-              end
 
               local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 
