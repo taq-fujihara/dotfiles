@@ -9,7 +9,7 @@ fish_config theme choose nord
 #################################################
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
-set -x DOCKER_HOST unix:///run/user/(id -u)/docker.sock
+# set -x DOCKER_HOST unix:///run/user/(id -u)/podman/podman.sock
 
 #################################################
 # Key Bindings
