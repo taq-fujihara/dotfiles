@@ -101,8 +101,8 @@ function M.setup(config)
 		-- pane resizing
 		{ key = "DownArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Down", 5 }) },
 		{ key = "UpArrow",    mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Up", 5 }) },
-		{ key = "LeftArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Left", 15 }) },
-		{ key = "RightArrow", mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Right", 15 }) },
+		{ key = "LeftArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Left", 10 }) },
+		{ key = "RightArrow", mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Right", 10 }) },
 
 		{
 			key = "z",
