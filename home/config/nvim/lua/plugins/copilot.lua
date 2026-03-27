@@ -3,15 +3,11 @@ return {
     "Saghen/blink.cmp",
     optional = true,
     opts = function(_, opts)
-      if not opts.keymap then
-        opts.keymap = {}
-      end
+      if not opts.keymap then opts.keymap = {} end
       opts.keymap["<Tab>"] = {
         "snippet_forward",
         function()
-          if vim.g.ai_accept then
-            return vim.g.ai_accept()
-          end
+          if vim.g.ai_accept then return vim.g.ai_accept() end
         end,
         "fallback",
       }
@@ -22,7 +18,7 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
-    event = "BufReadPost",
+    event = "InsertEnter",
     opts = {
       suggestion = {
         auto_trigger = true,
@@ -47,39 +43,6 @@ return {
           },
         },
       },
-    },
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = {
-      prompts = {
-        Explain = {
-          mapping = '<leader>gce',
-        },
-        Review = {
-          mapping = '<leader>gcr',
-        },
-        -- Fix = {
-        --   mapping = '<leader>gcf',
-        -- },
-        Optimize = {
-          mapping = '<leader>gco',
-        },
-        Docs = {
-          mapping = '<leader>gcd',
-        },
-        Tests = {
-          mapping = '<leader>gct',
-        },
-        -- Commit = {
-        --   mapping = '<leader>gcc',
-        -- },
-      }
     },
   },
 }
