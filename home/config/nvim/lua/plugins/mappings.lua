@@ -115,10 +115,6 @@ return {
             "*``cgn",
             desc = "Replace Word under Cursor",
           },
-          ["<Leader>a"] = {
-            "ggVG",
-            desc = "Select All",
-          },
           ["<Leader>ll"] = {
             function()
               local fn = get_filename()
