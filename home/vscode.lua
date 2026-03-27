@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 -- When I set relative number is VSCode, I need it in neovim too.
 vim.wo.relativenumber = false
 -- vim.wo.relativenumber = true
@@ -68,8 +68,9 @@ require("lazy").setup({
 
 -- local code = require("vscode")
 
-vim.keymap.set("n", ";", ":")
-vim.keymap.set("v", ";", ":")
+vim.keymap.set({ "n", "v" }, ";", ":")
+
+vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
 
 vim.keymap.set("n", "|", "<Cmd>lua require('vscode').action('workbench.action.splitEditor')<CR>")
 vim.keymap.set("n", "-", "<Cmd>lua require('vscode').action('workbench.action.splitEditorDown')<CR>")
@@ -83,8 +84,7 @@ vim.keymap.set("n", "<Leader>c", "<Cmd>lua require('vscode').action('workbench.a
 vim.keymap.set("n", "<Leader>q", "<Cmd>lua require('vscode').action('workbench.action.closeActiveEditor')<CR>")
 vim.keymap.set("n", "<Leader>n", "<Cmd>lua require('vscode').action('workbench.action.files.newUntitledFile')<CR>")
 
-vim.keymap.set("n", "<Leader>/", "<Cmd>lua require('vscode').action('editor.action.commentLine')<CR>")
-vim.keymap.set("v", "<Leader>/", "<Cmd>lua require('vscode').action('editor.action.commentLine')<CR>")
+vim.keymap.set({ "n", "v" }, "<Leader>/", "<Cmd>lua require('vscode').action('editor.action.commentLine')<CR>")
 vim.keymap.set("n", "<Leader>j", "*``cgn")
 
 vim.keymap.set("n", "<Leader>fw", "<Cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>")
