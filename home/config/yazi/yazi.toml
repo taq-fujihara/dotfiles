@@ -1,12 +1,13 @@
 [mgr]
 show_hidden = true
+ratio = [ 2, 3, 4 ]
 
 [[input.prepend_keymap]]
-on   = "<Esc>"
-run  = "close"
+on = "<Esc>"
+run = "close"
 desc = "Cancel input"
 
 [opener]
 edit = [
-    { run = 'nvim "$@"', block = true },
+  { run = 'nvim "$@"', block = true },
 ]
