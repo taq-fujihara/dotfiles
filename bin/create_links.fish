@@ -86,6 +86,7 @@ create_link config/starship.toml .config/starship.toml
 create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/wezterm/keys.lua .config/wezterm/keys.lua
 create_link config/yazi/yazi.toml .config/yazi/yazi.toml
+create_link config/yazi/keymap.toml .config/yazi/keymap.toml
 create_link config/yazi/theme.toml .config/yazi/theme.toml
 create_link config/yazi/package.toml .config/yazi/package.toml
 create_link config/zed/keymap.json .config/zed/keymap.json
