@@ -51,9 +51,9 @@ disabled = false
 [username]
 show_always = true
 style_user = "fg:#37474F bg:#8fbcbb"
-style_root = "fg:#37474F bg:#8fbcbb"
+style_root = "fg:#d08770 bg:#8fbcbb"
+# format = '[ ]($style)'
 format = '[󱐋 ]($style)'
-# format = '[ ]($style)'
 
 [directory]
 style = "fg:#ECEFF1 bg:#5e81ac"
@@ -67,29 +67,20 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [bun]
-symbol = "󰳯 "
+symbol = ""
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#FAFAFA bg:#4c566a) ($version) ]($style)'
 
-[c]
-symbol = " "
+# not working...
+[deno]
+symbol = ""
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#A5D6A7 bg:#4c566a) ($version) ]($style)'
 
 [docker_context]
 symbol = " "
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#42A5F5 bg:#4c566a) $context ]($style) $path'
 
 [git_branch]
 symbol = ""
@@ -99,7 +90,7 @@ format = '[ $symbol $branch ]($style)'
 [git_status]
 style = "bold fg:#37474F bg:#88c0d0"
 format = '[$all_status $ahead_behind ]($style)'
-up_to_date = '♥'
+# up_to_date = '♥'
 # untracked = '?'
 # stashed = 'S'
 # modified = 'M'
@@ -111,47 +102,32 @@ ignore_submodules = true
 [golang]
 symbol = " "
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#BBDEFB bg:#4c566a) ($version) ]($style)'
 
 [java]
 symbol = " "
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#F48FB1 bg:#4c566a)($version) ]($style)'
 
 [lua]
 symbol = ""
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#90CAF9 bg:#4c566a) ($version) ]($style)'
 
 [nodejs]
-symbol = ""
+symbol = ""
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = " "
-style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#81C784 bg:#4c566a) ($version) ]($style)'
 
 [python]
 symbol = " "
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[ [$symbol](fg:#FFF176 bg:#4c566a)${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
 style = "fg:#ECEFF4 bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
+format = '[ [$symbol](fg:#F57C00 bg:#4c566a) ($version) ]($style)'
 
 [time]
 disabled = false
