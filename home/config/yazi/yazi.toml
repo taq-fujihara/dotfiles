@@ -11,3 +11,17 @@ desc = "Cancel input"
 edit = [
   { run = 'nvim "$@"', block = true },
 ]
+
+[[plugin.prepend_previewers]]
+url = "*/"
+run = "eza-preview"
+
+[[plugin.prepend_fetchers]]
+id  = "git"
+url = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id  = "git"
+url = "*/"
+run = "git"
