@@ -23,6 +23,9 @@ function fish_user_key_bindings
 
   # map escape
   bind -M insert jj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
+
+  bind -M default shift-h prevd-or-backward-word
+  bind -M default shift-l nextd-or-forward-word
 end
 
 set --global fish_key_bindings fish_vi_key_bindings
