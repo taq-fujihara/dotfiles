@@ -1,12 +1,12 @@
 format = """
-[](#8fbcbb)\
+[╭─](fg:#5e81ac)[](#8fbcbb)\
 $username$hostname\
 [](bg:#5e81ac fg:#8fbcbb)\
 $directory\
 [](fg:#5e81ac bg:#88c0d0)\
 $git_branch\
 $git_status\
-[](fg:#88c0d0 bg:#81a1c1)\
+[](fg:#88c0d0 bg:#4c566a)\
 $bun\
 $c\
 $elixir\
@@ -20,26 +20,27 @@ $nodejs\
 $nim\
 $python\
 $rust\
-[](fg:#81a1c1) \
+[](fg:#4c566a)\
 $fill\
-$time
-$character
+[](fg:#5e81ac)\
+$time 
+[╰─](fg:#5e81ac)$character
 """
 
 add_newline = true
 command_timeout = 2000
 
 [fill]
-symbol = "-"
-style = "#81a1c1"
+symbol = "─"
+style = "#5e81ac"
 
 [character]
-success_symbol = '[](#86BBD8)'
-error_symbol = '[](#81a1c1)'
-vimcmd_symbol = '[](#88c0d0)'
-vimcmd_replace_one_symbol = '[](#88c0d0)'
-vimcmd_replace_symbol = '[](#88c0d0)'
-vimcmd_visual_symbol = '[](#88c0d0)'
+success_symbol = '[](#5e81ac)'
+error_symbol = '[](#bf616a)'
+vimcmd_symbol = '[](#5e81ac)'
+vimcmd_replace_one_symbol = '[](#5e81ac)'
+vimcmd_replace_symbol = '[](#5e81ac)'
+vimcmd_visual_symbol = '[](#5e81ac)'
 
 [hostname]
 ssh_only = true
@@ -67,27 +68,27 @@ truncation_symbol = "…/"
 
 [bun]
 symbol = "󰳯 "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [c]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
@@ -99,61 +100,61 @@ format = '[ $symbol $branch ]($style)'
 style = "bold fg:#37474F bg:#88c0d0"
 format = '[$all_status $ahead_behind ]($style)'
 up_to_date = '♥'
-untracked = 'U'
-stashed = 'S'
-modified = 'M'
-staged = 'A'
-renamed = 'R'
-deleted = 'D'
+# untracked = '?'
+# stashed = 'S'
+# modified = 'M'
+# staged = '+'
+# renamed = 'R'
+# deleted = '-'
 ignore_submodules = true
 
 [golang]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [lua]
 symbol = ""
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = " "
-style = "fg:#FFFFFF bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#81a1c1"
+style = "fg:#ECEFF4 bg:#4c566a"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
 time_format = "%I:%M%P"
-style = "fg:#81a1c1"
-format = '[  $time ]($style)'
+style = "fg:#5e81ac"
+format = '[ $time ]($style)'
