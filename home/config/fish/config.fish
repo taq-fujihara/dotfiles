@@ -7,6 +7,7 @@ fish_config theme choose nord
 #################################################
 # Environment Variables
 #################################################
+
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
 # set -x DOCKER_HOST unix:///run/user/(id -u)/podman/podman.sock
@@ -47,6 +48,7 @@ abbr --add c code-insiders
 abbr --add c. code-insiders .
 abbr --add d docker
 abbr --add g git
+abbr --add gs gcloud storage
 abbr --add j jj
 abbr --add o open
 abbr --add o. open .
