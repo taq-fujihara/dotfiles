@@ -20,14 +20,18 @@ $nodejs\
 $nim\
 $python\
 $rust\
-[](fg:#33658A bg:#86BBD8)\
-$time\
-[ ](fg:#86BBD8)
+[](fg:#33658A) \
+$fill\
+$time
 $character
 """
 
 add_newline = true
 command_timeout = 2000
+
+[fill]
+symbol = "-"
+style = "#81a1c1"
 
 [character]
 success_symbol = '[](#86BBD8)'
@@ -151,5 +155,5 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = false
 time_format = "%I:%M%P"
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#86BBD8"
 format = '[  $time ]($style)'
