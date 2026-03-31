@@ -1,5 +1,5 @@
 format = """
-[╭─](fg:#5e81ac)[](#8fbcbb)\
+[╭─](fg:#81a1c1)[](#8fbcbb)\
 $username$hostname\
 [](bg:#5e81ac fg:#8fbcbb)\
 $directory\
@@ -24,7 +24,7 @@ $rust\
 $fill\
 [](fg:#5e81ac)\
 $time 
-[╰─](fg:#5e81ac)$character
+[╰─](fg:#81a1c1)$character
 """
 
 add_newline = true
@@ -35,12 +35,12 @@ symbol = "─"
 style = "#5e81ac"
 
 [character]
-success_symbol = '[](#5e81ac)'
+success_symbol = '[](#81a1c1)'
 error_symbol = '[](#bf616a)'
-vimcmd_symbol = '[](#5e81ac)'
-vimcmd_replace_one_symbol = '[](#5e81ac)'
-vimcmd_replace_symbol = '[](#5e81ac)'
-vimcmd_visual_symbol = '[](#5e81ac)'
+vimcmd_symbol = '[](#81a1c1)'
+vimcmd_replace_one_symbol = '[](#81a1c1)'
+vimcmd_replace_symbol = '[](#81a1c1)'
+vimcmd_visual_symbol = '[](#81a1c1)'
 
 [hostname]
 ssh_only = true
