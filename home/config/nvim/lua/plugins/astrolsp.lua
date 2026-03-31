@@ -23,7 +23,12 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
-    ---@diagnostic disable: missing-fields
+    formatting = {
+      disabled = {
+        "volar",
+        "biome", -- let None-LS biome format
+      },
+    },
     config = {
       -- ---------------------------------------------------
       -- JavaScript / TypeScript
@@ -56,64 +61,23 @@ return {
           },
         },
       },
-      volar = {
-        on_init = function(client)
-          local client_name = "vtsls"
-
-          client.handlers["tsserver/request"] = function(_, result, context)
-            local clients = vim.lsp.get_clients { bufnr = context.bufnr, name = client_name }
-            if #clients == 0 then
-              vim.notify(
-                "Could not found `" .. client_name .. "` lsp client, vue_lsp would not work without it.",
-                vim.log.levels.ERROR
-              )
-              return
-            end
-            local ts_client = clients[1]
-
-            local param = unpack(result)
-            local id, command, payload = unpack(param)
-
-            ts_client:exec_cmd({
-              title = "vue_request_forward", -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
-              command = "typescript.tsserverRequest",
-              arguments = {
-                command,
-                payload,
-              },
-            }, { bufnr = context.bufnr }, function(_, r)
-              local response_data = { { id, r.body } }
-              client:notify("tsserver/response", response_data)
-            end)
-          end
-        end,
-      },
       biome = {
-        root_dir = util.root_pattern(biome_files),
+        root_markers = biome_files,
       },
       eslint = {
-        root_dir = util.root_pattern(eslint_files),
+        root_markers = eslint_files,
       },
       denols = {
-        root_dir = util.root_pattern(deno_files),
+        root_markers = deno_files,
       },
       oxlint = {
-        root_dir = util.root_pattern(oxlint_files),
+        root_markers = oxlint_files,
       },
       -- ---------------------------------------------------
       -- Python
       -- ---------------------------------------------------
       ruff = {
         on_attach = function(client) client.server_capabilities.hoverProvider = false end,
-      },
-      ty = {
-        cmd = { "ty", "server" },
-        filetypes = { "python" },
-        settings = {
-          ty = {
-            -- ty settings here
-          },
-        },
       },
       basedpyright = {
         settings = {
@@ -166,26 +130,7 @@ return {
       },
     },
     handlers = {
-      ty = function(_, opts)
-        vim.lsp.config("ty", opts)
-        vim.lsp.enable "ty"
-      end,
       basedpyright = false, -- disable basedpyright since I'm trying "ty" now!
-      ["docker_ls"] = function(_, opts)
-        vim.lsp.config("docker_ls", opts)
-        vim.lsp.enable "docker_ls"
-      end,
-    },
-    servers = {
-      "oxlint",
-      "ty",
-      "docker_ls",
-    },
-    formatting = {
-      disabled = {
-        "volar",
-        "biome", -- let None-LS biome format
-      },
     },
   },
 }
@@ -233,19 +178,18 @@ return {
     servers = {
       -- "pyright"
     },
-    -- customize language server configuration options passed to `lspconfig`
-    ---@diagnostic disable: missing-fields
+    -- customize language server configuration passed to `vim.lsp.config`
+    -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
     },
     -- customize how language servers are attached
     handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+      -- a function with the key `*` modifies the default handler, functions takes the server name as the parameter
+      -- ["*"] = function(server) vim.lsp.enable(server) end
 
-      -- the key is the server that is being setup with `lspconfig`
+      -- the key is the server that is being setup with `vim.lsp.config`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
@@ -288,7 +232,7 @@ return {
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
-    -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+    -- takes two parameters `client` and `bufnr`  (`:h lsp-attach`)
     on_attach = function(client, bufnr)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil

@@ -29,8 +29,8 @@ end
 return {
   {
     "nvimtools/none-ls.nvim",
-    opts = {
-      sources = {
+    opts = function(_, opts)
+      opts.sources = require("astrocore").list_insert_unique(opts.sources, {
         -- ---------------------------------------------------
         -- JavaScript / TypeScript
         -- ---------------------------------------------------
@@ -61,8 +61,8 @@ return {
         -- Markdown
         -- ---------------------------------------------------
         null_ls.builtins.diagnostics.markdownlint_cli2,
-      },
-    },
+      })
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
