@@ -27,6 +27,7 @@ return {
       disabled = {
         "volar",
         "biome", -- let None-LS biome format
+        "vtsls",
       },
     },
     config = {
@@ -45,8 +46,6 @@ return {
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
         settings = {
           vtsls = {
-            ["javascript.validate.enable"] = false,
-            ["typescript.validate.enable"] = false,
             tsserver = {
               globalPlugins = {
                 {
