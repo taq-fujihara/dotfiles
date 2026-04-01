@@ -18,6 +18,7 @@ return {
         "lua-language-server",
         "markdownlint-cli2",
         "markdown-oxide",
+        "oxfmt",
         "oxlint",
         "ruff",
         "rust-analyzer",
