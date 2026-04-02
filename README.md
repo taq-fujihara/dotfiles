@@ -1,10 +1,13 @@
-# Dotfiles
+# My Dotfiles
+
+![terminal](./images/terminal.png)
 
 ## Install
 
 ```shell
 curl -fsSL https://raw.githubusercontent.com/taq-fujihara/dotfiles/main/install.sh | bash
 ```
+
 
 ## ~~Dev~~
 
