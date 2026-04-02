@@ -1,0 +1,22 @@
+theme = Nord
+font-family = UDEV Gothic 35NFLG
+background-opacity = 0.95
+
+adjust-cell-height = 20%
+
+keybind = ctrl+f>n=new_tab
+keybind = ctrl+shift+h=previous_tab
+keybind = ctrl+shift+l=next_tab
+
+keybind = ctrl+f>shift+|=new_split:right
+keybind = ctrl+f>-=new_split:down
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+arrow_up=resize_split:up,25
+keybind = ctrl+arrow_down=resize_split:down,25
+keybind = ctrl+arrow_right=resize_split:right,40
+keybind = ctrl+arrow_left=resize_split:left,40
+keybind = ctrl+f>z=toggle_split_zoom

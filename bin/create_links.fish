@@ -58,8 +58,6 @@ create_link copilot/config.json .copilot/config.json
 create_link config/bat/config .config/bat/config
 create_link config/containers/container.conf .config/containers/container.conf
 create_link config/docker/daemon.json .config/docker/daemon.json
-create_link config/gh/config.yml .config/gh/config.yml
-create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/eza/theme.yml .config/eza/theme.yml
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins
@@ -77,6 +75,9 @@ create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fi
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/fish/functions/y.fish .config/fish/functions/y.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
+create_link config/gh/config.yml .config/gh/config.yml
+create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
+create_link config/ghostty/config.ghostty .config/ghostty/config.ghostty
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
 create_link config/lazygit/config.yml .config/lazygit/config.yml
