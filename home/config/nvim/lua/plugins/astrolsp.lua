@@ -23,6 +23,9 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
+    features = {
+      inlay_hints = true,
+    },
     formatting = {
       disabled = {
         "volar",
@@ -96,25 +99,25 @@ return {
       -- ---------------------------------------------------
       -- Rust
       -- ---------------------------------------------------
-      rust_analyzer = {
-        settings = {
-          ["rust-analyzer"] = {
-            files = {
-              excludeDirs = {
-                ".direnv",
-                ".git",
-                "target",
-              },
-            },
-            check = {
-              command = "clippy",
-              extraArgs = {
-                "--no-deps",
-              },
-            },
-          },
-        },
-      },
+      -- rust_analyzer = {
+      --   settings = {
+      --     ["rust-analyzer"] = {
+      --       files = {
+      --         excludeDirs = {
+      --           ".direnv",
+      --           ".git",
+      --           "target",
+      --         },
+      --       },
+      --       check = {
+      --         command = "clippy",
+      --         extraArgs = {
+      --           "--no-deps",
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
       -- ---------------------------------------------------
       -- Docker
       -- ---------------------------------------------------
