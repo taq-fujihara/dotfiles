@@ -8,6 +8,14 @@ vim.api.nvim_set_hl(0, "WinBarNC", { bg = "NONE", ctermbg = "NONE" })
 
 vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { link = "Normal" })
 
+local comment_hl = vim.api.nvim_get_hl(0, { name = "Comment", link = false })
+vim.api.nvim_set_hl(0, "LspInlayHint", {
+  fg = comment_hl.fg,
+  bg = "#3b4252",
+  ctermfg = comment_hl.ctermfg,
+  italic = true,
+})
+
 vim.filetype.add {
   extension = {
     tofu = "terraform",
