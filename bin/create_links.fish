@@ -69,7 +69,6 @@ create_link config/fish/functions/git.fish .config/fish/functions/git.fish
 create_link config/fish/functions/gitroot.fish .config/fish/functions/gitroot.fish
 create_link config/fish/functions/import_vscode_snippets_to_nvim.fish .config/fish/functions/import_vscode_snippets_to_nvim.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
-create_link config/fish/functions/update_astronvim.fish .config/fish/functions/update_astronvim.fish
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
 create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
