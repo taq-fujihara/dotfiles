@@ -1,14 +1,19 @@
 function fish_greeting
+  set -l date_fmt '+%Y%m%d'
   set -l cache_dir $HOME/.cache/dendron
-  set -l today (date +%Y%m%d)
-  set -l last_run_file "$cache_dir/$today"
+  set -l today (date $date_fmt)
+  set -l last_run_file "$cache_dir/last_pull"
 
   if not test -d "$cache_dir"
     mkdir -p $cache_dir
   end
 
-  if test -f "$last_run_file";
-    return 0
+  if test -f "$last_run_file"
+    set -l last_run_day (date -r "$last_run_file" $date_fmt)
+
+    if test "$last_run_day" = "$today"
+      return 0
+    end
   end
 
   # -------------------------------------------
