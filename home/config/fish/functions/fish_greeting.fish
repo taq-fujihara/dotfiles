@@ -1,4 +1,16 @@
 function fish_greeting
+  set -l frost1 8FBCBB
+  set -l frost2 88C0D0
+  set -l frost3 81A1C1
+  set -l frost4 5E81AC
+
+  echo
+  echo (set_color $frost1)"   Terminal Session Active"
+  echo (set_color 4C566A)" ---------------------------"
+  echo (set_color D8DEE9)" User: " (set_color $frost2)$USER
+  echo (set_color D8DEE9)" Host: " (set_color $frost3)(hostname)
+  echo (set_color D8DEE9)" Date: " (set_color $frost4)(date "+%Y.%m.%d %H:%M")
+
   set -l date_fmt '+%Y%m%d'
   set -l cache_dir $HOME/.cache/dendron
   set -l today (date $date_fmt)
