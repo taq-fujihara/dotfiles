@@ -90,7 +90,6 @@ wezterm.on("update-status", function(window)
 	window:set_right_status(wezterm.format({
 		{ Foreground = { Color = INACTIVE_TAB_FG_COLOR } },
 		{ Text = "   " .. inactive_workspace_text .. "   " },
-		{ Text = "   " .. COLOR_SCHEME .. "   " },
 	}))
 end)
 
