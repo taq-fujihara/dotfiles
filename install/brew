@@ -17,7 +17,6 @@ brew install \
   bottom \
   cloud-sql-proxy \
   direnv \
-  eza \
   fd \
   ffmpegthumbnailer \
   fish \
@@ -29,14 +28,11 @@ brew install \
   ghq \
   hadolint \
   helix \
-  httpie \
   jesseduffield/lazygit/lazygit \
   jesseduffield/lazydocker/lazydocker \
-  jq \
   jj \
   libpq \
   mise \
-  fastfetch \
   neovim \
   nkf \
   nushell \
@@ -46,19 +42,15 @@ brew install \
   podman-compose \
   poppler \
   pre-commit \
-  ripgrep \
   ruff \
-  sd \
   sqlite \
   starship \
   tig \
   tldr \
   tree-sitter \
   unar \
-  uv \
   wget \
   xh \
-  yazi \
   yq \
   zlib \
   zoxide

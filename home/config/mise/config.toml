@@ -1,4 +1,7 @@
 [tools]
+
+# language runtimes
+
 terraform = "1.8.2"
 node = "24.12.0"
 python = "3.14.2"
@@ -9,10 +12,23 @@ deno = "2.7.11"
 go = "1.22.2"
 usage = "latest"
 
+# dev tools
+
+bat = "latest"
+eza = "latest"
+fastfetch = "latest"
+jq = "latest"
+ripgrep = "latest"
+sd = "latest"
+uv = "latest"
+yazi = "latest"
+
 "npm:@github/copilot" = "latest"
 "npm:oxlint" = "latest"
 "npm:oxlint-tsgolint" = "latest"
 "npm:corepack" = "latest"
+
+"pipx:httpie" = "latest"
 
 [settings]
 activate_aggressive = true
