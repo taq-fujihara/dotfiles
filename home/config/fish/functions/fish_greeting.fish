@@ -4,6 +4,45 @@ function fish_greeting
   set -l frost3 81A1C1
   set -l frost4 5E81AC
 
+  function __dendron_update_repo --argument repo
+    if not test -d "$repo/.git"
+      return 0
+    end
+
+    set -l upstream (git -C $repo rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null)
+
+    if test $status -ne 0
+      echo "No upstream configured for $repo"
+      return 0
+    end
+
+    set -l upstream_ref (string split -m1 / -- $upstream)
+    set -l remote $upstream_ref[1]
+    set -l branch $upstream_ref[2]
+
+    if test -z "$branch"
+      echo "Could not determine upstream branch for $repo"
+      return 0
+    end
+
+    set -l local_head (git -C $repo rev-parse HEAD 2>/dev/null)
+    set -l remote_ref (git -C $repo ls-remote --exit-code $remote "refs/heads/$branch" 2>/dev/null)
+
+    if test $status -ne 0 -o -z "$remote_ref"
+      echo "Could not determine remote HEAD for $repo"
+      return 0
+    end
+
+    set -l remote_head (string split \t -- $remote_ref)[1]
+
+    if test "$local_head" = "$remote_head"
+      echo "Already up to date: $repo"
+      return 0
+    end
+
+    git -C $repo pull --ff-only --quiet
+  end
+
   echo
   echo (set_color $frost1)"   Terminal Session Active"
   echo (set_color 4C566A)" ---------------------------"
@@ -41,7 +80,7 @@ function fish_greeting
 
   if test -d "$root/.git"
     echo "🏭 Updating Dendron vault at $root"
-    git -C $root pull
+    __dendron_update_repo $root
   end
 
   set -l dependencies_root $root/dependencies
@@ -64,11 +103,13 @@ function fish_greeting
 
         if test -d "$vault_repo/.git"
           echo "🏭 Updating vault at $vault_repo"
-          git -C $vault_repo pull
+          __dendron_update_repo $vault_repo
         end
       end
     end
   end
+
+  functions -e __dendron_update_repo
 
   touch $last_run_file
 
