@@ -57,6 +57,7 @@ create_link sampler.yaml .sampler.yaml
 create_link copilot/config.json .copilot/config.json
 create_link config/bat/config .config/bat/config
 create_link config/containers/container.conf .config/containers/container.conf
+create_link config/bottom/bottom.toml .config/bottom/bottom.toml
 create_link config/docker/daemon.json .config/docker/daemon.json
 create_link config/eza/theme.yml .config/eza/theme.yml
 create_link config/fish/config.fish .config/fish/config.fish
