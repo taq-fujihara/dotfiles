@@ -36,7 +36,7 @@ brew install \
   jj \
   libpq \
   mise \
-  neofetch \
+  fastfetch \
   neovim \
   nkf \
   nushell \
