@@ -109,6 +109,8 @@ function fish_greeting
     end
   end
 
+  # -------------------------------------------
+
   functions -e __dendron_update_repo
 
   touch $last_run_file

@@ -24,7 +24,7 @@ $rust\
 $fill\
 [](fg:#5e81ac)\
 $time 
-[╰─](fg:#81a1c1)$character
+[╰](fg:#81a1c1)$character
 """
 
 add_newline = true
