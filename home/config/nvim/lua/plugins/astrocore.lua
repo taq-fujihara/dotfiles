@@ -7,7 +7,7 @@ return {
       opt = {
         relativenumber = true,
         number = true,
-        wrap = false,
+        wrap = true,
         title = false,
       },
     },

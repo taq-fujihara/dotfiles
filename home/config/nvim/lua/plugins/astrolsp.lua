@@ -28,9 +28,9 @@ return {
     },
     formatting = {
       disabled = {
-        "volar",
         "biome", -- let None-LS biome format
         "vtsls",
+        "vue_ls",
       },
     },
     config = {
