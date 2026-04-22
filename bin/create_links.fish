@@ -36,6 +36,15 @@ function create_link
   ln -sfv $src $dst
 end
 
+function remove_obsolete_link
+  set -l dst $DESTINATION_DIR/$argv[1]
+
+  if test -L $dst
+    warn "$dst is obsolete. removing..."
+    rm $dst
+  end
+end
+
 
 echo '==============================================================='
 echo 'This script creates symbolic links of dotfiles!'
@@ -66,7 +75,6 @@ create_link config/fish/functions/fileshare.fish .config/fish/functions/fileshar
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fish_title.fish .config/fish/functions/fish_title.fish
 create_link config/fish/functions/fontview.fish .config/fish/functions/fontview.fish
-create_link config/fish/functions/git.fish .config/fish/functions/git.fish
 create_link config/fish/functions/gitroot.fish .config/fish/functions/gitroot.fish
 create_link config/fish/functions/import_vscode_snippets_to_nvim.fish .config/fish/functions/import_vscode_snippets_to_nvim.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
@@ -76,6 +84,8 @@ create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/fish/functions/y.fish .config/fish/functions/y.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 create_link config/gh/config.yml .config/gh/config.yml
+remove_obsolete_link .config/fish/functions/git.fish
+create_link config/git/hooks/force-push-confirmation.fish .config/git/hooks/force-push-confirmation.fish
 create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/ghostty/config.ghostty .config/ghostty/config.ghostty
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
@@ -95,4 +105,3 @@ create_link config/zed/keymap.json .config/zed/keymap.json
 create_link config/zed/settings.json .config/zed/settings.json
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
-

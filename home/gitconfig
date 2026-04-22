@@ -55,6 +55,10 @@
 [pull]
     ff = only
 
+[hook "force-push-confirmation"]
+    event = pre-push
+    command = ~/.config/git/hooks/force-push-confirmation.fish
+
 [alias]
     alias = config --get-regexp alias.*
     me = config --get-regexp user

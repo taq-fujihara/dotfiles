@@ -1,7 +1,11 @@
 {
-	"banner": "always",
-	"theme": "auto",
-	"render_markdown": true,
-	"model": "gpt-5.4",
-	"reasoning_effort": "high"
+  "banner": "always",
+  "theme": "auto",
+  "renderMarkdown": true,
+  "firstLaunchAt": "2026-03-11T00:00:00.000Z",
+  "trustedFolders": [
+    "/home/taq/ghq/github.com/bizoope/bizoope-batch",
+    "/home/taq/ghq/github.com/c3-lab-jp/web-app-gen-3-draft/apps/web"
+  ],
+  "effortLevel": "high"
 }
