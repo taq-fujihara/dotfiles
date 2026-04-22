@@ -92,17 +92,17 @@ function M.setup(config)
 		M.smart_pane_navigation("k", "Up"),
 		M.smart_pane_navigation("l", "Right"),
 
-		{ key = "r",          mods = "LEADER",                       action = act.RotatePanes("Clockwise") },
+		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
 		-- tab navigation
-		{ key = "L",          mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
-		{ key = "H",          mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
+		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
 
 		-- pane resizing
-		{ key = "DownArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Down", 5 }) },
-		{ key = "UpArrow",    mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Up", 5 }) },
-		{ key = "LeftArrow",  mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Left", 10 }) },
-		{ key = "RightArrow", mods = paneNavigationMods,             action = act.AdjustPaneSize({ "Right", 10 }) },
+		{ key = "DownArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "UpArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "LeftArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Left", 10 }) },
+		{ key = "RightArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Right", 10 }) },
 
 		{
 			key = "z",
@@ -203,7 +203,6 @@ function M.setup(config)
 			{
 				-- git logs
 				key = "l",
-				mods = "LEADER",
 				action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
 			},
 			-- {
