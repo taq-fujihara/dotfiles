@@ -58,8 +58,8 @@ echo 'creating backup directory...'
 mkdir -p $BACKUP_DIR
 echo '*' > $BACKUP_ROOT/.gitignore
 
-create_link gitconfig .gitconfig
-create_link gitignore .gitignore
+remove_obsolete_link .gitconfig
+remove_obsolete_link .gitignore
 create_link xkb .xkb
 create_link tigrc .tigrc
 create_link sampler.yaml .sampler.yaml
@@ -85,6 +85,8 @@ create_link config/fish/functions/y.fish .config/fish/functions/y.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 create_link config/gh/config.yml .config/gh/config.yml
 remove_obsolete_link .config/fish/functions/git.fish
+create_link config/git/config .config/git/config
+create_link config/git/ignore .config/git/ignore
 create_link config/git/hooks/force-push-confirmation.fish .config/git/hooks/force-push-confirmation.fish
 create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/ghostty/config.ghostty .config/ghostty/config.ghostty
