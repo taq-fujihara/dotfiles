@@ -1,0 +1,54 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[ui]
+
+editor = "nvim"
+diff-formatter = "delta"
+
+[merge-tools]
+
+delta.diff-expected-exit-codes = [0, 1]
+
+[git]
+
+private-commits = "description('private:*')"
+
+[colors]
+
+"change_id" = { fg = "#d08770" }
+"working_copy change_id" = "#ebcb8b"
+
+"author" = "#81a1c1"
+"working_copy author" = "#81a1c1"
+
+[templates]
+
+log = "my_log_compact"
+
+[template-aliases]
+
+my_log_compact = 'my_log_compact(self)'
+'my_log_compact(commit)' = '''
+if(commit.root(),
+  format_root_commit(commit),
+  label(
+    separate(" ",
+      if(commit.current_working_copy(), "working_copy"),
+      if(commit.immutable(), "immutable", "mutable"),
+      if(commit.conflict(), "conflicted"),
+    ),
+    concat(
+      format_short_commit_header(commit) ++ "\n",
+      "\n",
+      separate(" ",
+        if(commit.empty(), empty_commit_marker),
+        if(commit.description(),
+          commit.description().first_line(),
+          label(if(commit.empty(), "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+      "\n",
+    ),
+  )
+)
+'''
