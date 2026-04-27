@@ -9,6 +9,11 @@ diff-formatter = "delta"
 
 delta.diff-expected-exit-codes = [0, 1]
 
+[aliases]
+
+# l = ["log", "-r", "(main..@):: | (main..@)-"]
+graph = ["log", "-r", "ancestors(@) | descendants(@)"]
+
 [git]
 
 private-commits = "description('private:*')"
