@@ -1,7 +1,0 @@
-{
-	"banner": "always",
-	"theme": "auto",
-	"render_markdown": true,
-	"model": "gpt-5.4",
-	"reasoning_effort": "high"
-}
