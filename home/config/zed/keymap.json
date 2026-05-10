@@ -49,6 +49,7 @@
       "H": "pane::ActivatePreviousItem",
       "|": "pane::SplitRight",
       "-": "pane::SplitDown",
+      "s": "vim::HelixJumpToWord",
       "space w": "workspace::Save",
       "space c": "pane::CloseActiveItem",
       "space q": "pane::CloseActiveItem",

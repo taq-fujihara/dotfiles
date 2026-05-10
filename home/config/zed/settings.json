@@ -7,13 +7,22 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "edit_predictions": {
-    "provider": "copilot"
+    "provider": "copilot",
   },
   "buffer_font_family": "UDEV Gothic 35NFLG",
-  "buffer_font_weight": 400.0,
   "buffer_font_size": 16.0,
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini",
