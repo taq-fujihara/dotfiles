@@ -13,9 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- vim.opt.clipboard = "unnamedplus"
 -- When I set relative number is VSCode, I need it in neovim too.
-vim.wo.relativenumber = false
+-- vim.wo.relativenumber = false
 -- vim.wo.relativenumber = true
--- vim.wo.number = false
+vim.wo.number = false
 
 vim.g.mapleader = " "
 
