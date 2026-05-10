@@ -31,6 +31,7 @@ yazi = "latest"
 "pipx:httpie" = "latest"
 
 [settings]
+
 activate_aggressive = true
 experimental = true
 npm.package_manager = "bun"
