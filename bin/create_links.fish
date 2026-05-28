@@ -106,5 +106,6 @@ create_link config/yazi/theme.toml .config/yazi/theme.toml
 create_link config/yazi/package.toml .config/yazi/package.toml
 create_link config/zed/keymap.json .config/zed/keymap.json
 create_link config/zed/settings.json .config/zed/settings.json
+create_link local/bin/annotate-md-image.fish .local/bin/annotate-md-image.fish
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
