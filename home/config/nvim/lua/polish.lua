@@ -16,6 +16,20 @@ vim.api.nvim_set_hl(0, "LspInlayHint", {
   italic = true,
 })
 
+local group = vim.api.nvim_create_augroup("RelativeNumber", { clear = true })
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = group,
+  callback = function() vim.opt.relativenumber = false end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = group,
+  callback = function() vim.opt.relativenumber = true end,
+})
+
+-- File type association
+
 vim.filetype.add {
   extension = {
     tofu = "terraform",
