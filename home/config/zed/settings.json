@@ -19,6 +19,7 @@
   },
   "git_panel": {
     "dock": "left",
+    "file_icons": true,
   },
   "project_panel": {
     "dock": "right",
@@ -51,7 +52,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)",
+    "dark": "Colored Zed Icons Theme Dark",
   },
   "cursor_blink": true,
   "relative_line_numbers": "enabled",
