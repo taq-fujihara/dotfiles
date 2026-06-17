@@ -142,6 +142,7 @@ return {
           },
           -- Misc
           ["<Leader>m"] = { desc = " Markdown" },
+          ["<Leader>a"] = { desc = " AI" },
         },
         i = {},
         v = {
