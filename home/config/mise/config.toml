@@ -15,6 +15,7 @@ usage = "latest"
 # dev tools
 
 bat = "latest"
+codex = "latest"
 eza = "latest"
 fastfetch = "latest"
 jq = "latest"
@@ -27,8 +28,10 @@ yazi = "latest"
 "npm:oxlint" = "latest"
 "npm:oxlint-tsgolint" = "latest"
 "npm:corepack" = "latest"
+"npm:@zed-industries/codex-acp" = "latest"
 
 "pipx:httpie" = "latest"
+"pipx:aider-chat" = "latest"
 
 [settings]
 
