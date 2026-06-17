@@ -20,14 +20,9 @@
     },
   },
   {
-    "context": "ProjectPanel",
-    "bindings": {
-      "secondary-h": "workspace::ActivatePaneLeft",
-    },
-  },
-  {
     "context": "ProjectPanel && not_editing",
     "bindings": {
+      "secondary-h": "workspace::ActivatePaneLeft",
       "a": "project_panel::NewFile",
       "A": "project_panel::NewDirectory",
       "c": "project_panel::Duplicate",
@@ -45,6 +40,7 @@
   {
     "context": "vim_mode == normal",
     "bindings": {
+      ";": "command_palette::Toggle",
       "L": "pane::ActivateNextItem",
       "H": "pane::ActivatePreviousItem",
       "|": "pane::SplitRight",
@@ -63,11 +59,27 @@
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
       "space l s": "outline::Toggle",
+      "space g g": ["action::Sequence", ["git::Diff", "git_panel::Toggle"]],
+      "up": "vim::ResizePaneUp",
+      "down": "vim::ResizePaneDown",
+      "left": "vim::ResizePaneLeft",
+      "right": "vim::ResizePaneRight",
+      "shift-up": "vim::ResizePaneDown",
+      "shift-down": "vim::ResizePaneUp",
+      "shift-left": "vim::ResizePaneRight",
+      "shift-right": "vim::ResizePaneLeft",
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "space g g": "git_panel::Toggle",
     },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
+      ";": "command_palette::Toggle",
       "space /": "editor::ToggleComments",
     },
   },
