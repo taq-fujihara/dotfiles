@@ -76,19 +76,20 @@
       "format_on_save": "off",
     },
   },
+  "minimap": {
+    "show": "never",
+    "display_in": "active_editor",
+    "current_line_highlight": "line",
+    "thumb": "always",
+  },
   "read_ssh_config": true,
-  // "experimental.theme_overrides": {
-  //   "background": "#2e3440bf",
-  //   "toolbar.background": "#2e3440bf",
-  //   "tab_bar.background": "#2e3440bf",
-  //   "tab.inactive_background": "#2e3440bf",
-  //   "editor.background": "#2e3440bf",
-  //   "editor.gutter.background": "#2e3440bf",
-
-  //   "scrollbar.thumb.background": "#434c5ebf",
-  //   "scrollbar.thumb.hover_background": "#434c5ebf",
-  //   "scrollbar.track.background": "#2e3440bf",
-
-  //   "panel.background": "#2e3440bf",
-  // },
+  "theme_overrides": {
+    "Nord Dark": {
+      "syntax": {
+        "comment": {
+          "color": "#6A7A8C",
+        },
+      },
+    },
+  },
 }
