@@ -59,7 +59,7 @@
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
       "space l s": "outline::Toggle",
-      "space g g": ["action::Sequence", ["git::Diff", "git_panel::Toggle"]],
+      "space g g": ["task::Spawn", { "task_name": "start lazygit" }],
       "up": "vim::ResizePaneUp",
       "down": "vim::ResizePaneDown",
       "left": "vim::ResizePaneLeft",
