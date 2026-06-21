@@ -21,9 +21,17 @@
 
 [delta]
     navigate = true
-    light = false
     side-by-side = true
     line-numbers = true
+    light = false
+
+    syntax-theme = Nord
+    plus-style = syntax "#3B4A42"
+    minus-style = syntax "#4A3B42"
+    plus-emph-style = syntax "#3F5D50"
+    minus-emph-style = syntax "#674758"
+    line-numbers-minus-style = "#B48E95"
+    line-numbers-plus-style = "#95B48E"
 
 [commit]
     verbose = true
