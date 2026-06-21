@@ -107,4 +107,4 @@
     helper = gcloud.sh
 
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/.gitconfig.local
