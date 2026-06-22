@@ -21,7 +21,6 @@
 
 [delta]
     navigate = true
-    side-by-side = true
     line-numbers = true
     light = false
 
@@ -32,6 +31,14 @@
     minus-emph-style = syntax "#674758"
     line-numbers-minus-style = "#B48E95"
     line-numbers-plus-style = "#95B48E"
+
+    features = "view-side-by-side"
+
+[delta "view-side-by-side"]
+    side-by-side = true
+
+[delta "view-unified"]
+    side-by-side = false
 
 [commit]
     verbose = true

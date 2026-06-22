@@ -2,4 +2,6 @@ git:
   branchLogCmd: "git graph"
   pagers:
     - colorArg: always
-      pager: delta --dark --paging=never
+      pager: delta --paging=never --features="theme-nord view-unified"
+    - colorArg: always
+      pager: delta --paging=never --features="theme-nord view-side-by-side"
