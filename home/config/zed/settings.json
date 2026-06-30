@@ -89,6 +89,31 @@
         "comment": {
           "color": "#6A7A8C",
         },
+        "emphasis": {
+          "color": "#D8DEE9",
+          "font_style": "italic",
+          "font_weight": null,
+        },
+        "emphasis.strong": {
+          "color": "#ECEFF4",
+          "font_style": null,
+          "font_weight": 700,
+        },
+        "link_text": {
+          "color": "#88C0D0",
+          "font_style": null,
+          "font_weight": null,
+        },
+        "link_uri": {
+          "color": "#81A1C1",
+          "font_style": null,
+          "font_weight": null,
+        },
+        "title": {
+          "color": "#A3BE8C",
+          "font_style": null,
+          "font_weight": null,
+        },
       },
     },
   },
