@@ -25,12 +25,13 @@
     light = false
 
     syntax-theme = Nord
-    plus-style = syntax "#3B4A42"
-    minus-style = syntax "#4A3B42"
-    plus-emph-style = syntax "#3F5D50"
-    minus-emph-style = syntax "#674758"
-    line-numbers-minus-style = "#B48E95"
-    line-numbers-plus-style = "#95B48E"
+
+    plus-style = syntax "#3A4F5A"
+    plus-emph-style = syntax bold "#425965"
+    line-numbers-plus-style = "#94AEC0"
+    minus-style = syntax "#443B47"
+    minus-emph-style = syntax bold "#674758"
+    line-numbers-minus-style = "#A8848C"
 
     features = "view-side-by-side"
 
@@ -88,6 +89,15 @@
     summary = status --short --untracked-files
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     graphs = graph --all
+    show-unified = -c delta.side-by-side=false show
+    show-auto = "!f() { \
+        cols=$(tput cols 2>/dev/null || echo 80); \
+        if [ $cols -lt 160 ]; then \
+            git -c delta.side-by-side=false show \"$@\"; \
+        else \
+            git show \"$@\"; \
+        fi; \
+    }; f"
     ahead = graph @{u}..HEAD
     behind = graph ..FETCH_HEAD
     staged = diff --staged
