@@ -101,6 +101,15 @@
     ahead = graph @{u}..HEAD
     behind = graph ..FETCH_HEAD
     staged = diff --staged
+    staged-unified = -c delta.side-by-side=false diff --staged
+    staged-auto = "!f() { \
+        cols=$(tput cols 2>/dev/null || echo 80); \
+        if [ $cols -lt 160 ]; then \
+            git -c delta.side-by-side=false diff --staged \"$@\"; \
+        else \
+            git staged \"$@\"; \
+        fi; \
+    }; f"
     stashes = stash list
     stash-all = stash --include-untracked
     save = stash push
