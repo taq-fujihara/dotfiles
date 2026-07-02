@@ -74,6 +74,7 @@ create_link config/fish/functions/fileshare.fish .config/fish/functions/fileshar
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fish_title.fish .config/fish/functions/fish_title.fish
 create_link config/fish/functions/fontview.fish .config/fish/functions/fontview.fish
+create_link config/fish/functions/git.fish .config/fish/functions/git.fish
 create_link config/fish/functions/gitroot.fish .config/fish/functions/gitroot.fish
 create_link config/fish/functions/import_vscode_snippets_to_nvim.fish .config/fish/functions/import_vscode_snippets_to_nvim.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
@@ -83,7 +84,6 @@ create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/fish/functions/y.fish .config/fish/functions/y.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 create_link config/gh/config.yml .config/gh/config.yml
-remove_obsolete_link .config/fish/functions/git.fish
 create_link config/git/config .config/git/config
 create_link config/git/ignore .config/git/ignore
 create_link config/git/hooks/force-push-confirmation.fish .config/git/hooks/force-push-confirmation.fish

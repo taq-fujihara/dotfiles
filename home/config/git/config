@@ -78,38 +78,17 @@
     alias = config --get-regexp alias.*
     me = config --get-regexp user
     diff-unified = -c delta.side-by-side=false diff
-    diff-auto = "!f() { \
-        cols=$(tput cols 2>/dev/null || echo 80); \
-        if [ $cols -lt 160 ]; then \
-            git -c delta.side-by-side=false diff \"$@\"; \
-        else \
-            git diff \"$@\"; \
-        fi; \
-    }; f"
+    diff-side-by-side = -c delta.side-by-side=true diff
     summary = status --short --untracked-files
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     graphs = graph --all
     show-unified = -c delta.side-by-side=false show
-    show-auto = "!f() { \
-        cols=$(tput cols 2>/dev/null || echo 80); \
-        if [ $cols -lt 160 ]; then \
-            git -c delta.side-by-side=false show \"$@\"; \
-        else \
-            git show \"$@\"; \
-        fi; \
-    }; f"
+    show-side-by-side = -c delta.side-by-side=true show
     ahead = graph @{u}..HEAD
     behind = graph ..FETCH_HEAD
     staged = diff --staged
     staged-unified = -c delta.side-by-side=false diff --staged
-    staged-auto = "!f() { \
-        cols=$(tput cols 2>/dev/null || echo 80); \
-        if [ $cols -lt 160 ]; then \
-            git -c delta.side-by-side=false diff --staged \"$@\"; \
-        else \
-            git staged \"$@\"; \
-        fi; \
-    }; f"
+    staged-side-by-side = -c delta.side-by-side=true diff --staged
     stashes = stash list
     stash-all = stash --include-untracked
     save = stash push
