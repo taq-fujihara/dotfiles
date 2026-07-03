@@ -70,12 +70,20 @@
       "r": "project_panel::Rename",
       "d": "project_panel::Delete",
       "space e": "workspace::ToggleRightDock",
+      "space o": "project_panel::ToggleFocus",
+      "l": "project_panel::OpenPermanent",
     },
   },
   {
     "context": "ProjectSearchBar || ProjectSearchView",
     "bindings": {
       "escape escape": "pane::CloseActiveItem",
+    },
+  },
+  {
+    "context": "ProjectSearchView > VimControl && !menu && vim_mode == normal",
+    "bindings": {
+      "enter": "editor::OpenExcerpts",
     },
   },
   {
