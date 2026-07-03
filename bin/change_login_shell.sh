@@ -3,7 +3,7 @@
 set -euo pipefail
 
 echo "====================================="
-echo "🔄 Changing default shell to fish..."
+echo " 🔄 Changing default shell to fish..."
 echo "====================================="
 
 BREW_FISH_PATH="$(brew --prefix)/bin/fish"
