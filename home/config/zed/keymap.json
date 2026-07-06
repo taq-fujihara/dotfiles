@@ -49,15 +49,23 @@
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
       "space l s": "outline::Toggle",
+      "space l S": "outline_panel::ToggleFocus",
+      "space l a": "editor::ToggleCodeActions", // zed specific
       "space g g": ["task::Spawn", { "task_name": "start lazygit" }],
-      "up": "vim::ResizePaneUp",
-      "down": "vim::ResizePaneDown",
+      "g r i": "editor::GoToImplementation",
       "left": "vim::ResizePaneLeft",
       "right": "vim::ResizePaneRight",
       "shift-up": "vim::ResizePaneDown",
       "shift-down": "vim::ResizePaneUp",
       "shift-left": "vim::ResizePaneRight",
       "shift-right": "vim::ResizePaneLeft",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !(showing_code_actions || showing_completions)",
+    "bindings": {
+      "up": "vim::ResizePaneUp",
+      "down": "vim::ResizePaneDown",
     },
   },
   {
@@ -81,7 +89,13 @@
     },
   },
   {
-    "context": "ProjectSearchView > VimControl && !menu && vim_mode == normal",
+    "context": "OutlinePanel",
+    "bindings": {
+      "space q": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "VimControl && !menu && vim_mode == normal",
     "bindings": {
       "enter": "editor::OpenExcerpts",
     },
