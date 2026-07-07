@@ -29,7 +29,6 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
-      ";": "command_palette::Toggle",
       "L": "pane::ActivateNextItem",
       "H": "pane::ActivatePreviousItem",
       "|": "pane::SplitRight",
@@ -45,7 +44,7 @@
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
       "space f w": "pane::DeploySearch",
-      "space /": "editor::ToggleComments",
+      "space f r": "vim::ToggleRegistersView",
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
       "space l s": "outline::Toggle",
@@ -59,6 +58,18 @@
       "shift-down": "vim::ResizePaneUp",
       "shift-left": "vim::ResizePaneRight",
       "shift-right": "vim::ResizePaneLeft",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      ";": "command_palette::Toggle",
+      "space /": "editor::ToggleComments",
+      "space y": [
+        "workspace::SendKeystrokes",
+        "\" + y"
+      ],
+      "space p": "editor::Paste",
     },
   },
   {
@@ -106,11 +117,43 @@
       "space g g": "git_panel::Toggle",
     },
   },
+  // Torbo Logs
+  // - py
   {
-    "context": "vim_mode == visual",
+    "context": "Editor && vim_mode == normal && extension == py",
     "bindings": {
-      ";": "command_palette::Toggle",
-      "space /": "editor::ToggleComments",
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y i w o p r i n t ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : escape l a , space escape \" t p ` t",
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual && extension == py",
+    "bindings": {
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y o p r i n t ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : escape l a , space escape \" t p ` t",
+      ],
+    },
+  },
+  // - ts
+  {
+    "context": "Editor && vim_mode == normal && (extension == ts || extension == vue)",
+    "bindings": {
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y i w o c o n s o l e . l o g ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : escape l a , space escape \" t p A ; escape ` t",
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual && (extension == ts || extension == vue)",
+    "bindings": {
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y o c o n s o l e . l o g ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : escape l a , space escape \" t p A ; escape ` t",
+      ],
     },
   },
 ]
