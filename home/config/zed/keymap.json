@@ -44,6 +44,10 @@
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
       "space f w": "pane::DeploySearch",
+      "space f c": [
+        "workspace::SendKeystrokes",
+        "v i w ctrl-shift-f enter",
+      ],
       "space f r": "vim::ToggleRegistersView",
       "space l r": "editor::Rename",
       "space l R": "editor::FindAllReferences",
@@ -94,18 +98,6 @@
     },
   },
   {
-    "context": "ProjectSearchBar || ProjectSearchView",
-    "bindings": {
-      "escape escape": "pane::CloseActiveItem",
-    },
-  },
-  {
-    "context": "OutlinePanel",
-    "bindings": {
-      "space q": "workspace::ToggleLeftDock",
-    },
-  },
-  {
     "context": "VimControl && !menu && vim_mode == normal",
     "bindings": {
       "enter": "editor::OpenExcerpts",
@@ -115,6 +107,27 @@
     "context": "GitPanel",
     "bindings": {
       "space g g": "git_panel::Toggle",
+    },
+  },
+  // Closing Various Panes
+  {
+    "context": "ProjectSearchBar || ProjectSearchView",
+    "bindings": {
+      "escape escape": "pane::CloseActiveItem",
+    },
+  },
+  {
+    "context": "OutlinePanel",
+    "bindings": {
+      "space q": "outline_panel::Toggle",
+      "space c": "outline_panel::Toggle",
+    },
+  },
+  {
+    "context": "AgentPanel > Editor && vim_mode != insert",
+    "bindings": {
+      "space q": "agent::Toggle",
+      "space c": "agent::Toggle",
     },
   },
   // Torbo Logs
@@ -137,9 +150,9 @@
       ],
     },
   },
-  // - ts
+  // - js/ts
   {
-    "context": "Editor && vim_mode == normal && (extension == ts || extension == vue)",
+    "context": "Editor && vim_mode == normal && (extension == js || extension == ts || extension == vue)",
     "bindings": {
       "space l l": [
         "workspace::SendKeystrokes",
@@ -148,11 +161,30 @@
     },
   },
   {
-    "context": "Editor && vim_mode == visual && (extension == ts || extension == vue)",
+    "context": "Editor && vim_mode == visual && (extension == js || extension == ts || extension == vue)",
     "bindings": {
       "space l l": [
         "workspace::SendKeystrokes",
         "m t \" t y o c o n s o l e . l o g ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : escape l a , space escape \" t p A ; escape ` t",
+      ],
+    },
+  },
+  // - java
+  {
+    "context": "Editor && vim_mode == normal && extension == java",
+    "bindings": {
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y i w o S y s t e m . o u t . p r i n t l n ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : space escape l a space + space escape \" t p A ; escape ` t",
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual && extension == java",
+    "bindings": {
+      "space l l": [
+        "workspace::SendKeystrokes",
+        "m t \" t y o S y s t e m . o u t . p r i n t l n ( \" 🚀 space escape \" % p a space ~ space escape \" t p a : space escape l a space + space escape \" t p A ; escape ` t",
       ],
     },
   },
