@@ -84,6 +84,19 @@
     "thumb": "always",
   },
   "read_ssh_config": true,
+  "experimental.theme_overrides": {
+    "background.appearance": "transparent",
+    "background": "#2e3440bf",
+    "toolbar.background": "#2e3440bf",
+    "tab_bar.background": "#2e3440bf",
+    "tab.inactive_background": "#2e3440bf",
+    "editor.background": "#2e3440bf",
+    "editor.gutter.background": "#2e3440bf",
+    "scrollbar.thumb.background": "#434c5ebf",
+    "scrollbar.thumb.hover_background": "#434c5ebf",
+    "scrollbar.track.background": "#2e3440bf",
+    "panel.background": "#2e3440bf",
+  },
   "theme_overrides": {
     "Nord Dark": {
       "syntax": {
