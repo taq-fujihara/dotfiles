@@ -95,8 +95,10 @@ function M.setup(config)
 		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
 		-- tab navigation
-		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
+		{ key = "<", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = ">", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
 
 		-- pane resizing
 		{ key = "DownArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 5 }) },
