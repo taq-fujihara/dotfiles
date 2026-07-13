@@ -29,6 +29,7 @@ yazi = "latest"
 "npm:oxlint-tsgolint" = "latest"
 "npm:corepack" = "latest"
 "npm:@zed-industries/codex-acp" = "latest"
+"npm:hunkdiff" = "latest"
 
 "pipx:httpie" = "latest"
 "pipx:aider-chat" = "latest"

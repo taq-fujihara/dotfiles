@@ -89,6 +89,7 @@ create_link config/git/ignore .config/git/ignore
 create_link config/git/hooks/force-push-confirmation.fish .config/git/hooks/force-push-confirmation.fish
 create_link config/gitui/key_bindings.ron .config/gitui/key_bindings.ron
 create_link config/ghostty/config.ghostty .config/ghostty/config.ghostty
+create_link config/hunk/config.toml .config/hunk/config.toml
 create_link config/jj/config.toml .config/jj/config.toml
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 create_link config/karabiner .config/karabiner
