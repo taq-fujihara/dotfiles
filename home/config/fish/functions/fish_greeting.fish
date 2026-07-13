@@ -43,12 +43,38 @@ function fish_greeting
     git -C $repo pull --ff-only --quiet
   end
 
+  function __fish_greeting_local_ipv4
+    if not command -sq ip
+      return 0
+    end
+
+    ip -o -4 addr show up scope global 2>/dev/null | while read -l line
+      set -l fields (string split -n ' ' -- $line)
+      set -l iface $fields[2]
+      set -l cidr $fields[4]
+      set -l addr (string split / -- $cidr)[1]
+
+      switch $iface
+        case lo docker'*' br-'*' veth'*' virbr'*'
+          continue
+      end
+
+      if test -n "$addr"
+        echo "$addr ($iface)"
+      end
+    end
+  end
+
   echo
   echo (set_color $frost1)"   Terminal Session Active"
   echo (set_color 4C566A)" ---------------------------"
-  echo (set_color D8DEE9)" User: " (set_color $frost2)$USER
-  echo (set_color D8DEE9)" Host: " (set_color $frost3)(hostname)
-  echo (set_color D8DEE9)" Date: " (set_color $frost4)(date "+%Y.%m.%d %H:%M")
+  echo (set_color D8DEE9)" User " (set_color $frost2)$USER
+  echo (set_color D8DEE9)" Host " (set_color $frost3)(hostname)
+  set -l local_ipv4 (__fish_greeting_local_ipv4)
+  if test (count $local_ipv4) -gt 0
+    echo (set_color D8DEE9)" IP   " (set_color $frost3)(string join ', ' -- $local_ipv4)
+  end
+  echo (set_color D8DEE9)" Date " (set_color $frost4)(date "+%Y.%m.%d %H:%M")
 
   set -l date_fmt '+%Y%m%d'
   set -l cache_dir $HOME/.cache/dendron
@@ -112,6 +138,7 @@ function fish_greeting
   # -------------------------------------------
 
   functions -e __dendron_update_repo
+  functions -e __fish_greeting_local_ipv4
 
   touch $last_run_file
 
