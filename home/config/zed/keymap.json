@@ -53,7 +53,7 @@
       "space l R": "editor::FindAllReferences",
       "space l s": "outline::Toggle",
       "space l S": "outline_panel::ToggleFocus",
-      "space l a": "editor::ToggleCodeActions", // zed specific
+      "space l a": "editor::ToggleCodeActions",
       "space g g": ["task::Spawn", { "task_name": "start lazygit" }],
       "g r i": "editor::GoToImplementation",
       "left": "vim::ResizePaneLeft",
@@ -84,6 +84,12 @@
     },
   },
   {
+    "context": "VimControl && !menu && vim_mode == normal",
+    "bindings": {
+      "enter": "editor::OpenExcerpts",
+    },
+  },
+  {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "secondary-h": "workspace::ActivatePaneLeft",
@@ -95,18 +101,6 @@
       "space e": "workspace::ToggleRightDock",
       "space o": "project_panel::ToggleFocus",
       "l": "project_panel::OpenPermanent",
-    },
-  },
-  {
-    "context": "VimControl && !menu && vim_mode == normal",
-    "bindings": {
-      "enter": "editor::OpenExcerpts",
-    },
-  },
-  {
-    "context": "GitPanel",
-    "bindings": {
-      "space g g": "git_panel::Toggle",
     },
   },
   // Closing Various Panes
@@ -124,13 +118,19 @@
     },
   },
   {
+    "context": "GitPanel",
+    "bindings": {
+      "space g g": "git_panel::Toggle",
+    },
+  },
+  {
     "context": "AgentPanel > Editor && vim_mode != insert",
     "bindings": {
       "space q": "agent::Toggle",
       "space c": "agent::Toggle",
     },
   },
-  // Torbo Logs
+  // Turbo Logs
   // - py
   {
     "context": "Editor && vim_mode == normal && extension == py",
