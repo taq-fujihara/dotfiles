@@ -2,6 +2,4 @@
 .mise.local.toml
 .mise-tasks
 
-.zed/settings.json
-
 deno.local.json
