@@ -21,25 +21,6 @@ local function split_up()
   vim.cmd "wincmd k"
   require("snacks").picker.files()
 end
-
-local function exec_pane_move(direction)
-  if vim.bo.buftype == "terminal" then vim.cmd "stopinsert" end
-
-  local has_more_window = vim.fn.winnr() ~= vim.fn.winnr(direction)
-
-  if has_more_window then
-    -- usual nvim window movement
-    vim.cmd("wincmd " .. direction)
-  else
-    -- move wezterm pane in the direction via wezterm cli
-    local directions = { h = "Left", j = "Down", k = "Up", l = "Right" }
-    -- TODO: might need to change "wezterm" executable name for other platforms
-    local command = { "wezterm", "cli", "activate-pane-direction", directions[direction] }
-
-    vim.system(command)
-  end
-end
-
 local function get_filename()
   local fn = vim.api.nvim_buf_get_name(0)
 
@@ -96,11 +77,6 @@ return {
             function() vim.cmd "wincmd =" end,
             desc = "Equalize splits",
           },
-          -- Pane Movement (Move between nvim windows and wezterm panes seamlessly)
-          ["<C-h>"] = { function() exec_pane_move "h" end, desc = "Move Left" },
-          ["<C-j>"] = { function() exec_pane_move "j" end, desc = "Move Down" },
-          ["<C-k>"] = { function() exec_pane_move "k" end, desc = "Move Up" },
-          ["<C-l>"] = { function() exec_pane_move "l" end, desc = "Move Right" },
           -- Find
           ["<Leader><Leader>"] = {
             function() require("snacks").picker.smart() end,

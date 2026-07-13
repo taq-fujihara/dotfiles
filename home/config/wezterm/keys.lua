@@ -87,16 +87,14 @@ function M.setup(config)
 		},
 
 		-- pane navigation
-		M.smart_pane_navigation("h", "Left"),
-		M.smart_pane_navigation("j", "Down"),
-		M.smart_pane_navigation("k", "Up"),
-		M.smart_pane_navigation("l", "Right"),
+		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Left") },
+		{ key = "J", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Down") },
+		{ key = "K", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Up") },
+		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Right") },
 
 		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
 		-- tab navigation
-		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
-		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "<", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
 		{ key = ">", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
 
@@ -219,24 +217,6 @@ function M.setup(config)
 			-- }
 		},
 	}
-end
-
-function M.smart_pane_navigation(key, direction)
-	return {
-		key = key,
-		mods = paneNavigationMods,
-		action = wezterm.action_callback(function(window, pane)
-			if M.is_nvim(pane) then
-				window:perform_action({ SendKey = { key = key, mods = "CTRL" } }, pane)
-			else
-				window:perform_action({ ActivatePaneDirection = direction }, pane)
-			end
-		end),
-	}
-end
-
-function M.is_nvim(pane)
-	return pane:get_user_vars().IS_NVIM == "true"
 end
 
 return M
