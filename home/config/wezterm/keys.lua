@@ -13,7 +13,9 @@ function M.setup(config)
 	config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 1500 }
 
 	config.keys = {
-		-- disable Command + f (search) to use it as Leader key
+		-- Disable default key assignments
+
+		-- Command + f (search) to use it as Leader key
 		{
 			key = "f",
 			mods = "CMD",
@@ -33,6 +35,7 @@ function M.setup(config)
 		},
 
 		-- workspaces
+
 		{
 			key = "w",
 			mods = "LEADER",
@@ -53,7 +56,13 @@ function M.setup(config)
 			}),
 		},
 
-		-- split pane
+		-- tab navigation
+
+		{ key = "<", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = ">", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
+
+		-- split panes
+
 		{
 			key = "|",
 			mods = "LEADER|SHIFT",
@@ -87,6 +96,7 @@ function M.setup(config)
 		},
 
 		-- pane navigation
+
 		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Left") },
 		{ key = "J", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Down") },
 		{ key = "K", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Up") },
@@ -94,11 +104,8 @@ function M.setup(config)
 
 		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
-		-- tab navigation
-		{ key = "<", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
-		{ key = ">", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
-
 		-- pane resizing
+
 		{ key = "DownArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 5 }) },
 		{ key = "UpArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Up", 5 }) },
 		{ key = "LeftArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Left", 10 }) },
@@ -117,6 +124,7 @@ function M.setup(config)
 		},
 
 		--
+
 		{
 			key = "v",
 			mods = "LEADER",
@@ -152,6 +160,7 @@ function M.setup(config)
 		},
 
 		-- key tables
+
 		{
 			key = "t",
 			mods = "LEADER",

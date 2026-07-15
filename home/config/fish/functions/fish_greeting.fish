@@ -65,16 +65,16 @@ function fish_greeting
     end
   end
 
-  echo
-  echo (set_color $frost1)"   Terminal Session Active"
-  echo (set_color 4C566A)" ---------------------------"
-  echo (set_color D8DEE9)" User " (set_color $frost2)$USER
-  echo (set_color D8DEE9)" Host " (set_color $frost3)(hostname)
+  echo (set_color 4C566A)" ╭────────────────────────────╮"
+  echo (set_color 4C566A)" │" (set_color $frost1)"  Terminal Session Active" (set_color 4C566A)"│"
+  echo (set_color 4C566A)" ╰────────────────────────────╯"
+  echo (set_color D8DEE9)"  User " (set_color $frost2)$USER
+  echo (set_color D8DEE9)"  Host " (set_color $frost3)(hostname)
   set -l local_ipv4 (__fish_greeting_local_ipv4)
   if test (count $local_ipv4) -gt 0
-    echo (set_color D8DEE9)" IP   " (set_color $frost3)(string join ', ' -- $local_ipv4)
+    echo (set_color D8DEE9)"  IP   " (set_color $frost3)(string join ', ' -- $local_ipv4)
   end
-  echo (set_color D8DEE9)" Date " (set_color $frost4)(date "+%Y.%m.%d %H:%M")
+  echo (set_color D8DEE9)"  Date " (set_color $frost4)(date "+%Y.%m.%d %H:%M")
 
   set -l date_fmt '+%Y%m%d'
   set -l cache_dir $HOME/.cache/dendron
