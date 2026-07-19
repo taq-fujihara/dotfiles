@@ -111,3 +111,4 @@ create_link config/zed/tasks.json .config/zed/tasks.json
 create_link local/bin/annotate-md-image.fish .local/bin/annotate-md-image.fish
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
+create_link pi/agent/settings.json .pi/agent/settings.json
