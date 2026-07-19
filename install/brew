@@ -24,7 +24,6 @@ brew install \
   gdu \
   gemini-cli \
   git-delta \
-  gh \
   ghq \
   hadolint \
   helix \
