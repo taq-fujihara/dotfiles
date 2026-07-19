@@ -31,6 +31,7 @@ yazi = "latest"
 "npm:corepack" = "latest"
 "npm:@zed-industries/codex-acp" = "latest"
 "npm:hunkdiff" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
 
 "pipx:httpie" = "latest"
 "pipx:aider-chat" = "latest"
