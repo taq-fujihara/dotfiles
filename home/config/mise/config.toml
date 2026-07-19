@@ -34,7 +34,6 @@ yazi = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
 
 "pipx:httpie" = "latest"
-"pipx:aider-chat" = "latest"
 
 [settings]
 
