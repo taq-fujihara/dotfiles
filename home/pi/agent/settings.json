@@ -1,8 +1,12 @@
 {
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "0.80.10",
   "theme": "nord",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "medium",
-  "packages": ["npm:pi-mcp-adapter", "npm:@maddeye/pi-nord"]
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:@maddeye/pi-nord",
+    "npm:pi-web-access"
+  ]
 }
