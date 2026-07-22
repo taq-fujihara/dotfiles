@@ -8,6 +8,7 @@ fish_config theme choose nord
 # Environment Variables
 #################################################
 
+set -x EDITOR nvim
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
 set -x DENDRON_ROOT ~/Dendron
