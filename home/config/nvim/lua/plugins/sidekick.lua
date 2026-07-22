@@ -6,6 +6,12 @@ return {
         backend = "tmux",
         enabled = false,
       },
+      win = {
+        layout = "left",
+        split = {
+          width = 70,
+        },
+      },
     },
   },
   keys = {
@@ -27,51 +33,51 @@ return {
       mode = { "n", "t", "i", "x" },
     },
     {
-      "<leader>as",
+      "<leader>a",
       desc = "Sidekick",
     },
     {
-      "<leader>asa",
+      "<leader>aa",
       function() require("sidekick.cli").toggle() end,
       desc = "Sidekick Toggle CLI",
     },
     {
-      "<leader>ass",
+      "<leader>as",
       function() require("sidekick.cli").select() end,
       -- Or to select only installed tools:
       -- require("sidekick.cli").select({ filter = { installed = true } })
       desc = "Select CLI",
     },
     {
-      "<leader>asd",
+      "<leader>ad",
       function() require("sidekick.cli").close() end,
       desc = "Detach a CLI Session",
     },
     {
-      "<leader>ast",
+      "<leader>at",
       function() require("sidekick.cli").send { msg = "{this}" } end,
       mode = { "x", "n" },
       desc = "Send This",
     },
     {
-      "<leader>asf",
+      "<leader>af",
       function() require("sidekick.cli").send { msg = "{file}" } end,
       desc = "Send File",
     },
     {
-      "<leader>asv",
+      "<leader>av",
       function() require("sidekick.cli").send { msg = "{selection}" } end,
       mode = { "x" },
       desc = "Send Visual Selection",
     },
     {
-      "<leader>asp",
+      "<leader>ap",
       function() require("sidekick.cli").prompt() end,
       mode = { "n", "x" },
       desc = "Sidekick Select Prompt",
     },
     {
-      "<leader>asc",
+      "<leader>ac",
       function() require("sidekick.cli").toggle { name = "copilot", focus = true } end,
       desc = "Sidekick Toggle Copilot",
     },
