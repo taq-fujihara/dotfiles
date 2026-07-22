@@ -12,15 +12,12 @@ if test -f /home/linuxbrew/.linuxbrew/bin/brew; then
 fi
 
 brew install \
-  bat \
   biome \
   bottom \
   cloud-sql-proxy \
   direnv \
-  fd \
   ffmpegthumbnailer \
   fish \
-  fzf \
   gdu \
   gemini-cli \
   git-delta \
