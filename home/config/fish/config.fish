@@ -29,6 +29,9 @@ function fish_user_key_bindings
 
   bind -M default shift-h prevd-or-backward-word
   bind -M default shift-l nextd-or-forward-word
+
+  bind -M default alt-r _atuin_search
+  bind -M insert alt-r _atuin_search
 end
 
 set --global fish_key_bindings fish_vi_key_bindings
@@ -92,3 +95,7 @@ starship init fish | source
 mise activate fish | source
 direnv hook fish | source
 zoxide init fish | source
+
+# if status is-interacrive
+atuin init fish | source
+# end

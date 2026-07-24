@@ -14,6 +14,7 @@ usage = "latest"
 
 # dev tools
 
+atuin = "latest"
 bat = "latest"
 codex = "latest"
 eza = "latest"
