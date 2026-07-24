@@ -11,7 +11,7 @@ fish_config theme choose nord
 set -x EDITOR nvim
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
-set -x DENDRON_ROOT ~/Dendron
+set -x ATUIN_NOBIND true
 # set -x DOCKER_HOST unix:///run/user/(id -u)/podman/podman.sock
 
 #################################################

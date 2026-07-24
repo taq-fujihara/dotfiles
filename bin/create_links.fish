@@ -70,6 +70,7 @@ create_link config/docker/daemon.json .config/docker/daemon.json
 create_link config/eza/theme.yml .config/eza/theme.yml
 create_link config/fish/config.fish .config/fish/config.fish
 create_link config/fish/fish_plugins .config/fish/fish_plugins
+create_link config/fish/functions/ask-commands.fish .config/fish/functions/ask-commands.fish
 create_link config/fish/functions/fileshare.fish .config/fish/functions/fileshare.fish
 create_link config/fish/functions/fish_greeting.fish .config/fish/functions/fish_greeting.fish
 create_link config/fish/functions/fish_title.fish .config/fish/functions/fish_title.fish
