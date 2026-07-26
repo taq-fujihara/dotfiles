@@ -28,13 +28,14 @@ sd = "latest"
 uv = "latest"
 yazi = "latest"
 
+"github:earendil-works/pi" = "latest"
+
 "npm:@github/copilot" = "latest"
 "npm:oxlint" = "latest"
 "npm:oxlint-tsgolint" = "latest"
 "npm:corepack" = "latest"
 "npm:@zed-industries/codex-acp" = "latest"
 "npm:hunkdiff" = "latest"
-"npm:@earendil-works/pi-coding-agent" = "latest"
 
 "pipx:httpie" = "latest"
 
