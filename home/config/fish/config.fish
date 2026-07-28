@@ -93,7 +93,6 @@ starship init fish | source
 # These are installed via homebrew. So these are not in the path
 # before `brew shellenv` is sourced.
 mise activate fish | source
-direnv hook fish | source
 zoxide init fish | source
 
 # if status is-interacrive
