@@ -48,7 +48,6 @@ brew install \
   wget \
   xh \
   yq \
-  zlib \
-  zoxide
+  zlib
 
 brew link --force libpq

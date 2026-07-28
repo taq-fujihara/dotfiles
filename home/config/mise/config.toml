@@ -27,6 +27,7 @@ ripgrep = "latest"
 sd = "latest"
 uv = "latest"
 yazi = "latest"
+zoxide = "latest"
 
 "github:earendil-works/pi" = "latest"
 
