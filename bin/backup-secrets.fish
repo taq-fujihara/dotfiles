@@ -8,4 +8,5 @@ end
 echo "Backing up secrets to $BACKUP_ROOT"
 
 rsync -avh ~/.ssh/ $BACKUP_ROOT/.ssh/
+rsync -avh ~/.google-cloud/ $BACKUP_ROOT/.google-cloud/
 
