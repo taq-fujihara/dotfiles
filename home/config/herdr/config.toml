@@ -58,7 +58,7 @@ manifest_check = true
 # Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
-prefix = "ctrl+b"
+prefix = "ctrl+f"
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -80,19 +80,19 @@ prefix = "ctrl+b"
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-previous_tab = "prefix+<"
-next_tab = "prefix+>"
+previous_tab = "ctrl+<"
+next_tab = "ctrl+>"
 new_tab = "prefix+n"
-# rename_tab = "prefix+shift+t"
+rename_tab = "prefix+shift+t"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
-focus_pane_left = "prefix+h"
-focus_pane_down = "prefix+j"
-focus_pane_up = "prefix+k"
-focus_pane_right = "prefix+l"
+focus_pane_left = "ctrl+shift+h"
+focus_pane_down = "ctrl+shift+j"
+focus_pane_up = "ctrl+shift+k"
+focus_pane_right = "ctrl+shift+l"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
@@ -102,6 +102,7 @@ split_horizontal = "prefix+minus"
 zoom = "prefix+z"       # legacy alias: fullscreen
 resize_mode = "prefix+r"
 toggle_sidebar = "prefix+b"
+copy_mode = "prefix+v"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
