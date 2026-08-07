@@ -65,7 +65,7 @@ local function herdr_start_agent_left_of_current_pane()
     "--direction",
     "right",
     "--ratio",
-    "0.3",
+    "0.28",
     "--cwd",
     cwd,
     "--focus",
@@ -180,7 +180,17 @@ return {
     },
     {
       "<leader>aa",
-      function() require("sidekick.cli").toggle() end,
+      function()
+        if vim.env.HERDR_ENV == nil then
+          require("sidekick.cli").toggle()
+          return
+        end
+
+        local agent = herdr_agent_in_current_tab_or_start_left()
+        if agent == nil then return end
+
+        herdr_json { "herdr", "agent", "focus", agent.pane_id }
+      end,
       desc = "Sidekick Toggle CLI",
     },
     {
@@ -225,7 +235,7 @@ return {
       "<leader>af",
       function()
         if vim.env.HERDR_ENV == nil then
-          require("sidekick.cli").toggle()
+          require("sidekick.cli").send { msg = "{file}" }
           return
         end
 
