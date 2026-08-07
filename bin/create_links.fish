@@ -101,8 +101,10 @@ create_link config/mise/config.toml .config/mise/config.toml
 create_link config/nvim .config/nvim
 create_link config/ruff/ruff.toml .config/ruff/ruff.toml
 create_link config/starship.toml .config/starship.toml
-create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
+create_link config/wezterm/appearance.lua .config/wezterm/appearance.lua
+create_link config/wezterm/herdr.lua .config/wezterm/herdr.lua
 create_link config/wezterm/keys.lua .config/wezterm/keys.lua
+create_link config/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 create_link config/yazi/yazi.toml .config/yazi/yazi.toml
 create_link config/yazi/keymap.toml .config/yazi/keymap.toml
 create_link config/yazi/theme.toml .config/yazi/theme.toml
