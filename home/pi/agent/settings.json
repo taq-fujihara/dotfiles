@@ -8,5 +8,17 @@
     "npm:pi-mcp-adapter",
     "npm:@maddeye/pi-nord",
     "npm:pi-web-access"
-  ]
+  ],
+  "skillProfiles": {
+    "_default": {
+      "skills": [
+        "gh-stack"
+      ]
+    },
+    "drawing": {
+      "skills": [
+        "excalidraw-skill"
+      ]
+    }
+  }
 }
