@@ -7,7 +7,14 @@
   "packages": [
     "npm:pi-mcp-adapter",
     "npm:@maddeye/pi-nord",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    {
+      "source": "git:git@github.com:taq-fujihara/pi-extensions@main",
+      "extensions": [
+        "extensions/dangerous-command-guard.ts",
+        "extensions/skill-profiles.ts"
+      ]
+    }
   ],
   "skillProfiles": {
     "_default": {
