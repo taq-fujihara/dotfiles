@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 local config = {}
 
@@ -8,6 +9,8 @@ end
 
 require("keys").setup(config)
 require("appearance").setup(config)
+
+config.enable_kitty_keyboard = false
 
 -- override.lua template
 -- ```

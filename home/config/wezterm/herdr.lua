@@ -9,6 +9,7 @@ end
 
 require("appearance").setup(config)
 
+config.enable_kitty_keyboard = false
 config.hide_tab_bar_if_only_one_tab = true
 
 config.disable_default_key_bindings = true
@@ -20,6 +21,7 @@ config.keys = {
 	},
 }
 
+-- not working...
 wezterm.on("user-var-changed", function(window, pane, name, value)
 	wezterm.log_info("USER VAR CHANGED:", name, value)
 	if name == "wezterm_action" and value == "quickselect" then
