@@ -16,6 +16,8 @@ vim.api.nvim_set_hl(0, "LspInlayHint", {
   italic = true,
 })
 
+vim.g.smart_splits_multiplexer_integration = false
+
 local group = vim.api.nvim_create_augroup("RelativeNumber", { clear = true })
 
 vim.api.nvim_create_autocmd("InsertEnter", {

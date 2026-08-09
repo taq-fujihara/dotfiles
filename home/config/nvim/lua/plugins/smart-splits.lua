@@ -13,5 +13,11 @@ return {
       end,
     },
   },
-  opts = { ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" }, ignored_buftypes = { "nofile" } },
+  opts = {
+    ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
+    ignored_buftypes = { "nofile" },
+    -- Turning off the multiplexer integration dees not work with this config.
+    -- So I set "vim.g.smart_splits_multiplexer_integration = false" in polish.lua instead.
+    -- multiplexer_integration = false,
+  },
 }
