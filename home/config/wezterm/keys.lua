@@ -58,8 +58,8 @@ function M.setup(config)
 
 		-- tab navigation
 
-		{ key = "<", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(-1) },
-		{ key = ">", mods = paneNavigationMods .. "|SHIFT", action = act.ActivateTabRelative(1) },
+		{ key = "h", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+		{ key = "l", mods = "LEADER", action = act.ActivateTabRelative(1) },
 
 		-- split panes
 
@@ -72,27 +72,6 @@ function M.setup(config)
 			key = "-",
 			mods = "LEADER",
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-		},
-
-		{
-			key = "h",
-			mods = "LEADER",
-			action = act.SplitPane({ direction = "Left", size = { Percent = 50 } }),
-		},
-		{
-			key = "j",
-			mods = "LEADER",
-			action = act.SplitPane({ direction = "Down", size = { Percent = 50 } }),
-		},
-		{
-			key = "k",
-			mods = "LEADER",
-			action = act.SplitPane({ direction = "Up", size = { Percent = 50 } }),
-		},
-		{
-			key = "l",
-			mods = "LEADER",
-			action = act.SplitPane({ direction = "Right", size = { Percent = 50 } }),
 		},
 
 		-- pane navigation
