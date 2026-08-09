@@ -123,7 +123,7 @@
                         ]
                     },
                     {
-                        "description": "Command + Space で英数・かなキーを送信する。",
+                        "description": "Ctrl + Space で英数・かなキーを送信する。",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -134,7 +134,7 @@
                                 ],
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_command"] }
+                                    "modifiers": { "mandatory": ["left_control"] }
                                 },
                                 "to": [{ "key_code": "japanese_eisuu" }],
                                 "type": "basic"
@@ -148,57 +148,9 @@
                                 ],
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_command"] }
+                                    "modifiers": { "mandatory": ["left_control"] }
                                 },
                                 "to": [{ "key_code": "japanese_kana" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [{ "language": "ja" }],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["right_command"] }
-                                },
-                                "to": [{ "key_code": "japanese_eisuu" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [{ "language": "en" }],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["right_command"] }
-                                },
-                                "to": [{ "key_code": "japanese_kana" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "CapsLock + Space > Backspace",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "caps_lock pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "delete_or_backspace" }],
                                 "type": "basic"
                             }
                         ]
@@ -220,19 +172,6 @@
                         {
                             "from": { "key_code": "left_option" },
                             "to": [{ "key_code": "left_control" }]
-                        }
-                    ]
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 640,
-                        "vendor_id": 1452
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "left_command" },
-                            "to": [{ "key_code": "caps_lock" }]
                         }
                     ]
                 }
@@ -264,7 +203,15 @@
             "simple_modifications": [
                 {
                     "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "left_control" }]
+                },
+                {
+                    "from": { "key_code": "left_control" },
                     "to": [{ "key_code": "left_command" }]
+                },
+                {
+                    "from": { "key_code": "left_command" },
+                    "to": [{ "key_code": "caps_lock" }]
                 }
             ],
             "virtual_hid_keyboard": {
