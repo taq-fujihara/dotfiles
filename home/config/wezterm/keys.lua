@@ -2,25 +2,12 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 local act = wezterm.action
 
 M = {}
-
-local is_mac = wezterm.target_triple == "x86_64-apple-darwin"
-
-local leader_key_mods = is_mac and "CMD" or "CTRL"
-local paneNavigationMods = is_mac and "CMD" or "CTRL"
-
 function M.setup(config)
 	-- Leader key
-	config.leader = { key = "f", mods = leader_key_mods, timeout_milliseconds = 1500 }
+	config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 1500 }
 
 	config.keys = {
 		-- Disable default key assignments
-
-		-- Command + f (search) to use it as Leader key
-		{
-			key = "f",
-			mods = "CMD",
-			action = act.DisableDefaultAssignment,
-		},
 
 		{
 			key = "p",
@@ -76,19 +63,19 @@ function M.setup(config)
 
 		-- pane navigation
 
-		{ key = "H", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Left") },
-		{ key = "J", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Down") },
-		{ key = "K", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Up") },
-		{ key = "L", mods = paneNavigationMods .. "|SHIFT", action = act.ActivatePaneDirection("Right") },
+		{ key = "H", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
+		{ key = "J", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
+		{ key = "K", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
+		{ key = "L", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
 
 		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
 		-- pane resizing
 
-		{ key = "DownArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Down", 5 }) },
-		{ key = "UpArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Up", 5 }) },
-		{ key = "LeftArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Left", 10 }) },
-		{ key = "RightArrow", mods = paneNavigationMods, action = act.AdjustPaneSize({ "Right", 10 }) },
+		{ key = "DownArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "UpArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "LeftArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Left", 10 }) },
+		{ key = "RightArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Right", 10 }) },
 
 		{
 			key = "z",
