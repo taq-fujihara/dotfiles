@@ -2,8 +2,7 @@
 
 ./install/apt
 
-./install/brew
-./install/brew.ubuntu
+brew dump --file ./install/Brewfile.base
 
 ./install/fisher
 ./install/devbox

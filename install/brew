@@ -11,41 +11,4 @@ if test -f /home/linuxbrew/.linuxbrew/bin/brew; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew install \
-  biome \
-  bottom \
-  cloud-sql-proxy \
-  ffmpegthumbnailer \
-  fish \
-  gdu \
-  gemini-cli \
-  git-delta \
-  hadolint \
-  helix \
-  herdr \
-  jesseduffield/lazydocker/lazydocker \
-  jj \
-  libpq \
-  mise \
-  neovim \
-  nkf \
-  nushell \
-  onefetch \
-  pipenv \
-  podman \
-  podman-compose \
-  poppler \
-  pre-commit \
-  ruff \
-  sqlite \
-  starship \
-  tig \
-  tldr \
-  tree-sitter \
-  unar \
-  wget \
-  xh \
-  yq \
-  zlib
-
-brew link --force libpq
+brew dump --file install/Brewfile.linux
