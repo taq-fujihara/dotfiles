@@ -23,7 +23,6 @@ brew install \
   hadolint \
   helix \
   herdr \
-  jesseduffield/lazygit/lazygit \
   jesseduffield/lazydocker/lazydocker \
   jj \
   libpq \
