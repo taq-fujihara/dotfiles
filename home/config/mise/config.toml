@@ -16,6 +16,7 @@ usage = "latest"
 
 atuin = "latest"
 bat = "latest"
+biome = "latest"
 codex = "latest"
 eza = "latest"
 fastfetch = "latest"
