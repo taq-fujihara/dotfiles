@@ -12,6 +12,7 @@ set -x EDITOR nvim
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x MY_COLOR_SCHEME nord
 set -x ATUIN_NOBIND true
+set -x EZA_CONFIG_DIR ~/.config/eza
 # set -x DOCKER_HOST unix:///run/user/(id -u)/podman/podman.sock
 
 #################################################
