@@ -14,7 +14,11 @@ function M.setup(config)
 		saturation = 0.9,
 		brightness = 0.6,
 	}
-	config.window_decorations = "NONE"
+	if wezterm.target_triple == "aarch64-apple-darwin" then
+		config.window_decorations = "TITLE | RESIZE"
+	else
+		config.window_decorations = "NONE"
+	end
 	config.show_new_tab_button_in_tab_bar = false
 	config.show_close_tab_button_in_tabs = false
 	config.colors = {
