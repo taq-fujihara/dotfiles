@@ -3,7 +3,6 @@ local act = wezterm.action
 
 M = {}
 function M.setup(config)
-	-- Leader key
 	config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 1500 }
 
 	config.keys = {
@@ -21,7 +20,7 @@ function M.setup(config)
 			action = act.ActivateCommandPalette,
 		},
 
-		-- workspaces
+		-- Workspaces
 
 		{
 			key = "w",
@@ -43,12 +42,33 @@ function M.setup(config)
 			}),
 		},
 
-		-- tab navigation
+		-- Tabs
+
+		{
+			key = "n",
+			mods = "LEADER",
+			action = act.SpawnTab("CurrentPaneDomain"),
+		},
 
 		{ key = "h", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 		{ key = "l", mods = "LEADER", action = act.ActivateTabRelative(1) },
+		{ key = "H", mods = "LEADER", action = act.MoveTabRelative(-1) },
+		{ key = "L", mods = "LEADER", action = act.MoveTabRelative(1) },
 
-		-- split panes
+		{
+			key = "t",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, _, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
+
+		-- Panes
 
 		{
 			key = "|",
@@ -61,16 +81,12 @@ function M.setup(config)
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 
-		-- pane navigation
-
 		{ key = "H", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
 		{ key = "J", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
 		{ key = "K", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
 		{ key = "L", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
 
 		{ key = "r", mods = "LEADER", action = act.RotatePanes("Clockwise") },
-
-		-- pane resizing
 
 		{ key = "DownArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Down", 5 }) },
 		{ key = "UpArrow", mods = "CTRL", action = act.AdjustPaneSize({ "Up", 5 }) },
@@ -97,11 +113,6 @@ function M.setup(config)
 			action = act.ActivateCopyMode,
 		},
 		{
-			key = "n",
-			mods = "LEADER",
-			action = act.SpawnTab("CurrentPaneDomain"),
-		},
-		{
 			key = "s",
 			mods = "LEADER",
 			action = act.QuickSelect,
@@ -123,73 +134,6 @@ function M.setup(config)
 			key = "Space",
 			mods = "SHIFT",
 			action = act.SendKey({ key = "F20" }),
-		},
-
-		-- key tables
-
-		{
-			key = "t",
-			mods = "LEADER",
-			action = act.ActivateKeyTable({
-				name = "tabs",
-				one_shot = false,
-			}),
-		},
-		{
-			key = "f",
-			mods = "LEADER",
-			action = act.ActivateKeyTable({
-				name = "finder",
-				one_shot = true,
-			}),
-		},
-	}
-
-	config.key_tables = {
-		tabs = {
-			{ key = "h", action = act.MoveTabRelative(-1) },
-			{ key = "l", action = act.MoveTabRelative(1) },
-			{
-				key = "r",
-				action = act.Multiple({
-					act.PopKeyTable,
-					act.PromptInputLine({
-						description = "Enter new name for tab",
-						action = wezterm.action_callback(function(window, _, line)
-							if line then
-								window:active_tab():set_title(line)
-							end
-						end),
-					}),
-				}),
-			},
-			{
-				key = "Enter",
-				action = "PopKeyTable",
-			},
-			{
-				key = "Escape",
-				action = "PopKeyTable",
-			},
-		},
-		finder = {
-			{
-				-- files
-				key = "f",
-				action = act.SendKey({ key = "f", mods = "ALT|CTRL" }),
-			},
-			{
-				-- git logs
-				key = "l",
-				action = act.SendKey({ key = "l", mods = "ALT|CTRL" }),
-			},
-			-- {
-			-- 	-- workspaces
-			-- 	key = "w",
-			-- 	action = act.ShowLauncherArgs {
-			-- 		flags = 'FUZZY|WORKSPACES',
-			-- 	},
-			-- }
 		},
 	}
 end
