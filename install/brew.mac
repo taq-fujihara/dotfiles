@@ -1,5 +1,0 @@
-#!/bin/bash
-
-brew install --cask wezterm@nightly
-brew install --cask google-cloud-sdk
-brew install gotop

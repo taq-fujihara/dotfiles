@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+brew install --cask wezterm@nightly
+brew install --cask ghostty

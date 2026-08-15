@@ -11,4 +11,4 @@ if test -f /home/linuxbrew/.linuxbrew/bin/brew; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew dump --file install/Brewfile.linux
+brew bundle --file install/Brewfile.base

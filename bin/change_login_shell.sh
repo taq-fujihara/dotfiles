@@ -25,7 +25,7 @@ fi
 # Change user’s login shell if not already set
 if [ "$SHELL" != "$BREW_FISH_PATH" ]; then
     echo "Changing default shell to $BREW_FISH_PATH for user $USER..."
-    sudo usermod --shell "$BREW_FISH_PATH" "$USER"
+    chsh -s $BREW_FISH_PATH
     echo "✅ Default shell set to fish"
 else
     echo "✅ Default shell already set to $BREW_FISH_PATH"
