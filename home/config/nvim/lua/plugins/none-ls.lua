@@ -38,14 +38,14 @@ return {
           condition = function(utils) return has_prettier_config(utils) end,
         },
         -- Default
-        null_ls.builtins.formatting.biome.with {
-          condition = function(utils)
-            if has_prettier_config(utils) then return false end
-            if has_deno_config(utils) then return false end
-
-            return true
-          end,
-        },
+        -- null_ls.builtins.formatting.biome.with {
+        --   condition = function(utils)
+        --     if has_prettier_config(utils) then return false end
+        --     if has_deno_config(utils) then return false end
+        --
+        --     return true
+        --   end,
+        -- },
 
         -- ---------------------------------------------------
         -- Lua
