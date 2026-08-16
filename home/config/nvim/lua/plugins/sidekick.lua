@@ -4,7 +4,7 @@ return {
     cli = {
       mux = {
         backend = "herdr",
-        enabled = true,
+        enabled = vim.env.HERDR_ENV == "1",
       },
       win = {
         layout = "left",
