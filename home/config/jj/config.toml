@@ -2,11 +2,13 @@
 
 [ui]
 
+default-command = "log"
 editor = "nvim"
 diff-formatter = "delta"
 
 [merge-tools]
 
+delta.diff-args = ["--side-by-side", "$left", "$right", "--width=$width"]
 delta.diff-expected-exit-codes = [0, 1]
 
 [aliases]
