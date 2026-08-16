@@ -151,7 +151,7 @@ return {
       win = {
         layout = "left",
         split = {
-          width = 60,
+          width = 55,
         },
       },
     },
