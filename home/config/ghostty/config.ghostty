@@ -1,7 +1,7 @@
 theme = Nord
 font-family = UDEV Gothic 35NFLG
 background-opacity = 0.95
-adjust-cell-height = 20%
+adjust-cell-height = 4
 window-decoration = none
 
 # disable all keybinds; herdr handles keybinds itself
