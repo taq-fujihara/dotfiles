@@ -19,7 +19,7 @@ name = "nord"
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 [theme.custom]
-overlay0 = "#616E88"
+# overlay0 = "#616E88"
 # panel_bg = "reset"
 # accent = "#f5c2e7"
 # red = "#ff6188"
@@ -67,7 +67,7 @@ prefix = "ctrl+f"
 # detach = "prefix+q"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
-# workspace_picker = "prefix+shift+w"
+workspace_picker = "prefix+shift+w"
 goto = "prefix+g"
 new_workspace = "prefix+w"
 # new_worktree = "prefix+shift+g"
@@ -213,8 +213,8 @@ prompt_new_tab_name = false
 # position = "bottom-right"
 
 [ui.toast.clipboard]
-# enabled = true
-# position = "bottom-center"
+enabled = true
+position = "bottom-right"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
