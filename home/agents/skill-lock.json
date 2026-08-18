@@ -8,7 +8,7 @@
       "skillPath": "skills/gh-stack/SKILL.md",
       "skillFolderHash": "c95c8b5b4dd850f3fef007b304428f5684f2fb87",
       "installedAt": "2026-08-06T08:53:42Z",
-      "updatedAt": "2026-08-06T08:55:51Z"
+      "updatedAt": "2026-08-19T01:44:30Z"
     },
     "herdr": {
       "source": "herdrdev/herdr",
@@ -20,21 +20,6 @@
       "updatedAt": "2026-08-09T06:06:08.227Z"
     }
   },
-  "lastSelectedAgents": [
-    "amp",
-    "antigravity",
-    "antigravity-cli",
-    "cline",
-    "codex",
-    "cursor",
-    "deepagents",
-    "gemini-cli",
-    "github-copilot",
-    "kimi-code-cli",
-    "opencode",
-    "warp",
-    "zed"
-  ],
   "dismissed": {
     "findSkillsPrompt": true
   }
