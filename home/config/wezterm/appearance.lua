@@ -20,7 +20,7 @@ function M.setup(config)
 		config.window_decorations = "NONE"
 	end
 	config.show_new_tab_button_in_tab_bar = false
-	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	if wezterm.target_triple ~= "x86_64-pc-windows-msvc" then
 		config.show_close_tab_button_in_tabs = false
 	end
 	config.colors = {
