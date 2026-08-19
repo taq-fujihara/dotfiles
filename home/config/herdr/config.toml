@@ -20,10 +20,8 @@ name = "nord"
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 [theme.custom]
 overlay0 = "#616E88"
+surface_dim = "#616E88"
 panel_bg = "transparent"
-# accent = "#f5c2e7"
-# red = "#ff6188"
-# green = "#a6e3a1"
 
 [terminal]
 # Executable used for new interactive panes.
