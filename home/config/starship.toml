@@ -44,8 +44,8 @@ vimcmd_visual_symbol = '[](#81a1c1)'
 
 [hostname]
 ssh_only = true
-format = '[ @$hostname ]($style)'
-style = "bg:#8fbcbb"
+format = '[$hostname ]($style)'
+style = "fg:#37474F bg:#8fbcbb"
 disabled = false
 
 [username]
