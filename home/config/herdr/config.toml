@@ -19,8 +19,8 @@ name = "nord"
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 [theme.custom]
-# overlay0 = "#616E88"
-# panel_bg = "reset"
+overlay0 = "#616E88"
+panel_bg = "transparent"
 # accent = "#f5c2e7"
 # red = "#ff6188"
 # green = "#a6e3a1"
