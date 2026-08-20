@@ -3,6 +3,7 @@ font-family = UDEV Gothic 35NFLG
 background-opacity = 0.95
 adjust-cell-height = 4
 window-decoration = none
+macos-titlebar-style = hidden
 
 # disable all keybinds; herdr handles keybinds itself
 keybind = clear
