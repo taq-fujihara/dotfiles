@@ -1,5 +1,5 @@
 .rtx.local.toml
 .mise.local.toml
 .mise-tasks
-
+AGENTS.local.md
 deno.local.json
