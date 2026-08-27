@@ -12,7 +12,8 @@
       "source": "git:git@github.com:taq-fujihara/pi-extensions@main",
       "extensions": [
         "extensions/dangerous-command-guard.ts",
-        "extensions/skill-profiles.ts"
+        "extensions/skill-profiles.ts",
+        "extensions/agents-local.ts"
       ]
     }
   ],
