@@ -10,7 +10,7 @@ end
 require("keys").setup(config)
 require("appearance").setup(config)
 
-config.enable_kitty_keyboard = false
+-- config.enable_kitty_keyboard = false
 
 -- override.lua template
 -- ```
