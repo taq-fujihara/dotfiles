@@ -2,7 +2,7 @@
 
 ## General Coding Habit
 
-- When writing something intended for human consumption, (comment, commit message, reply to prompt) use as few words as possible. Pick every word meticulously to reduce the volume to a strict minimum. Be down to the point. Less is more.
+- When writing something intended for human consumption, (comment, commit message) use as few words as possible. Pick every word meticulously to reduce the volume to a strict minimum. Be down to the point. Less is more.
 - Avoid superlatives and praise. Stop telling me I am absolutely right. Give me the cold hard truth too.
 - Reduce code indentation. Avoid Arrow Anti-Pattern. Leverage early return and continue.
 - Let the reader of the code breathe. Add empty lines between logical blocks of code.
