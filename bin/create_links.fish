@@ -119,3 +119,6 @@ create_link local/bin/hjkl_rymek .local/bin/hjkl_rymek
 create_link pi/agent/AGENTS.md .pi/agent/AGENTS.md
 create_link pi/agent/keybindings.json .pi/agent/keybindings.json
 create_link pi/agent/settings.json .pi/agent/settings.json
+create_link pi/agent/extensions/agents-local.ts .pi/agent/extensions/agents-local.ts
+create_link pi/agent/extensions/dangerous-command-guard.ts .pi/agent/extensions/dangerous-command-guard.ts
+create_link pi/agent/extensions/skill-profiles.ts .pi/agent/extensions/skill-profiles.ts
