@@ -12,7 +12,8 @@
   "skillProfiles": {
     "_default": {
       "skills": [
-        "gh-stack"
+        "gh-stack",
+        "herdr"
       ]
     },
     "drawing": {
