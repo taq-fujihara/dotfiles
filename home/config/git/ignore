@@ -3,3 +3,6 @@
 .mise-tasks
 AGENTS.local.md
 deno.local.json
+
+# Per-repository local workspace
+/.dev-local/
