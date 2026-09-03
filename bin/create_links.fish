@@ -122,3 +122,4 @@ create_link pi/agent/settings.json .pi/agent/settings.json
 create_link pi/agent/extensions/agents-local.ts .pi/agent/extensions/agents-local.ts
 create_link pi/agent/extensions/dangerous-command-guard.ts .pi/agent/extensions/dangerous-command-guard.ts
 create_link pi/agent/extensions/skill-profiles.ts .pi/agent/extensions/skill-profiles.ts
+create_link pi/agent/prompts/commit.md .pi/agent/prompts/commit.md
