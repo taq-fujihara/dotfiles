@@ -1,5 +1,7 @@
 function git -d "git command wrapper"
-    __git_wrapper_warn_jj_repo $argv
+    if not __git_wrapper_warn_jj_repo $argv
+        return 1
+    end
 
     if __git_wrapper_disable_side_by_side_diff
         command git -c delta.side-by-side=false $argv
@@ -21,6 +23,15 @@ function __git_wrapper_warn_jj_repo
 
     if test -n "$root"; and test -d "$root/.jj"
         echo "warning: this repo has .jj; consider using jj" >&2
+        read --local --prompt-str "Continue? [y/N] " answer
+
+        switch $answer
+            case y Y yes YES
+                return 0
+            case '*'
+                echo "aborted" >&2
+                return 1
+        end
     end
 end
 
