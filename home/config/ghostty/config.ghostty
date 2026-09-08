@@ -8,5 +8,6 @@ macos-titlebar-style = hidden
 # disable all keybinds; herdr handles keybinds itself
 keybind = clear
 keybind = ctrl+shift+v=paste_from_clipboard
-keybind = ctrl+shift+,=reload_config
 keybind = ctrl+shift+c=copy_to_clipboard:mixed
+
+# keybind = ctrl+shift+,=reload_config

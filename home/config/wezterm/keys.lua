@@ -52,6 +52,9 @@ function M.setup(config)
 
 		{ key = "h", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 		{ key = "l", mods = "LEADER", action = act.ActivateTabRelative(1) },
+		{ key = "<", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
+		{ key = ">", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(1) },
+
 		{ key = "H", mods = "LEADER", action = act.MoveTabRelative(-1) },
 		{ key = "L", mods = "LEADER", action = act.MoveTabRelative(1) },
 
