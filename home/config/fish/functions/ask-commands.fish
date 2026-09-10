@@ -76,7 +76,7 @@ function ask-commands
   else
     pi \
       --provider openai-codex \
-      --model gpt-5.4-mini:low \
+      --model gpt-5.6-luna:low \
       --exclude-tools write \
       --exclude-tools edit \
       --exclude-tools bash \
