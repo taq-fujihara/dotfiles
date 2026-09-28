@@ -100,6 +100,7 @@ create_link config/jj/config.toml .config/jj/config.toml
 create_link config/karabiner .config/karabiner
 create_link config/lazygit/config.yml .config/lazygit/config.yml
 create_link config/mise/config.toml .config/mise/config.toml
+create_link config/mise/mise.lock .config/mise/mise.lock
 create_link config/nvim .config/nvim
 create_link config/ruff/ruff.toml .config/ruff/ruff.toml
 create_link config/starship.toml .config/starship.toml
