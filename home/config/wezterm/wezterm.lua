@@ -7,6 +7,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.quote_dropped_files = "Posix"
+
 require("keys").setup(config)
 require("appearance").setup(config)
 
