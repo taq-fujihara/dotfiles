@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set INSTALL_DIR ~/.config/fish/completions
+set INSTALL_DIR $__fish_config_dir/completions
 mkdir -p $INSTALL_DIR
 
 function gen_completion
