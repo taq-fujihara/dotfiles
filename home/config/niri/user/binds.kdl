@@ -1,0 +1,44 @@
+binds {
+    Mod+Slash hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Return hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Q repeat=false { close-window; }
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+W repeat=false { toggle-overview; }
+
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "/home/linuxbrew/.linuxbrew/bin/wezterm"; }
+    Mod+B hotkey-overlay-title="Open browser" { spawn "brave-origin"; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+S { toggle-column-tabbed-display; }
+
+    Mod+H { focus-column-or-monitor-left; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+    Mod+L { focus-column-or-monitor-right; }
+    Mod+Home { focus-column-first; }
+    Mod+End { focus-column-last; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End { move-column-to-last; }
+
+    Mod+Ctrl+H { focus-monitor-left; }
+    Mod+Ctrl+J { focus-workspace-down; }
+    Mod+Ctrl+K { focus-workspace-up; }
+    Mod+Ctrl+L { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J { move-column-to-workspace-down; }
+    Mod+Shift+Ctrl+K { move-column-to-workspace-up; }
+    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Mod+Alt+H { consume-or-expel-window-left; }
+    Mod+Alt+L { consume-or-expel-window-right; }
+    Mod+BracketLeft { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
+}
