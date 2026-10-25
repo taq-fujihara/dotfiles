@@ -91,11 +91,9 @@ if test -f /home/linuxbrew/.linuxbrew/bin/brew
   /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
 end
 starship init fish | source
+mise activate fish | source
 # These are installed via homebrew. So these are not in the path
 # before `brew shellenv` is sourced.
-mise activate fish | source
 zoxide init fish | source
 
-# if status is-interacrive
 atuin init fish | source
-# end

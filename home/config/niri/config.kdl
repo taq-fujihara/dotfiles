@@ -186,6 +186,13 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
 }
 window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^com\.microsoft\.VSCode*"#
+    default-column-width { proportion 1.0; }
+}
+window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
     geometry-corner-radius 12
@@ -238,6 +245,9 @@ recent-windows {
     }
 }
 
+// Override (Output settings defined first take precedence, so load user outputs before DMS outputs)
+include optional=true "user/outputs.kdl"
+
 // Include dms files
 include optional=true "dms/colors.kdl"
 include optional=true "dms/layout.kdl"
@@ -247,6 +257,7 @@ include optional=true "dms/outputs.kdl"
 include optional=true "dms/cursor.kdl"
 include optional=true "dms/input.kdl"
 
-// Include user files
-include optional=true "user/layout.kdl"
+// Override
 include optional=true "user/binds.kdl"
+include optional=true "user/environment.kdl"
+include optional=true "user/layout.kdl"
