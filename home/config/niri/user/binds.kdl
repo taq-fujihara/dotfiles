@@ -9,7 +9,8 @@ binds {
     Mod+Shift+T hotkey-overlay-title="Open Terminal (Herdr)" { spawn "ghostty" "-e" "herdr"; }
     Mod+D hotkey-overlay-title="Open Dendron" { spawn-sh "code-insiders $DENDRON_PERSONAL_NOTE_ROOT/dendron.code-workspace"; }
     Mod+Shift+D hotkey-overlay-title="Open Dendron (All)" { spawn-sh "code-insiders $DENDRON_ROOT/dendron.code-workspace"; }
-    Mod+Tab { spawn "sh" "-c" "niri msg action focus-column-right && niri msg action move-column-to-last && niri msg action focus-window-previous"; }
+    Mod+Period { spawn "emoji-picker"; }
+    Mod+Tab { spawn "sh" "-c" "niri-rotate-right-columns.sh"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+S { toggle-column-tabbed-display; }
@@ -41,10 +42,6 @@ binds {
     Mod+Shift+Ctrl+K { move-column-to-workspace-up; }
     Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
 
-    Mod+Alt+H { consume-or-expel-window-left; }
-    Mod+Alt+L { consume-or-expel-window-right; }
-    Mod+BracketLeft { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+Comma { consume-or-expel-window-left; }
-    Mod+Period { consume-or-expel-window-right; }
+    Mod+U { consume-or-expel-window-left; }
+    Mod+I { consume-or-expel-window-right; }
 }
