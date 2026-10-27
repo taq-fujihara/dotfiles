@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+brew tap wezterm/wezterm-linuxbrew
+brew install --HEAD wezterm/wezterm-linuxbrew/wezterm

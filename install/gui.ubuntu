@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Zed
+curl -f https://zed.dev/install.sh | sh
