@@ -5,9 +5,8 @@
 ## Install
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/taq-fujihara/dotfiles/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/taq-fujihara/dotfiles/main/setup.sh | bash
 ```
-
 
 ## ~~Dev~~
 
