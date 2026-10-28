@@ -8,7 +8,7 @@ binds {
     Mod+B hotkey-overlay-title="Open browser" { spawn "brave-origin"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "wezterm"; }
     Mod+Shift+T hotkey-overlay-title="Open Terminal (Herdr)" { spawn "ghostty" "-e" "herdr"; }
-    Mod+D hotkey-overlay-title="Open Dendron" { spawn-sh "code-insiders $DENDRON_PERSONAL_NOTE_ROOT/dendron.code-workspace"; }
+    Mod+D hotkey-overlay-title="Open Dendron" { spawn-sh "code-insiders $DENDRON_PRIMARY_VAULT/dendron.code-workspace"; }
     Mod+Shift+D hotkey-overlay-title="Open Dendron (All)" { spawn-sh "code-insiders $DENDRON_ROOT/dendron.code-workspace"; }
     Mod+Period { spawn "emoji-picker"; }
     Mod+Tab { spawn "sh" "-c" "niri-rotate-right-columns.sh"; }
