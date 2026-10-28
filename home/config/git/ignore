@@ -1,8 +1,9 @@
 .rtx.local.toml
 .mise.local.toml
 .mise-tasks
+mise.local.lock
 AGENTS.local.md
 deno.local.json
 
-# Per-repository local workspace
-/.dev-local/
+# local workspace
+.dev-local/
