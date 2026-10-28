@@ -1,6 +1,5 @@
 binds {
     Mod+Slash hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+Return hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+Q repeat=false { close-window; }
     Mod+W repeat=false { toggle-overview; }
 
@@ -16,8 +15,9 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+S { toggle-column-tabbed-display; }
     Mod+F { maximize-column; }
-    Mod+M { set-column-width "66.667%"; }
-    Mod+Shift+M { set-column-width "33.333%"; }
+    Mod+Shift+F { set-column-width "50%"; }
+    Mod+M { set-column-width "33.333%"; }
+    Mod+Comma { set-column-width "66.667%"; }
 
     Mod+H { focus-column-or-monitor-left; }
     Mod+J { focus-window-or-workspace-down; }
