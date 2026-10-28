@@ -2,3 +2,7 @@
 
 # Zed
 curl -f https://zed.dev/install.sh | sh
+
+# VSCode
+wget https://code.visualstudio.com/insiders/download/linux/deb -O /tmp/vscode-insiders.deb
+sudo apt install /tmp/vscode-insiders.deb
