@@ -4,6 +4,7 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+W repeat=false { toggle-overview; }
 
+    Mod+E hotkey-overlay-title="Open File Manager" { spawn-sh "dfiles open -n ~"; }
     Mod+B hotkey-overlay-title="Open browser" { spawn "brave-origin"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "wezterm"; }
     Mod+Shift+T hotkey-overlay-title="Open Terminal (Herdr)" { spawn "ghostty" "-e" "herdr"; }
