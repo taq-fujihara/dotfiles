@@ -181,6 +181,7 @@ animations {
 // by setting an empty default-column-width.
 window-rule {
     match app-id=r#"^dev\.duxlabs\.files$"# title=r#"^(Open|Save|Select|Upload|Export|Import|All Files)"#
+    match app-id=r#"^dev\.duxlabs\.files$"# title=r#" wants to save$"#
     open-floating true
 }
 window-rule {
