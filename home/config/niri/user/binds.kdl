@@ -45,4 +45,7 @@ binds {
 
     Mod+U { consume-or-expel-window-left; }
     Mod+I { consume-or-expel-window-right; }
+
+    Mod+Alt+J { spawn "sh" "-c" "niri-create-workspace-above-or-below.sh down"; }
+    Mod+Alt+K { spawn "sh" "-c" "niri-create-workspace-above-or-below.sh up"; }
 }
