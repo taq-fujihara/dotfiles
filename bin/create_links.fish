@@ -61,7 +61,6 @@ echo '*' > $BACKUP_ROOT/.gitignore
 remove_obsolete_link .gitconfig
 remove_obsolete_link .gitignore
 create_link xkb .xkb
-create_link sampler.yaml .sampler.yaml
 create_link agents/skill-lock.json .agents/.skill-lock.json
 create_link config/bat/config .config/bat/config
 create_link config/containers/container.conf .config/containers/container.conf
