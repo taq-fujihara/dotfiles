@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "theme": "nord",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
@@ -36,5 +36,8 @@
   },
   "extensions": [
     "+builtin:mcp"
-  ]
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.46.0"
+  }
 }
