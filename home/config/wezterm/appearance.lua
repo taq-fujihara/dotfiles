@@ -15,7 +15,7 @@ function M.setup(config)
 		brightness = 0.6,
 	}
 	if wezterm.target_triple == "aarch64-apple-darwin" then
-		config.window_decorations = "TITLE | RESIZE"
+		config.window_decorations = "RESIZE"
 	else
 		config.window_decorations = "NONE"
 	end
