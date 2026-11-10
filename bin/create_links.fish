@@ -103,6 +103,7 @@ create_link config/niri/config.kdl .config/niri/config.kdl
 create_link config/niri/user/binds.kdl .config/niri/user/binds.kdl
 create_link config/niri/user/layout.kdl .config/niri/user/layout.kdl
 create_link config/nvim .config/nvim
+create_link config/rex/init.lua .config/rex/init.lua
 create_link config/ruff/ruff.toml .config/ruff/ruff.toml
 create_link config/starship.toml .config/starship.toml
 create_link config/wezterm/appearance.lua .config/wezterm/appearance.lua
