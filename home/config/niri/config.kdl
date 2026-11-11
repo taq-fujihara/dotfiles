@@ -183,6 +183,8 @@ window-rule {
     match app-id=r#"^dev\.duxlabs\.files$"# title=r#"^(Open|Save|Select|Upload|Export|Import|All Files)"#
     match app-id=r#"^dev\.duxlabs\.files$"# title=r#" wants to save$"#
     open-floating true
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.6; }
 }
 window-rule {
     // This regular expression is intentionally made as specific as possible,
