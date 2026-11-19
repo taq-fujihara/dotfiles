@@ -180,8 +180,8 @@ animations {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
-    match app-id=r#"^dev\.duxlabs\.files$"# title=r#"^(Open|Save|Select|Upload|Export|Import|All Files)"#
-    match app-id=r#"^dev\.duxlabs\.files$"# title=r#" wants to save$"#
+    match app-id=r#"^dev\.duxlabs\.files\.chooser$"#
+
     open-floating true
     default-column-width { proportion 0.6; }
     default-window-height { proportion 0.6; }
