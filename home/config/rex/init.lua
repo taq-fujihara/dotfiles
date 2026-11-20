@@ -11,6 +11,7 @@ rex.bind("ctrl+shift+p", "client.palette.toggle")
 
 rex.bind("ctrl+shift+c", "pane.copy")
 rex.bind("ctrl+shift+v", "pane.paste")
+leader("v", "pane.copy_mode.enter")
 
 rex.bind("shift+enter", "accept_autocomplete_and_execute")
 
