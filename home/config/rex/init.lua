@@ -9,6 +9,9 @@ leader(leader_key, "pane.send_key", { key = leader_key })
 leader("p", "client.palette.toggle")
 rex.bind("ctrl+shift+p", "client.palette.toggle")
 
+rex.unbind("cmd+f")
+rex.bind("ctrl+shift+f", "client.find.open")
+
 rex.bind("ctrl+shift+c", "pane.copy")
 rex.bind("ctrl+shift+v", "pane.paste")
 leader("v", "pane.copy_mode.enter")
