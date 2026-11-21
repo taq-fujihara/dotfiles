@@ -84,7 +84,6 @@ create_link config/fish/functions/note.fish .config/fish/functions/note.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
 create_link config/fish/functions/scratch.fish .config/fish/functions/scratch.fish
-create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/fish/functions/wkdir_fzf.fish .config/fish/functions/wkdir_fzf.fish
 create_link config/fish/functions/y.fish .config/fish/functions/y.fish
