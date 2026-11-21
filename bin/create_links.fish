@@ -86,6 +86,7 @@ create_link config/fish/functions/printpath.fish .config/fish/functions/printpat
 create_link config/fish/functions/scratch.fish .config/fish/functions/scratch.fish
 create_link config/fish/functions/wezinit.fish .config/fish/functions/wezinit.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
+create_link config/fish/functions/wkdir_fzf.fish .config/fish/functions/wkdir_fzf.fish
 create_link config/fish/functions/y.fish .config/fish/functions/y.fish
 create_link config/fish/functions/zf.fish .config/fish/functions/zf.fish
 create_link config/gh/config.yml .config/gh/config.yml
