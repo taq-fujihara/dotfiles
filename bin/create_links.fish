@@ -6,6 +6,10 @@ set BACKUP_ROOT (pwd)/backup
 set BACKUP_DIR $BACKUP_ROOT/(date "+%Y%m%d%H%M%S")
 
 
+function info
+  echo (set_color brblack; echo $argv[1]; set_color normal)
+end
+
 function warn
   echo (set_color yellow; echo $argv[1]; set_color normal)
 end
@@ -19,12 +23,12 @@ function create_link
   set -l dst $DESTINATION_DIR/$argv[2]
 
   if test -L $dst
-    warn "$dst already exists (as a link). skip..."
+    info "$dst already exists (as a link). skip..."
     return
   end
 
   if test -e $dst
-    warn "$dst already exists. backup..."
+    info "$dst already exists. backup..."
     cp -r $dst $BACKUP_DIR/
     if test $status != 0
       error 'Failed to backup! Did not create link...'
