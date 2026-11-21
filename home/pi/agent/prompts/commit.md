@@ -11,6 +11,7 @@ Instructions:
 - If untracked files exist, inspect them before deciding whether to add them.
 - Do not include unrelated or generated files unless clearly part of the change.
 - Run relevant tests or checks when practical. If skipped, mention why.
+- Split changes addressing different concerns into separate commits.
 - Stage the intended files.
 - Write a concise commit message that matches the change.
 - Commit with `git commit`.
