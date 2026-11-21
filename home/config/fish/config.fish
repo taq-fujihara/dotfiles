@@ -33,6 +33,7 @@ function fish_user_key_bindings
 
   bind -M default alt-r _atuin_search
   bind -M insert alt-r _atuin_search
+  bind -M default ctrl-w wkdir_fzf
   bind -M insert ctrl-w wkdir_fzf
 end
 
