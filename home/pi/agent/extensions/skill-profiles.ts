@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { homedir } from "node:os";
 import { isAbsolute, join, relative, resolve } from "node:path";
 import type { BuildSystemPromptOptions, ExtensionAPI } from "@earendil-works/pi-coding-agent";
@@ -19,6 +19,22 @@ type ProjectConfig = {
 };
 
 const DEFAULT_SKILL_PROFILE_NAME = "_default";
+
+type IndividualSkillRule = {
+	matches: (cwd: string) => boolean;
+	skills: string[];
+};
+
+const INDIVIDUAL_SKILL_RULES: IndividualSkillRule[] = [
+	{
+		matches: () => process.env.HERDR_ENV !== undefined,
+		skills: ["herdr"],
+	},
+	{
+		matches: (cwd) => statSync(join(cwd, ".jj"), { throwIfNoEntry: false })?.isDirectory() ?? false,
+		skills: ["jujutsu"],
+	},
+];
 
 type SkillLike = {
 	name: string;
@@ -57,29 +73,48 @@ function readEnabledProfiles(cwd: string): string[] {
 	return Array.from(new Set([DEFAULT_SKILL_PROFILE_NAME, ...projectProfiles]));
 }
 
-function readAllowedSkills(profileNames: string[]): Set<string> | undefined {
-	if (profileNames.length === 0) return undefined;
-
-	const config = readJsonFile<GlobalConfig>(join(homedir(), ".pi", "agent", "settings.json"));
-	if (!config?.skillProfiles || typeof config.skillProfiles !== "object") return new Set();
-
+function readIndividualSkills(cwd: string): Set<string> {
 	const allowed = new Set<string>();
-	for (const profileName of profileNames) {
-		const profile = config.skillProfiles[profileName];
-		if (!profile || typeof profile !== "object") continue;
-		for (const skillName of asStrings(profile.skills)) allowed.add(skillName);
+	for (const rule of INDIVIDUAL_SKILL_RULES) {
+		if (!rule.matches(cwd)) continue;
+		for (const skillName of rule.skills) allowed.add(skillName);
+	}
+
+	return allowed;
+}
+
+function readProfileSkills(profileNames: string[]): Map<string, Set<string>> {
+	const config = readJsonFile<GlobalConfig>(join(homedir(), ".pi", "agent", "settings.json"));
+	const profiles = new Map<string, Set<string>>();
+	for (const name of profileNames) {
+		profiles.set(name, new Set(asStrings(config?.skillProfiles?.[name]?.skills)));
+	}
+	return profiles;
+}
+
+function readAllowedSkills(profileNames: string[], cwd: string): Set<string> {
+	const allowed = readIndividualSkills(cwd);
+	for (const skills of readProfileSkills(profileNames).values()) {
+		for (const name of skills) allowed.add(name);
 	}
 	return allowed;
 }
 
-function formatProfileSkillSummary(profileNames: string[], allowedSkills: Set<string>): string | undefined {
+function formatSkillNames(skills: Set<string>): string {
+	return Array.from(skills).sort((a, b) => a.localeCompare(b)).join(", ") || "(none)";
+}
+
+function formatProfileSkillSummary(profileNames: string[], cwd: string): string | undefined {
 	if (profileNames.length === 0) return undefined;
 
-	const skillNames = Array.from(allowedSkills).sort((a, b) => a.localeCompare(b));
+	const profiles = Array.from(
+		readProfileSkills(profileNames),
+		([name, skills]) => `${name} (${skills.size === 0 ? "none" : formatSkillNames(skills)})`,
+	);
 	return [
 		"[Skill Profiles]",
-		`Profiles: ${profileNames.join(", ")}`,
-		skillNames.length === 0 ? "Skills: (none)" : `Skills: ${skillNames.join(", ")}`,
+		`Profiles: ${profiles.join(", ")}`,
+		`Skills: ${formatSkillNames(readIndividualSkills(cwd))}`,
 	].join("\n");
 }
 
@@ -174,8 +209,7 @@ export default function skillProfiles(pi: ExtensionAPI) {
 		if (event.reason !== "startup" || !ctx.hasUI) return;
 
 		const profileNames = readEnabledProfiles(ctx.cwd);
-		const allowedGlobalSkills = readAllowedSkills(profileNames) ?? new Set<string>();
-		const summary = formatProfileSkillSummary(profileNames, allowedGlobalSkills);
+		const summary = formatProfileSkillSummary(profileNames, ctx.cwd);
 		if (summary) ctx.ui.notify(summary, "info");
 	});
 
@@ -190,7 +224,7 @@ export default function skillProfiles(pi: ExtensionAPI) {
 			return;
 		}
 
-		const allowedGlobalSkills = readAllowedSkills(profileNames) ?? new Set<string>();
+		const allowedGlobalSkills = readAllowedSkills(profileNames, ctx.cwd);
 		const explicitSkills = explicitSkillsForNextPrompt;
 		explicitSkillsForNextPrompt = new Set<string>();
 

@@ -22,18 +22,12 @@
   "skillProfiles": {
     "_default": {
       "skills": [
-        "gh-stack",
-        "herdr"
+        "gh-stack"
       ]
     },
     "drawing": {
       "skills": [
         "excalidraw-skill"
-      ]
-    },
-    "jujutsu": {
-      "skills": [
-        "jujutsu"
       ]
     }
   },
