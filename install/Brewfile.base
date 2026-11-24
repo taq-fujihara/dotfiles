@@ -54,8 +54,6 @@ brew "podman-compose"
 brew "poppler"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
-# Extremely fast Python linter, written in Rust
-brew "ruff"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
 # Cross-shell prompt for astronauts
