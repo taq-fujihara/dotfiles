@@ -20,8 +20,6 @@ brew "git"
 brew "git-delta"
 # Smarter Dockerfile linter to validate best practices
 brew "hadolint"
-# Post-modern modal text editor
-brew "helix"
 # Agent multiplexer that lives in your terminal
 brew "herdr"
 # Tools and libraries to manipulate images in select formats
@@ -30,8 +28,6 @@ brew "imagemagick"
 brew "jj"
 # Postgres C API library
 brew "libpq", link: true
-# Rainbows and unicorns in your console!
-brew "lolcat"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Incremental parsing library
