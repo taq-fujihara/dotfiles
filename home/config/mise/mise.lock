@@ -241,6 +241,45 @@ url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.0/bun-windows-x
 checksum = "sha256:27b686dd83121b9331dfe340abe0f940740d1c5f713aeff9be8dbdcf98c157f8"
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.0/bun-windows-x64-baseline.zip"
 
+[[tools.cloud-sql-proxy]]
+version = "2.28.0"
+backend = "aqua:GoogleCloudPlatform/cloud-sql-proxy"
+specifiers = ["latest"]
+
+[tools.cloud-sql-proxy."platforms.linux-arm64"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.arm64"
+
+[tools.cloud-sql-proxy."platforms.linux-arm64-musl"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.arm64"
+
+[tools.cloud-sql-proxy."platforms.linux-x64"]
+checksum = "blake3:1ad63ba362849081c0b263a8bff0d18eb38bcf6ca0454599cd9ded5cd2e84532"
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.amd64"
+
+[tools.cloud-sql-proxy."platforms.linux-x64-baseline"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.amd64"
+
+[tools.cloud-sql-proxy."platforms.linux-x64-musl"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.amd64"
+
+[tools.cloud-sql-proxy."platforms.linux-x64-musl-baseline"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.amd64"
+
+[tools.cloud-sql-proxy."platforms.macos-arm64"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.darwin.arm64"
+
+[tools.cloud-sql-proxy."platforms.macos-x64"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.darwin.amd64"
+
+[tools.cloud-sql-proxy."platforms.macos-x64-baseline"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.darwin.amd64"
+
+[tools.cloud-sql-proxy."platforms.windows-x64"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.x64.exe"
+
+[tools.cloud-sql-proxy."platforms.windows-x64-baseline"]
+url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.x64.exe"
+
 [[tools.codex]]
 version = "0.163.0"
 backend = "aqua:openai/codex"
