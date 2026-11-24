@@ -266,6 +266,7 @@ url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28
 url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.linux.amd64"
 
 [tools.cloud-sql-proxy."platforms.macos-arm64"]
+checksum = "blake3:adddfeb10c4df0706f1d7996c053888416ac3f1eed81caec411db7fe2d6b11c5"
 url = "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.28.0/cloud-sql-proxy.darwin.arm64"
 
 [tools.cloud-sql-proxy."platforms.macos-x64"]
