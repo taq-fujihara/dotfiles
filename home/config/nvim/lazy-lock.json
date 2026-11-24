@@ -10,7 +10,7 @@
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
   "cmp-dap": { "branch": "master", "commit": "ea92773e84c0ad3288c3bc5e452ac91559669087" },
-  "copilot.lua": { "branch": "master", "commit": "ba6c1c7e7b2b6b0a93838097bd09c7c83afa30d3" },
+  "copilot.lua": { "branch": "master", "commit": "d1570ddc00fc4fc4caf7422803805ee22cca14ff" },
   "flash.nvim": { "branch": "main", "commit": "ec0bf2842189f65f60fd40bf3557cac1029cc932" },
   "friendly-snippets": { "branch": "main", "commit": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219" },
   "github-preview.nvim": { "branch": "main", "commit": "91a42238d4fa92c5faedff04868f9e45c0d6a129" },
