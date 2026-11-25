@@ -1,5 +1,12 @@
 local leader_key = "ctrl+f"
 
+local function checked(result, err)
+	if err then
+		error(err, 0)
+	end
+	return result
+end
+
 local function leader(key, action, args)
 	rex.bind(leader_key .. ">" .. key, action, args)
 end
@@ -98,6 +105,27 @@ rex.action({
 })
 leader("r", "rotate_panes")
 
+rex.action({
+	name = "scrollback_picker",
+	title = "Copy Scrollback Match",
+	run = function(ctx)
+		local block = checked(rex.session.describe_block({ block_id = ctx.block_id }))
+		return checked(rex.session.new_layer({
+			window_id = block.block.window_id,
+			bounds = { 0.1, 0.15, 0.8, 0.7 },
+			focus = true,
+			layout = rex.layout.block({
+				flavor = "com.superlogical.terminal.shell",
+				options = {
+					command = { "/bin/bash", "rex-scrollback-picker.sh", ctx.block_id },
+					exit = { on_completion = true },
+				},
+			}),
+		}))
+	end,
+})
+leader("s", "scrollback_picker")
+
 -- rex.action({
 -- 	name = "swap_pane_by_index",
 -- 	title = "Swap Pane by Layout Index",
@@ -122,10 +150,3 @@ leader("r", "rotate_panes")
 -- for i = 1, 9 do
 -- 	rex.bind("swap/" .. i, "swap_pane_by_index", { index = i })
 -- end
-
-local function checked(result, err)
-	if err then
-		error(err, 0)
-	end
-	return result
-end

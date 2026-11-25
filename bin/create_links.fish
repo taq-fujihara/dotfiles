@@ -124,6 +124,7 @@ create_link local/bin/annotate-md-image.fish .local/bin/annotate-md-image.fish
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/niri-create-workspace-above-or-below.sh .local/bin/niri-create-workspace-above-or-below.sh
 create_link local/bin/niri-rotate-right-columns.sh .local/bin/niri-rotate-right-columns.sh
+create_link local/bin/rex-scrollback-picker.sh .local/bin/rex-scrollback-picker.sh
 create_link pi/agent/AGENTS.md .pi/agent/AGENTS.md
 create_link pi/agent/keybindings.json .pi/agent/keybindings.json
 create_link pi/agent/settings.json .pi/agent/settings.json
