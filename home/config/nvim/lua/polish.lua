@@ -68,6 +68,7 @@ vim.schedule(function()
     vim.env.SSH_CLIENT
     or vim.env.SSH_TTY
     or vim.env.REX_SESSION
+    or vim.env.REX_BLOCK
     or (vim.env.WEZTERM_EXECUTABLE and vim.env.WEZTERM_EXECUTABLE:find "wezterm%-mux%-server")
   then
     enable_osc52()
