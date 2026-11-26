@@ -1,5 +1,5 @@
 return {
-  "mrjones2014/smart-splits.nvim",
+  "smart-splits-nvim/smart-splits.nvim",
   -- enabled = false,
   specs = {
     {
