@@ -27,6 +27,10 @@ type IndividualSkillRule = {
 
 const INDIVIDUAL_SKILL_RULES: IndividualSkillRule[] = [
 	{
+		matches: () => process.env.REX_BLOCK !== undefined,
+		skills: ["rex"],
+	},
+	{
 		matches: () => process.env.HERDR_ENV !== undefined,
 		skills: ["herdr"],
 	},
