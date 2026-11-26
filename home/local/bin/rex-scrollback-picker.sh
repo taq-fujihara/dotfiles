@@ -93,7 +93,13 @@ esac
 key=${selection%%$'\n'*}
 selection=${selection#*$'\n'}
 
+copy_selection() {
+    local encoded
+    encoded=$(printf '%s' "$selection" | base64 | tr -d '\n')
+    printf '\033]52;c;%s\a' "$encoded" > /dev/tty
+}
+
 case "$key" in
-    enter) printf '%s' "$selection" | /usr/bin/pbcopy ;;
+    enter) copy_selection ;;
     alt-enter) printf '%s' "$selection" | rex send -b "$source_block" ;;
 esac
