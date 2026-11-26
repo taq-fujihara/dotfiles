@@ -13,7 +13,8 @@ cleanup() {
 trap cleanup EXIT
 trap 'exit 0' HUP INT TERM
 
-rex capture -b "${1:?Usage: scrollback-picker.sh BLOCK_ID}" --trim --unwrap > "$work/scrollback"
+source_block=${1:?Usage: rex-scrollback-picker.sh BLOCK_ID}
+rex capture -b "$source_block" --trim --unwrap > "$work/scrollback"
 
 LC_ALL=C awk '
 function ipv4(value, parts, n, i) {
@@ -79,11 +80,20 @@ END {
 status=0
 selection=$(FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= fzf \
     --no-multi --layout=reverse --border --no-sort \
-    --prompt='Copy> ' --header='Enter: copy / Esc: cancel' \
+    --prompt='Select> ' --header='Enter: copy / Alt+Enter: insert / Esc: cancel' \
+    --expect=enter,alt-enter \
     --bind=esc:abort,ctrl-c:abort < "$work/matches") || status=$?
 
 case "$status" in
-    0) printf '%s' "$selection" | /usr/bin/pbcopy ;;
+    0) ;;
     1|130) exit 0 ;;
     *) exit "$status" ;;
+esac
+
+key=${selection%%$'\n'*}
+selection=${selection#*$'\n'}
+
+case "$key" in
+    enter) printf '%s' "$selection" | /usr/bin/pbcopy ;;
+    alt-enter) printf '%s' "$selection" | rex send -b "$source_block" ;;
 esac
