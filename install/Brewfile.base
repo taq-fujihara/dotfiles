@@ -28,8 +28,6 @@ brew "imagemagick"
 brew "jj"
 # Postgres C API library
 brew "libpq", link: true
-# Polyglot runtime manager (asdf rust clone)
-brew "mise"
 # Incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -66,5 +64,3 @@ brew "xh"
 brew "yq"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-# Provides developers secure tunnels to share local web services
-cask "devtunnel"
