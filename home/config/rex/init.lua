@@ -31,6 +31,7 @@ rex.bind("shift+space", "pane.send_key", { key = "f20" })
 
 leader("w", "session.switch")
 leader("shift+w", "session.new")
+leader("shift+W", "session.new.on_host")
 
 -- Tabs
 
