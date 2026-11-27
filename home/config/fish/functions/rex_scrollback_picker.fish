@@ -1,22 +1,20 @@
-#!/bin/bash
-set -euo pipefail
+function rex_scrollback_picker -d "Copy or insert a scrollback match" -a source_block
+    if test (count $argv) -ne 1; or test -z "$source_block"
+        echo "Usage: rex_scrollback_picker BLOCK_ID" >&2
+        return 2
+    end
 
-work=$(mktemp -d)
-cleanup() {
-    status=$?
-    rm -rf -- "$work"
-    if [ "$status" -ne 0 ]; then
-        printf 'Picker failed (%s). Press Enter to close.' "$status" >&2
-        read -r ignored || true
-    fi
-}
-trap cleanup EXIT
-trap 'exit 0' HUP INT TERM
+    set -l work (mktemp -d)
+    or return $status
 
-source_block=${1:?Usage: rex-scrollback-picker.sh BLOCK_ID}
-rex capture -b "$source_block" --trim --unwrap > "$work/scrollback"
+    rex capture -b "$source_block" --trim --unwrap >"$work/scrollback"
+    set -l result $status
+    if test $result -ne 0
+        rm -rf -- "$work"
+        return $result
+    end
 
-LC_ALL=C awk '
+    LC_ALL=C awk '
 function ipv4(value, parts, n, i) {
     n = split(value, parts, ".")
     if (n != 4) return 0
@@ -47,12 +45,12 @@ BEGIN {
     # Earlier patterns take precedence within each token.
     patterns[1] = "[a-zA-Z][a-zA-Z0-9+.-]*://.+"
     patterns[2] = "[~.]*/.+"
-    patterns[3] = "[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+"
+    patterns[3] = "[0-9]+\\\\.[0-9]+\\\\.[0-9]+\\\\.[0-9]+"
     patterns[4] = "[a-fA-F0-9:]+:[a-fA-F0-9:]+%?[a-zA-Z0-9]*"
 }
 
 {
-    gsub(/[<>[:cntrl:]"\047`]/, " ")
+    gsub(/[<>[:cntrl:]"\\047`]/, " ")
     for (i = 1; i <= NF; i++) {
         for (p = 1; p <= 4; p++) {
             if (!match($i, patterns[p])) continue
@@ -75,31 +73,33 @@ BEGIN {
 END {
     for (i = total; i > 0; i--) print items[i]
 }
-' "$work/scrollback" > "$work/matches"
+' "$work/scrollback" >"$work/matches"
+    set result $status
+    if test $result -ne 0
+        rm -rf -- "$work"
+        return $result
+    end
 
-status=0
-selection=$(FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= fzf \
-    --no-multi --layout=reverse --border --no-sort \
-    --prompt='Select> ' --header='Enter: copy / Alt+Enter: insert / Esc: cancel' \
-    --expect=enter,alt-enter \
-    --bind=esc:abort,ctrl-c:abort < "$work/matches") || status=$?
+    set -l selection (FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= fzf \
+        --no-multi --layout=reverse --border --no-sort \
+        --prompt='Select> ' --header='Enter: copy / Alt+Enter: insert / Esc: cancel' \
+        --expect=enter,alt-enter \
+        --bind=esc:abort,ctrl-c:abort < "$work/matches")
+    set result $status
+    rm -rf -- "$work"
 
-case "$status" in
-    0) ;;
-    1|130) exit 0 ;;
-    *) exit "$status" ;;
-esac
+    switch $result
+        case 1 130
+            return 0
+        case 0
+        case '*'
+            return $result
+    end
 
-key=${selection%%$'\n'*}
-selection=${selection#*$'\n'}
-
-copy_selection() {
-    local encoded
-    encoded=$(printf '%s' "$selection" | base64 | tr -d '\n')
-    printf '\033]52;c;%s\a' "$encoded" > /dev/tty
-}
-
-case "$key" in
-    enter) copy_selection ;;
-    alt-enter) printf '%s' "$selection" | rex send -b "$source_block" ;;
-esac
+    switch "$selection[1]"
+        case enter
+            printf '%s' "$selection[2]" | fish_clipboard_copy
+        case alt-enter
+            printf '%s' "$selection[2]" | rex send -b "$source_block"
+    end
+end

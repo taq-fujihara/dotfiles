@@ -83,6 +83,7 @@ create_link config/fish/functions/import_vscode_snippets_to_nvim.fish .config/fi
 create_link config/fish/functions/note.fish .config/fish/functions/note.fish
 create_link config/fish/functions/npmi.fish .config/fish/functions/npmi.fish
 create_link config/fish/functions/printpath.fish .config/fish/functions/printpath.fish
+create_link config/fish/functions/rex_scrollback_picker.fish .config/fish/functions/rex_scrollback_picker.fish
 create_link config/fish/functions/scratch.fish .config/fish/functions/scratch.fish
 create_link config/fish/functions/wkdir.fish .config/fish/functions/wkdir.fish
 create_link config/fish/functions/wkdir_fzf.fish .config/fish/functions/wkdir_fzf.fish
@@ -124,7 +125,6 @@ create_link local/bin/annotate-md-image.fish .local/bin/annotate-md-image.fish
 create_link local/bin/hjkl .local/bin/hjkl
 create_link local/bin/niri-create-workspace-above-or-below.sh .local/bin/niri-create-workspace-above-or-below.sh
 create_link local/bin/niri-rotate-right-columns.sh .local/bin/niri-rotate-right-columns.sh
-create_link local/bin/rex-scrollback-picker.sh .local/bin/rex-scrollback-picker.sh
 create_link pi/agent/AGENTS.md .pi/agent/AGENTS.md
 create_link pi/agent/keybindings.json .pi/agent/keybindings.json
 create_link pi/agent/settings.json .pi/agent/settings.json

@@ -118,7 +118,14 @@ rex.action({
 			layout = rex.layout.block({
 				flavor = "com.superlogical.terminal.shell",
 				options = {
-					command = { "/bin/bash", "rex-scrollback-picker.sh", ctx.block_id },
+					command = {
+						"fish",
+						"-N",
+						"-c",
+						"set fish_function_path $__fish_config_dir/functions $__fish_data_dir/functions; rex_scrollback_picker $argv",
+						"--",
+						ctx.block_id,
+					},
 					exit = { on_completion = true },
 				},
 			}),
