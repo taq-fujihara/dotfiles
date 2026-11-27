@@ -110,7 +110,17 @@ rex.action({
 	name = "scrollback_picker",
 	title = "Copy Scrollback Match",
 	run = function(ctx)
+		local process = rex.block.call("com.superlogical.terminal", "process", { block_id = ctx.block_id })
+
+		if process and process.foreground and process.foreground.name == "fish" then
+			return checked(rex.block.call("com.superlogical.terminal", "write", {
+				block_id = ctx.block_id,
+				data = "\27[33~",
+			}))
+		end
+
 		local block = checked(rex.session.describe_block({ block_id = ctx.block_id }))
+
 		return checked(rex.session.new_layer({
 			window_id = block.block.window_id,
 			bounds = { 0.1, 0.15, 0.8, 0.7 },

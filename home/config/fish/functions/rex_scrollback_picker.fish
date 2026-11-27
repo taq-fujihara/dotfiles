@@ -1,20 +1,11 @@
-function rex_scrollback_picker -d "Copy or insert a scrollback match" -a source_block
-    if test (count $argv) -ne 1; or test -z "$source_block"
-        echo "Usage: rex_scrollback_picker BLOCK_ID" >&2
+function rex_scrollback_picker -d "Copy or insert a scrollback match" -a source_block insert_target
+    if test (count $argv) -lt 1; or test (count $argv) -gt 2; or test -z "$source_block"; or not contains -- "$insert_target" "" commandline
+        echo "Usage: rex_scrollback_picker BLOCK_ID [commandline]" >&2
         return 2
     end
 
-    set -l work (mktemp -d)
-    or return $status
-
-    rex capture -b "$source_block" --trim --unwrap >"$work/scrollback"
-    set -l result $status
-    if test $result -ne 0
-        rm -rf -- "$work"
-        return $result
-    end
-
-    LC_ALL=C awk '
+    set -l max_lines 5000
+    set -l matches (rex capture -b "$source_block" --trim --unwrap | tail -n "$max_lines" | LC_ALL=C awk '
 function ipv4(value, parts, n, i) {
     n = split(value, parts, ".")
     if (n != 4) return 0
@@ -73,20 +64,25 @@ BEGIN {
 END {
     for (i = total; i > 0; i--) print items[i]
 }
-' "$work/scrollback" >"$work/matches"
-    set result $status
+')
+    set -l pipeline_status $pipestatus
+    set -l result 0
+    for pipeline_result in $pipeline_status
+        if test $pipeline_result -ne 0
+            set result $pipeline_result
+            break
+        end
+    end
     if test $result -ne 0
-        rm -rf -- "$work"
         return $result
     end
 
-    set -l selection (FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= fzf \
+    set -l selection (string join \n -- $matches | FZF_DEFAULT_OPTS= FZF_DEFAULT_OPTS_FILE= fzf \
         --no-multi --layout=reverse --border --no-sort \
         --prompt='Select> ' --header='Enter: copy / Alt+Enter: insert / Esc: cancel' \
         --expect=enter,alt-enter \
-        --bind=esc:abort,ctrl-c:abort < "$work/matches")
+        --bind=esc:abort,ctrl-c:abort)
     set result $status
-    rm -rf -- "$work"
 
     switch $result
         case 1 130
@@ -100,6 +96,10 @@ END {
         case enter
             printf '%s' "$selection[2]" | fish_clipboard_copy
         case alt-enter
-            printf '%s' "$selection[2]" | rex send -b "$source_block"
+            if test "$insert_target" = commandline
+                commandline --insert -- "$selection[2]"
+            else
+                printf '%s' "$selection[2]" | rex send -b "$source_block"
+            end
     end
 end

@@ -35,6 +35,11 @@ function fish_user_key_bindings
   bind -M insert alt-r _atuin_search
   bind -M default ctrl-w wkdir_fzf
   bind -M insert ctrl-w wkdir_fzf
+
+  # F19 sent by Rex's scrollback picker.
+  for mode in insert default visual
+    bind -M $mode \e\[33~ 'rex_scrollback_picker $REX_BLOCK commandline; commandline -f repaint'
+  end
 end
 
 set --global fish_key_bindings fish_vi_key_bindings
