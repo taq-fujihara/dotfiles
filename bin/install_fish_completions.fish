@@ -21,3 +21,4 @@ gen_completion ghq "curl https://raw.githubusercontent.com/decors/fish-ghq/refs/
 gen_completion jj "jj util completion fish"
 gen_completion but "but completions fish"
 gen_completion herdr "herdr completion fish"
+gen_completion rex "rex completion fish"
